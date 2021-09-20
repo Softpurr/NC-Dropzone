@@ -1,13 +1,13 @@
-package nc_dropzone_boot.boot;
+package fr.formation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BootApplication {
+public class NcdropzoneApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BootApplication.class, args);
+		SpringApplication.run(NcdropzoneApplication.class, args);
 	}
 
 }
