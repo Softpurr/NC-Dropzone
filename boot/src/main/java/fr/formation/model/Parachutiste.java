@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -60,6 +61,9 @@ public class Parachutiste {
 	@ManyToOne
 	@JoinColumn(name = "PARACHUTISTE_SAUT_ID")
 	private Saut saut;
+
+	@OneToOne(mappedBy = "vol")
+	private Vol vol;
 
 	public int getIdParachutiste() {
 		return idParachutiste;
@@ -141,6 +145,12 @@ public class Parachutiste {
 		this.saut = saut;
 	}
 
-	
+	public Vol getVol() {
+		return vol;
+	}
+
+	public void setVol(Vol vol) {
+		this.vol = vol;
+	}
 }
 
