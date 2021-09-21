@@ -30,7 +30,7 @@ public class Vol {
 	
 	@Column(name = "VOL_AVION", nullable = false)
     @JsonView(Views.Saut.class)
-	private int capiciteTransport;
+	private Avion avion;
 	
 	@Column(name = "VOL_PILOTE", nullable = false)
     @JsonView(Views.Saut.class)
@@ -61,12 +61,12 @@ public class Vol {
 		this.nombreSaut = nombreSaut;
 	}
 
-	public int getCapiciteTransport() {
-		return capiciteTransport;
+	public Avion getAvion() {
+		return avion;
 	}
 
-	public void setCapiciteTransport(int capiciteTransport) {
-		this.capiciteTransport = capiciteTransport;
+	public void setAvion(Avion avion) {
+		this.avion = avion;
 	}
 
 	public Pilote getPilote() {
