@@ -2,15 +2,26 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Nom pilote</th>
-                <th>Prenom pilote</th>
-                <th>Numéro de license</th>
+                <th>Nombre saut</th>
+                <th>etat</th>
+                <th>Avion</th>
+                <th>Pilote</th>
+                <th>Responsable</th>
             </tr>
         </thead>
         <tbody>
             <tr id="addAvion">
                 <td><input type="text" [(ngModel)]="formVol.nombreSaut"></td>
                 <td><input type="text" [(ngModel)]="formVol.etat"></td>
+                <td><select *ngFor="let a of avions | async">
+                    <option>{{ a.nomAvion }}</option>
+                </select></td>
+                <td><select *ngFor="let p of pilotes | async">
+                    <option>{{ p.nomPilote }}</option>
+                </select></td>
+                <td><select *ngFor="let r of responsables | async">
+                    <option>{{ r.nom }}</option>
+                </select></td>
                 <td><button (click)="ajouterVol()">Ajouter</button>
                     <button (click)="modifierVol()">Modifier</button></td>
             </tr>
