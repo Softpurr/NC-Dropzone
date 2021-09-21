@@ -9,7 +9,7 @@ import { VolService } from 'src/app/vol.service';
 export class VolComponent implements OnInit {
 
   vols: any = [];
-  volForm: any = {
+  Formvol: any = {
     nombreSaut: 0,
     avion: null,
     pilote: null,
@@ -22,22 +22,23 @@ export class VolComponent implements OnInit {
   }
 
   constructor(private srvVol: VolService) {
-    this.vols = this.srvVol.findAll();
+    this.refresh();
   }
 
   ngOnInit(): void {
   }
 
   ajouterVol() {
-    this.srvVol.add(this.volForm).subscribe(this.refresh);
+    this.srvVol.add(this.Formvol).subscribe(this.refresh);
   }
 
   editerVol(vol: any) {
-    this.volForm = vol;
+    this.Formvol = vol;
   }
 
   modifierVol() {
-    this.srvVol.update(this.volForm).subscribe(this.refresh);
+    this.srvVol.update(this.Formvol).subscribe(this.refresh);
+    this.Formvol = {nombreSaut: 0, avion: null, pilote: null, etat: "",responsable: null,};
   }
 
   supprimerVol(vol: any) {
