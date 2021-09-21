@@ -22,7 +22,7 @@ export class SautComponent implements OnInit {
   }
 
   formSaut = {
-    hauteur: 0, typeSaut:"SOLO", parachutes: null, parachutistes: null
+    hauteur: 0, typeSaut:null, parachutes: null, parachutistes: null
   }
 
   formParachutiste = {
