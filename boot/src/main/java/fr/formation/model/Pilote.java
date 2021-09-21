@@ -18,7 +18,7 @@ public class Pilote {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PILOTE_ID")
     @JsonView(Views.Commons.class)
-	private int idParachutiste;
+	private int id;
 
 	@Column(name = "PILOTE_NOM", length = 150, nullable = false)
     @JsonView(Views.Pilote.class)
@@ -32,12 +32,12 @@ public class Pilote {
     @JsonView(Views.Pilote.class)
 	private String numLicence;
 
-	public int getIdParachutiste() {
-		return idParachutiste;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdParachutiste(int idParachutiste) {
-		this.idParachutiste = idParachutiste;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNomPilote() {

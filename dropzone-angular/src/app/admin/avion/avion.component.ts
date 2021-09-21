@@ -9,36 +9,36 @@ import { AvionService } from 'src/app/avion.service';
 export class AvionComponent implements OnInit {
 
   avions: any = [];
-  avionForm: any = {
+  formAvion: any = {
     nomAvion:"",
     capaciteTransport:0,
     rotationMax:0,
     isDispo: false
   };
 
-  refresh = () => {
-    this.avions = this.serviceAvion.findAll();
-  }
-
-  supprimerAvion(avion: any){
-    this.serviceAvion.delete(avion).subscribe(this.refresh);
-  }
-  editerAvion(avion: any){
-    this.avionForm = avion;
-  }
-  modifierAvion(){
-    this.serviceAvion.update(this.avionForm).subscribe(this.refresh);
-  }
-  ajouterAvion(){
-    this.serviceAvion.add(this.avionForm).subscribe(this.refresh);
-  }
-
-  constructor(private serviceAvion: AvionService) { 
-    this.avions = this.serviceAvion.findAll();
+  constructor(private srvAvion: AvionService) { 
+    this.refresh();
   }
 
   ngOnInit(): void {
   }
 
+  refresh = () => {
+    this.avions = this.srvAvion.findAll();
+  }
+
+  supprimerAvion(avion: any){
+    this.srvAvion.delete(avion).subscribe(this.refresh);
+  }
+  editerAvion(avion: any){
+    this.formAvion = avion;
+  }
+  modifierAvion(){
+    this.srvAvion.update(this.formAvion).subscribe(this.refresh);
+    this.formAvion = {nomAvion:"", capaciteTransport:0, rotationMax:0,  isDispo: false};
+  }
+  ajouterAvion(){
+    this.srvAvion.add(this.formAvion).subscribe(this.refresh);
+  }
 
 }
