@@ -7,6 +7,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -35,12 +37,12 @@ public class Vol {
 	private Pilote pilote;
 
     @Enumerated(EnumType.ORDINAL)
-    @Column(name = "AVION_ETAT", nullable = false)
+    @Column(name = "VOL_ETAT", nullable = false)
     @JsonView(Views.Saut.class)
 	private Etat etat;
 
-    @Column(name = "VOL_RESPONSABLE", nullable = false)
-    @JsonView(Views.Saut.class)
+	@OneToOne
+	@JoinColumn(name = "VOL_RESPONSABLE_ID")
 	private Parachutiste responsable;
 
 	public int getIdVol() {
