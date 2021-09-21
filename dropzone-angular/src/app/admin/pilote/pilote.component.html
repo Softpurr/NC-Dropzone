@@ -9,17 +9,16 @@
         </thead>
         <tbody>
             <tr id="addAvion">
-                <td></td>
                 <td><input type="text" [(ngModel)]="formPilote.nomPilote"></td>
                 <td><input type="text" [(ngModel)]="formPilote.prenomPilote"></td>
-                <td><input type="text" [(ngModel)]="formPilote.numLicense"></td>
+                <td><input type="text" [(ngModel)]="formPilote.numLicence"></td>
                 <td><button (click)="ajouterPilote()">Ajouter</button>
                     <button (click)="modifierPilote()">Modifier</button></td>
             </tr>
             <tr *ngFor="let p of pilotes | async">
                 <td>{{ p.nomPilote }}</td>
                 <td>{{ p.prenomPilote }}</td>
-                <td>{{ p.numLicense }}</td>
+                <td>{{ p.numLicence }}</td>
                 <td><button (click)="supprimerPilote(p)" class="btn btn-danger">Supprimer</button>
                 <button (click)="editerPilote(p)" class="btn btn-warning">Editer</button></td>
             </tr>
