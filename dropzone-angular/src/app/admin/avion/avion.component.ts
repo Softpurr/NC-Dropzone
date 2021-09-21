@@ -41,15 +41,4 @@ export class AvionComponent implements OnInit {
     this.srvAvion.add(this.formAvion).subscribe(this.refresh);
   }
 
-<<<<<<< HEAD
-=======
-  constructor(private serviceAvion: AvionService) { 
-    this.refresh();
-  }
-
-  ngOnInit(): void {
-  }
-
-
->>>>>>> romain
 }
