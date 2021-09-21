@@ -62,7 +62,7 @@ public class Parachutiste {
 	@JoinColumn(name = "PARACHUTISTE_SAUT_ID")
 	private Saut saut;
 
-	@OneToOne(mappedBy = "vol")
+	@OneToOne(mappedBy = "responsable")
 	private Vol vol;
 
 	public int getId() {
