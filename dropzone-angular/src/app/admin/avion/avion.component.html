@@ -12,12 +12,13 @@
         </thead>
         <tbody>
             <tr id="addAvion">
+                <td></td>
                 <td><input type="text" [(ngModel)]="avionForm.nomAvion"></td>
                 <td><input type="text" [(ngModel)]="avionForm.capaciteTransport"></td>
                 <td><input type="text" [(ngModel)]="avionForm.rotationMax"></td>
                 <td><input type="text" [(ngModel)]="avionForm.isDispo"></td>
-                <td><button (click)="ajouterAvion()">Ajouter</boutton>
-                    <button (click)="modifierAvion()">Ajouter</boutton></td>
+                <td><button (click)="ajouterAvion()">Ajouter</button>
+                    <button (click)="modifierAvion()">Ajouter</button></td>
             </tr>
             <tr *ngFor="let a of avions | async">
                 <td>{{ a.idAvion }}</td>

@@ -12,9 +12,9 @@ import { ParachuteService } from 'src/app/parachute.service';
 export class ParachutisteComponent implements OnInit {
   parachutistes: any = [];
   formParachutiste = {
-    nom: "", prenom: "", numero_licence: "", date: 21/09/2021, isSaut:false, isPratiquant:false,
+    nom: "", prenom: "", numero_licence: "", date: null, isSaut:false, isPratiquant:false,
     isConfirme: false, parachutes:null, saut:null, vol:null
-  }
+  };
 
   constructor(private srvParachutiste: ParachuteService, private modalService: NgbModal) { 
     this.refresh();

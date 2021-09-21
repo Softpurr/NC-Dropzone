@@ -10,7 +10,7 @@ import { ParachuteService } from 'src/app/parachute.service';
 export class ParachuteComponent implements OnInit {
   parachutes: any = [];
   formParachutes: any = { nomHarnais: "" , nomVoilePrincipale:"", nomVoileSecours: "", tailleVoilePrincipale:0,
-  tailleVoileSecours:0, datePliageVoileSecours: 21/08/2021, securite:null, isPerso: false, 
+  tailleVoileSecours:0, datePliageVoileSecours: null, securite:null, isPerso: false, 
   isDispo: false, parachutiste:null, saut:null }
 
   constructor(private srvParachute: ParachuteService, private modalService: NgbModal) { 
