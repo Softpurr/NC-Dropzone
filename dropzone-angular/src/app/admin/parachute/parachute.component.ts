@@ -23,15 +23,15 @@ export class ParachuteComponent implements OnInit {
   refresh = () => this.parachutes = this.srvParachute.findAll();
 
   ajouterCategorie() {
-    this.srvParachute.add(this.srvParachute).subscribe(this.refresh);
+    this.srvParachute.add(this.formParachutes).subscribe(this.refresh);
   }
 
   editerCategorie(parachute: any) {
-    this.srvParachute = parachute;
+    this.formParachutes = parachute;
   }
 
   modifierCategorie() {
-    this.srvParachute.update(this.srvParachute).subscribe(this.refresh);
+    this.srvParachute.update(this.formParachutes).subscribe(this.refresh);
   }
 
   supprimerCategorie(parachute: any) {

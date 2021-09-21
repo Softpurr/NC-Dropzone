@@ -26,15 +26,15 @@ export class ParachutisteComponent implements OnInit {
   refresh = () => this.parachutistes = this.srvParachutiste.findAll();
 
   ajouterCategorie() {
-    this.srvParachutiste.add(this.srvParachutiste).subscribe(this.refresh);
+    this.srvParachutiste.add(this.formParachutiste).subscribe(this.refresh);
   }
 
   editerCategorie(parachute: any) {
-    this.srvParachutiste = parachute;
+    this.formParachutiste = parachute;
   }
 
   modifierCategorie() {
-    this.srvParachutiste.update(this.srvParachutiste).subscribe(this.refresh);
+    this.srvParachutiste.update(this.formParachutiste).subscribe(this.refresh);
   }
 
   supprimerCategorie(parachutiste: any) {
