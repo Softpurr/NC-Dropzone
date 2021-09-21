@@ -7,24 +7,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.formation.api.Views;
+
 @Entity
 @Table(name = "avion")
 public class Avion {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "AVION_ID")
+    @JsonView(Views.Commons.class)
 	private int idAvion;
 
 	@Column(name = "AVION_NOM", length = 150, nullable = false)
+    @JsonView(Views.Avion.class)
 	private String nomAvion;
 	
 	@Column(name = "AVION_CAPACITE_TRANSPORT", length = 5, nullable = false)
+    @JsonView(Views.Avion.class)
 	private int capiciteTransport;
 	
 	@Column(name = "AVION_ROTATION_MAX", length = 50, nullable = false)
+    @JsonView(Views.Avion.class)
 	private int rotationMax;
 
     @Column(name = "AVION_DISPONIBILITE", nullable = false)
+    @JsonView(Views.Avion.class)
 	private boolean isDispo;
 
     public int getIdAvion() {

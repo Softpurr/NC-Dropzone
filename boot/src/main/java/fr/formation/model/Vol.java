@@ -9,28 +9,38 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.formation.api.Views;
+
 @Entity
 @Table(name = "vol")
 public class Vol {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "VOL_ID")
+    @JsonView(Views.Commons.class)
 	private int idVol;
 
 	@Column(name = "VOL_NOMBRE_SAUT", nullable = false)
+    @JsonView(Views.Saut.class)
 	private int nombreSaut;
 	
 	@Column(name = "VOL_AVION", nullable = false)
+    @JsonView(Views.Saut.class)
 	private int capiciteTransport;
 	
 	@Column(name = "VOL_PILOTE", nullable = false)
+    @JsonView(Views.Saut.class)
 	private Pilote pilote;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "AVION_ETAT", nullable = false)
+    @JsonView(Views.Saut.class)
 	private Etat etat;
 
     @Column(name = "VOL_RESPONSABLE", nullable = false)
+    @JsonView(Views.Saut.class)
 	private Parachutiste responsable;
 
 	public int getIdVol() {
