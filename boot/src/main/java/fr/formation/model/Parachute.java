@@ -25,7 +25,7 @@ public class Parachute {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PARACHUTE_ID")
     @JsonView(Views.Commons.class)
-	private int idAvion;
+	private int id;
 
 	@Column(name = "PARACHUTE_NOM_HARNAIS", length = 150, nullable = false)
     @JsonView(Views.Parachute.class)
@@ -72,12 +72,12 @@ public class Parachute {
 	@JoinColumn(name = "PARACHUTE_SAUT_ID")
 	private Saut saut;
 
-	public int getIdAvion() {
-		return idAvion;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdAvion(int idAvion) {
-		this.idAvion = idAvion;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNomHarnais() {
