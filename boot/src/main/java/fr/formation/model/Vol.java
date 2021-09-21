@@ -28,12 +28,14 @@ public class Vol {
     @JsonView(Views.Saut.class)
 	private int nombreSaut;
 	
-	@Column(name = "VOL_AVION", nullable = false)
+	@OneToOne
+	@JoinColumn(name = "VOL_AVION_ID", nullable = false)
     @JsonView(Views.Saut.class)
 	private Avion avion;
 	
-	@Column(name = "VOL_PILOTE", nullable = false)
     @JsonView(Views.Saut.class)
+	@OneToOne
+	@JoinColumn(name = "VOL_PILOTE_ID", nullable = false)
 	private Pilote pilote;
 
     @Enumerated(EnumType.ORDINAL)
