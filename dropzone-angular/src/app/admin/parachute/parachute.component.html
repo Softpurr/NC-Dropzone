@@ -1,1 +1,47 @@
-<p>parachute works!</p>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom harnais</th>
+                <th>Nom voile principale</th>
+                <th>Nom voile de secours</th>
+                <th>Taille voile principale</th>
+                <th>Taille voile de secours</th>
+                <th>Date pliage voile de secours</th>
+                <th>Securité</th>
+                <th>Parachute personne</th>
+                <th>Disponibilité</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="addAvion">
+                <td></td>
+                <td><input type="text" [(ngModel)]="formParachute.nomHarnais"></td>
+                <td><input type="text" [(ngModel)]="formParachute.nomVoilePrincipale"></td>
+                <td><input type="text" [(ngModel)]="formParachute.nomVoileSecours"></td>
+                <td><input type="text" [(ngModel)]="formParachute.tailleVoilePrincipale"></td>
+                <td><input type="text" [(ngModel)]="formParachute.tailleVoileSecours"></td>
+                <td><input type="text" [(ngModel)]="formParachute.datePliageVoileSecours"></td>
+                <td><input type="text" [(ngModel)]="formParachute.securite"></td>
+                <td><input type="text" [(ngModel)]="formParachute.isPerso"></td>
+                <td><input type="text" [(ngModel)]="formParachute.isDispo"></td>
+                <td><button (click)="ajouterParachute()">Ajouter</button>
+                    <button (click)="modifierParachute()">Modifier</button></td>
+            </tr>
+            <tr *ngFor="let p of parachutes | async">
+                <td>{{ p.nomHarnais }}</td>
+                <td>{{ p.nomVoilePrincipale }}</td>
+                <td>{{ p.nomVoileSecours }}</td>
+                <td>{{ p.tailleVoilePrincipale }}</td>
+                <td>{{ p.tailleVoileSecours }}</td>
+                <td>{{ p.datePliageVoileSecours }}</td>
+                <td>{{ p.securite }}</td>
+                <td>{{ p.isPerso }}</td>
+                <td>{{ p.isDispo }}</td>
+                <td><button (click)="supprimerParachute(p)" class="btn btn-danger">Supprimer</button>
+                <button (click)="editerParachute(p)" class="btn btn-warning">Editer</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -2,7 +2,6 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Capacite transport</th>
                 <th>Rotation max</th>
@@ -18,7 +17,7 @@
                 <td><input type="text" [(ngModel)]="formAvion.rotationMax"></td>
                 <td><input type="text" [(ngModel)]="formAvion.isDispo"></td>
                 <td><button (click)="ajouterAvion()">Ajouter</button>
-                    <button (click)="modifierAvion()">Ajouter</button></td>
+                    <button (click)="modifierAvion()">Modifier</button></td>
             </tr>
             <tr *ngFor="let a of avions | async">
                 <td>{{ a.idAvion }}</td>
