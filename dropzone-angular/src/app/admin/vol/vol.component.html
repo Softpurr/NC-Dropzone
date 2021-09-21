@@ -1,1 +1,25 @@
-<p>vol works!</p>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom pilote</th>
+                <th>Prenom pilote</th>
+                <th>Numéro de license</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="addAvion">
+                <td><input type="text" [(ngModel)]="formVol.nombreSaut"></td>
+                <td><input type="text" [(ngModel)]="formVol.etat"></td>
+                <td><button (click)="ajouterVol()">Ajouter</button>
+                    <button (click)="modifierVol()">Modifier</button></td>
+            </tr>
+            <tr *ngFor="let v of vols | async">
+                <td>{{ v.nombreSaut }}</td>
+                <td>{{ v.etat }}</td>
+                <td><button (click)="supprimerVol(v)" class="btn btn-danger">Supprimer</button>
+                <button (click)="editerVol(v)" class="btn btn-warning">Editer</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -9,7 +9,7 @@ import { VolService } from 'src/app/vol.service';
 export class VolComponent implements OnInit {
 
   vols: any = [];
-  formvol: any = {
+  formVol: any = {
     nombreSaut: 0,
     avion: null,
     pilote: null,
@@ -29,16 +29,16 @@ export class VolComponent implements OnInit {
   }
 
   ajouterVol() {
-    this.srvVol.add(this.formvol).subscribe(this.refresh);
+    this.srvVol.add(this.formVol).subscribe(this.refresh);
   }
 
   editerVol(vol: any) {
-    this.formvol = vol;
+    this.formVol = vol;
   }
 
   modifierVol() {
-    this.srvVol.update(this.formvol).subscribe(this.refresh);
-    this.formvol = {nombreSaut: 0, avion: null, pilote: null, etat: "",responsable: null,};
+    this.srvVol.update(this.formVol).subscribe(this.refresh);
+    this.formVol = {nombreSaut: 0, avion: null, pilote: null, etat: "",responsable: null,};
   }
 
   supprimerVol(vol: any) {
