@@ -39,10 +39,6 @@
 			<artifactId>spring-security-taglibs</artifactId>
 		</dependency> -->
 
-
-
-
-
 		<!-- Configuration JSP avec SPRING BOOT -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
