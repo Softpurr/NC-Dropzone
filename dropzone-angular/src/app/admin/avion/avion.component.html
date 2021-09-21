@@ -1,1 +1,33 @@
-<p>avion works!</p>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Capacite transport</th>
+                <th>Rotation max</th>
+                <th>Disponibilite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="addAvion">
+                <td><input type="text" [(ngModel)]="avionForm.nomAvion"></td>
+                <td><input type="text" [(ngModel)]="avionForm.capaciteTransport"></td>
+                <td><input type="text" [(ngModel)]="avionForm.rotationMax"></td>
+                <td><input type="text" [(ngModel)]="avionForm.isDispo"></td>
+                <td><button (click)="ajouterAvion()">Ajouter</boutton>
+                    <button (click)="modifierAvion()">Ajouter</boutton></td>
+            </tr>
+            <tr *ngFor="let a of avions | async">
+                <td>{{ a.idAvion }}</td>
+                <td>{{ a.nomAvion }}</td>
+                <td>{{ a.capaciteTransport }}</td>
+                <td>{{ a.rotationMax }}</td>
+                <td>{{ a.isDispo }}</td>
+                <td><button (click)="supprimerAvion(a)" class="btn btn-danger">Supprimer</button>
+                <button (click)="editerAvion(a)" class="btn btn-warning">Editer</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

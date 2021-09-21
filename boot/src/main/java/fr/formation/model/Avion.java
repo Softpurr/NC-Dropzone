@@ -26,7 +26,7 @@ public class Avion {
 	
 	@Column(name = "AVION_CAPACITE_TRANSPORT", length = 5, nullable = false)
     @JsonView(Views.Avion.class)
-	private int capiciteTransport;
+	private int capaciteTransport;
 	
 	@Column(name = "AVION_ROTATION_MAX", length = 50, nullable = false)
     @JsonView(Views.Avion.class)
@@ -53,11 +53,11 @@ public class Avion {
     }
 
     public int getCapiciteTransport() {
-        return capiciteTransport;
+        return capaciteTransport;
     }
 
     public void setCapiciteTransport(int capiciteTransport) {
-        this.capiciteTransport = capiciteTransport;
+        this.capaciteTransport = capiciteTransport;
     }
 
     public int getRotationMax() {
