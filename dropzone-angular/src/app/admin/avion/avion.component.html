@@ -11,7 +11,6 @@
         </thead>
         <tbody>
             <tr id="addAvion">
-                <td></td>
                 <td><input type="text" [(ngModel)]="formAvion.nomAvion"></td>
                 <td><input type="text" [(ngModel)]="formAvion.capaciteTransport"></td>
                 <td><input type="text" [(ngModel)]="formAvion.rotationMax"></td>
@@ -20,7 +19,6 @@
                     <button (click)="modifierAvion()">Modifier</button></td>
             </tr>
             <tr *ngFor="let a of avions | async">
-                <td>{{ a.idAvion }}</td>
                 <td>{{ a.nomAvion }}</td>
                 <td>{{ a.capaciteTransport }}</td>
                 <td>{{ a.rotationMax }}</td>
