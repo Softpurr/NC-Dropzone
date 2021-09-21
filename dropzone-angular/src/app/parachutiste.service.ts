@@ -15,7 +15,9 @@ export class ParachutisteService {
     return this.http.get(this.apiUrl);
   }
 
+  
   add(parachutiste: any) {
+    console.log(parachutiste);
     return this.http.post(this.apiUrl, parachutiste);
   }
 

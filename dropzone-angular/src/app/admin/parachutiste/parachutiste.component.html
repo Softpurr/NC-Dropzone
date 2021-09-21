@@ -1,1 +1,46 @@
-<p>parachutiste works!</p>
+<h1>Liste des parachutistes</h1>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Numéro Licence</th>
+                <th>Date d'obtention de la licence</th>
+                <th>Pratiquant régulier ?</th>
+                <th>Confirmé</th>
+                <th>Parachutes possédés</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="addParachutiste">
+                <td><input type="text" [(ngModel)]="formParachutiste.nomParachutiste"></td>
+                <td><input type="text" [(ngModel)]="formParachutiste.prenomParachutiste"></td>
+                <td><input type="text" [(ngModel)]="formParachutiste.numLicence"></td>
+                <td><input type="text" [(ngModel)]="formParachutiste.dateLicence"></td>
+                <td><input type="text" [(ngModel)]="formParachutiste.isPratiquant"></td>
+                <td><input type="text" [(ngModel)]="formParachutiste.isConfirme"></td>
+                <td><button (click)="ajouterParachutiste()">Ajouter</button>
+                    <button (click)="modifierParachutiste()">Modifier</button></td>
+            </tr>
+            <tr *ngFor="let p of parachutistes | async">
+                <td>{{ p.nomParachutiste }}</td>
+                <td>{{p.prenomParachutiste}}</td>
+                <td>{{p.numLicence}}</td>
+                <td>{{p.dateLicence}}</td>
+                <td>{{p.isPratiquant}}</td>
+                <td>{{p.isConfirme}}</td>
+                <td>
+                    <table>
+                        <tbody>
+                            <tr *ngFor="let pa of parachutes | async">
+                                <td>{{pa.nomHarnais}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
