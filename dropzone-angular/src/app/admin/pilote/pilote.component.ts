@@ -9,15 +9,14 @@ import { PiloteService } from 'src/app/pilote.service';
 export class PiloteComponent implements OnInit {
 
   constructor(private srvPilote : PiloteService) {
-
-    this.pilotes = this.srvPilote.findAll();
+    this.refresh();
    }
 
   ngOnInit(): void {
   }
 
   formPilote = {
-    nom:"", prenom:"", numLicence:""
+    nomPilote:"", prenomPilote:"", numLicence:""
   }
 
   pilotes: any = [];
@@ -40,7 +39,6 @@ export class PiloteComponent implements OnInit {
 
   modifierPilote() {
     this.srvPilote.update(this.formPilote).subscribe(this.refresh);
-    this.formPilote = {nom:"", prenom:"", numLicence:""};
+    this.formPilote = {nomPilote:"", prenomPilote:"", numLicence:""};
   }
-
 }

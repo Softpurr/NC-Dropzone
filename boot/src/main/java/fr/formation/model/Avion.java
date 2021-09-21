@@ -18,7 +18,7 @@ public class Avion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "AVION_ID")
     @JsonView(Views.Commons.class)
-	private int idAvion;
+	private int id;
 
 	@Column(name = "AVION_NOM", length = 150, nullable = false)
     @JsonView(Views.Avion.class)
@@ -36,12 +36,12 @@ public class Avion {
     @JsonView(Views.Avion.class)
 	private boolean isDispo;
 
-    public int getIdAvion() {
-        return idAvion;
+    public int getId() {
+        return id;
     }
 
-    public void setIdAvion(int idAvion) {
-        this.idAvion = idAvion;
+    public void setId(int id) {
+        this.id= id;
     }
 
     public String getNomAvion() {
