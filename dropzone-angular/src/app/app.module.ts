@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EnregistrementComponent } from './enregistrement/enregistrement.component';
+import { PlanningComponent } from './planning/planning.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     ParachutisteComponent,
     PiloteComponent,
     AvionComponent,
-    HomeComponent
+    HomeComponent,
+    EnregistrementComponent,
+    PlanningComponent
   ],
   imports: [
     BrowserModule,
