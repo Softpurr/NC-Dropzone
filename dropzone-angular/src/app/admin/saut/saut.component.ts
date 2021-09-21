@@ -21,6 +21,10 @@ export class SautComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  formSaut = {
+    hauteur: 0, typeSaut:"SOLO", parachutes: null, parachutistes: null
+  }
+
   formParachutiste = {
     nom: "", prenom: "", numero_licence: "", date: 21/09/2021
   }
@@ -30,6 +34,27 @@ export class SautComponent implements OnInit {
 
   }
 
+  sauts: any = [];
   parachutistes: any = [];
   parachutes: any = [];
+  refresh = () => this.sauts = this.srvSaut.findAll();
+
+  ajouterSaut() {
+    this.srvSaut.add(this.formSaut).subscribe(this.refresh);
+  }
+
+  supprimerSaut(saut: any) {
+    this.srvSaut.delete(saut).subscribe(this.refresh);
+
+    
+  }
+
+  editerSaut(saut: any) {
+    this.formSaut= saut;
+  }
+
+  modifierSaut() {
+    this.srvSaut.update(this.formSaut).subscribe(this.refresh);
+    this.formSaut = {hauteur: 0, typeSaut:"SOLO", parachutes: null, parachutistes: null};
+  }
 }
