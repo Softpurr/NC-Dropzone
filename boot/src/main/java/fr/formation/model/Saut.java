@@ -23,7 +23,7 @@ public class Saut {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "SAUT_ID")
     @JsonView(Views.Commons.class)
-	private int idSaut;
+	private int id;
 
 	@Enumerated(EnumType.ORDINAL)
     @Column(name = "SAUT_HAUTEUR", nullable = false)
@@ -41,12 +41,12 @@ public class Saut {
     @OneToMany(mappedBy = "saut")
 	private List<Parachutiste> parachutiste;
 
-	public int getIdSaut() {
-		return idSaut;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdSaut(int idSaut) {
-		this.idSaut = idSaut;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Hauteur getHauteur() {

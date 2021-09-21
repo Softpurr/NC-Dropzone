@@ -25,7 +25,7 @@ public class Parachutiste {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PARACHUTISTE_ID")
     @JsonView(Views.Commons.class)
-	private int idParachutiste;
+	private int id;
 
 	@Column(name = "PARACHUTISTE_NOM", length = 150, nullable = false)
     @JsonView(Views.Parachutiste.class)
@@ -65,12 +65,12 @@ public class Parachutiste {
 	@OneToOne(mappedBy = "vol")
 	private Vol vol;
 
-	public int getIdParachutiste() {
-		return idParachutiste;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdParachutiste(int idParachutiste) {
-		this.idParachutiste = idParachutiste;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNomParachutiste() {

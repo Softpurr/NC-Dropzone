@@ -12,9 +12,7 @@ import { VolService } from 'src/app/vol.service';
 export class SautComponent implements OnInit {
 
   constructor(private srvSaut : SautService, private srvVol : VolService, private srvParachutiste : ParachutisteService, private srvParachute : ParachuteService) { 
-
-    this.parachutistes = this.srvParachutiste.findAll();
-    this.parachutes = this.srvParachute.findAll();
+    this.refresh();
 
   }
 
@@ -25,18 +23,8 @@ export class SautComponent implements OnInit {
     hauteur: 0, typeSaut:null, parachutes: null, parachutistes: null
   }
 
-  formParachutiste = {
-    nom: "", prenom: "", numero_licence: "", date: 21/09/2021
-  }
-  formParachute = {
-  }
-  formVol = {
-
-  }
-
   sauts: any = [];
-  parachutistes: any = [];
-  parachutes: any = [];
+
   refresh = () => this.sauts = this.srvSaut.findAll();
 
   ajouterSaut() {

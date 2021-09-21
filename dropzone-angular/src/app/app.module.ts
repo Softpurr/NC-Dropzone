@@ -20,8 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     VolComponent,
     SautComponent,
-    HttpClientModule,
-    FormsModule ,
     ParachuteComponent,
     ParachutisteComponent,
     PiloteComponent,
