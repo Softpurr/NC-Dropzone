@@ -6,7 +6,9 @@ import { ParachutisteComponent } from './admin/parachutiste/parachutiste.compone
 import { PiloteComponent } from './admin/pilote/pilote.component';
 import { SautComponent } from './admin/saut/saut.component';
 import { VolComponent } from './admin/vol/vol.component';
+import { EnregistrementComponent } from './enregistrement/enregistrement.component';
 import { HomeComponent } from './home/home.component';
+import { PlanningComponent } from './planning/planning.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,9 +18,8 @@ const routes: Routes = [
   { path: 'pilote', component: PiloteComponent },
   { path: 'saut', component: SautComponent },
   { path: 'vol', component: VolComponent },
-  // { path: 'enregistrement', component: EnregistrementComponent },
-  // { path: 'planning', component: PlanningComponent },
-  // { path: 'connexion', component: ConnexionComponent },
+  { path: 'enregistrement', component: EnregistrementComponent },
+  { path: 'planning', component: PlanningComponent },
 ];
 
 @NgModule({
