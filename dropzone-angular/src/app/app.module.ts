@@ -10,6 +10,7 @@ import { ParachutisteComponent } from './admin/parachutiste/parachutiste.compone
 import { PiloteComponent } from './admin/pilote/pilote.component';
 import { AvionComponent } from './admin/avion/avion.component';
 import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

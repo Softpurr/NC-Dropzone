@@ -14,40 +14,54 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.formation.api.Views;
+
 @Entity
 @Table(name = "parachute")
 public class Parachute {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PARACHUTE_ID")
+    @JsonView(Views.Commons.class)
 	private int idAvion;
 
 	@Column(name = "PARACHUTE_NOM_HARNAIS", length = 150, nullable = false)
+    @JsonView(Views.Parachute.class)
 	private String nomHarnais;
 	
 	@Column(name = "PARACHUTE_NOM_VOILE_PRINCIPALE", length = 50, nullable = false)
+    @JsonView(Views.Parachute.class)
 	private String nomVoilePrincipale;
 	
 	@Column(name = "PARACHUTE_NOM_VOILE_SECOURS", length = 50, nullable = false)
+    @JsonView(Views.Parachute.class)
 	private String nomVoileSecours;
 
     @Column(name = "PARACHUTE_TAILLE_VOILE_PRINCIPALE", nullable = false)
+    @JsonView(Views.Parachute.class)
 	private BigDecimal tailleVoilePrincipale;
 	
 	@Column(name = "PARACHUTE_TAILLE_VOILE_SECOURS", nullable = false)
+    @JsonView(Views.Parachute.class)
 	private BigDecimal tailleVoileSecours;
 
     @Column(name = "PARACHUTE_DATE_PLIAGE_VOILE_SECOURS", nullable = false)
+    @JsonView(Views.Parachute.class)
 	private LocalDate datePliageVoileSecours;
 
     @Column(name = "PARACHUTE_SECURITE", nullable = false)
     @Enumerated(EnumType.ORDINAL)
+    @JsonView(Views.Parachute.class)
 	private Securite securite;
 
     @Column(name = "PARACHUTE_PERSO", nullable = false)
+    @JsonView(Views.Parachute.class)
 	private boolean isPerso;
 
     @Column(name = "PARACHUTE_DISPONIBILITE", nullable = false)
+    @JsonView(Views.Parachute.class)
 	private boolean isDispo;
 
 	@ManyToOne

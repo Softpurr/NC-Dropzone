@@ -12,20 +12,27 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.formation.api.Views;
+
 @Entity
 @Table(name = "saut")
 public class Saut {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "SAUT_ID")
+    @JsonView(Views.Commons.class)
 	private int idSaut;
 
 	@Enumerated(EnumType.ORDINAL)
     @Column(name = "SAUT_HAUTEUR", nullable = false)
+    @JsonView(Views.Saut.class)
 	private Hauteur hauteur;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "SAUT_TYPE_SAUT", nullable = false)
+    @JsonView(Views.Saut.class)
 	private TypeSaut typeSaut;
 	
     @OneToMany(mappedBy = "saut")

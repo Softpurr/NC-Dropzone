@@ -13,33 +13,45 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.formation.api.Views;
+
 @Entity
 @Table(name = "parachutiste")
 public class Parachutiste {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PARACHUTISTE_ID")
+    @JsonView(Views.Commons.class)
 	private int idParachutiste;
 
 	@Column(name = "PARACHUTISTE_NOM", length = 150, nullable = false)
+    @JsonView(Views.Parachutiste.class)
 	private String nomParachutiste;
 	
 	@Column(name = "PARACHUTISTE_PRENOM", length = 50, nullable = false)
+    @JsonView(Views.Parachutiste.class)
 	private String prenomParachutiste;
 	
 	@Column(name = "PARACHUTISTE_NUMERO_LICENCE", length = 50, nullable = false)
+    @JsonView(Views.Parachutiste.class)
 	private String numLicence;
 
     @Column(name = "PARACHUTISTE_DATE_LICENCE", nullable = false)
+    @JsonView(Views.Parachutiste.class)
 	private LocalDate dateLicence;
 	
 	@Column(name = "PARACHUTISTE_SAUT", nullable = false)
+    @JsonView(Views.Parachutiste.class)
 	private boolean isSaut;
 
     @Column(name = "PARACHUTISTE_PRATIQUANT", nullable = false)
+    @JsonView(Views.Parachutiste.class)
 	private boolean isPratiquant;
 
     @Column(name = "PARACHUTISTE_CONFIRME", nullable = false)
+    @JsonView(Views.Parachutiste.class)
 	private boolean isConfirme;
 
 	@OneToMany(mappedBy = "parachutiste")
