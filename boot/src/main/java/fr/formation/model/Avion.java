@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -35,6 +36,9 @@ public class Avion {
     @Column(name = "AVION_DISPONIBILITE", nullable = false)
     @JsonView(Views.Avion.class)
 	private boolean isDispo;
+
+    @OneToOne(mappedBy = "avion")
+	private Vol vol;
 
     public int getIdAvion() {
         return idAvion;

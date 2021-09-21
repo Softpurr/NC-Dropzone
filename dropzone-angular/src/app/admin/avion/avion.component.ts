@@ -34,7 +34,7 @@ export class AvionComponent implements OnInit {
   }
 
   constructor(private serviceAvion: AvionService) { 
-    this.avions = this.serviceAvion.findAll();
+    this.refresh();
   }
 
   ngOnInit(): void {
