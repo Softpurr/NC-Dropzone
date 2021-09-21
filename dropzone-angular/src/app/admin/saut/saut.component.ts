@@ -55,6 +55,6 @@ export class SautComponent implements OnInit {
 
   modifierSaut() {
     this.srvSaut.update(this.formSaut).subscribe(this.refresh);
-    this.formSaut = {hauteur: 0, typeSaut:"SOLO", parachutes: null, parachutistes: null};
+    this.formSaut = {hauteur: 0, typeSaut:null, parachutes: null, parachutistes: null};
   }
 }
