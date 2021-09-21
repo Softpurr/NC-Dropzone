@@ -33,7 +33,7 @@ export class ParachuteComponent implements OnInit {
   modifierCategorie() {
     this.srvParachute.update(this.formParachutes).subscribe(this.refresh);
     this.formParachutes = {nomHarnais: "" , nomVoilePrincipale:"", nomVoileSecours: "", tailleVoilePrincipale:0,
-    tailleVoileSecours:0, datePliageVoileSecours: 21/08/2021, securite:null, isPerso: false, 
+    tailleVoileSecours:0, datePliageVoileSecours: null, securite:null, isPerso: false, 
     isDispo: false, parachutiste:null, saut:null};
   }
 

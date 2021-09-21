@@ -12,7 +12,7 @@ import { ParachuteService } from 'src/app/parachute.service';
 export class ParachutisteComponent implements OnInit {
   parachutistes: any = [];
   formParachutiste = {
-    nomParachutiste:"", prenomParachutiste: "", numLicence: "", dateLicence: 21/09/2021, isSaut:false, isPratiquant:false,
+    nomParachutiste:"", prenomParachutiste: "", numLicence: "", dateLicence: null, isSaut:false, isPratiquant:false,
     isConfirme: false, parachutes:null, saut:null, vol:null
   };
 
@@ -35,7 +35,7 @@ export class ParachutisteComponent implements OnInit {
 
   modifierCategorie() {
     this.srvParachutiste.update(this.formParachutiste).subscribe(this.refresh);
-    this.formParachutiste = {nomParachutiste:"", prenomParachutiste: "", numLicence: "", dateLicence: 21/09/2021, isSaut:false, isPratiquant:false,
+    this.formParachutiste = {nomParachutiste:"", prenomParachutiste: "", numLicence: "", dateLicence: null, isSaut:false, isPratiquant:false,
     isConfirme: false, parachutes:null, saut:null, vol:null};
   }
 
