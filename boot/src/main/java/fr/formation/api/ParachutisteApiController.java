@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.formation.dao.IParachutisteDaoJpaRepository;
 import fr.formation.model.Parachutiste;
 
-
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/parachutiste")
@@ -28,54 +27,56 @@ public class ParachutisteApiController {
 
     @JsonView(Views.Parachutiste.class)
     @GetMapping
-    public List<Parachutiste> findAll(){
+    public List<Parachutiste> findAll() {
         return this.daoParachutiste.findAll();
     }
 
     @JsonView(Views.Parachutiste.class)
     @GetMapping("/by-nom/{nom}")
-    public List<Parachutiste> findByNom(@PathVariable String nom){
+    public List<Parachutiste> findByNom(@PathVariable String nom) {
         return this.daoParachutiste.findByNom(nom);
     }
 
     @JsonView(Views.Parachutiste.class)
     @GetMapping("/by-saut/{id}")
-    public List<Parachutiste> findBySaut(@PathVariable int id){
+    public List<Parachutiste> findBySaut(@PathVariable int id) {
         return this.daoParachutiste.findBySaut(id);
     }
 
+    @GetMapping("/confirme")
+    public List<Parachutiste> findConfirme() {
+        return this.daoParachutiste.findByIsConfirme(true);
+    }
+
     @PostMapping
-    public boolean add(@RequestBody Parachutiste parachutiste){
-        
+    public boolean add(@RequestBody Parachutiste parachutiste) {
+
         try {
             System.out.println("Try");
             this.daoParachutiste.save(parachutiste);
             return true;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("catch");
             return false;
         }
     }
 
     @PutMapping("/{id}")
-    public boolean put(@PathVariable int id, @RequestBody Parachutiste parachutiste){
+    public boolean put(@PathVariable int id, @RequestBody Parachutiste parachutiste) {
         try {
             this.daoParachutiste.save(parachutiste);
             return true;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     @DeleteMapping("/{id}")
-    public boolean deleteById(@PathVariable int id){
+    public boolean deleteById(@PathVariable int id) {
         try {
             this.daoParachutiste.deleteById(id);
             return true;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }

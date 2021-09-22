@@ -33,7 +33,6 @@ public class VolApiController {
         return this.daoVol.findAll();
     }
 
-    @JsonView(Views.Vol.class)
     @GetMapping("/etat")
     public Etat[] findEtats(){
         return Etat.values();
@@ -41,7 +40,8 @@ public class VolApiController {
 
     @PostMapping
     public boolean add(@RequestBody Vol vol){
-
+        System.out.println(vol.getNombreSaut());
+        System.out.println(vol.getEtat());
         try {
             this.daoVol.save(vol);
             return true;

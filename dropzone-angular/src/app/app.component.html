@@ -1,36 +1,71 @@
-<nav>
-  <ul>
-    <li>
-      <a [routerLink]="[ '/' ]">Accueil</a>
-    </li>
-    <li>
-      <a [routerLink]="[ '/enregistrement' ]">Enregistrement</a>
-    </li>
-    <li>
-      <a [routerLink]="[ '/planning' ]">Planning</a>
-    </li>
-    <li>
-      <a [routerLink]="[ '/connexion' ]">Connexion</a>
-    </li>
-    <li>
-      <a [routerLink]="[ '/parachute' ]">Parachute</a>
-    </li>
-    <li>
-      <a [routerLink]="[ '/parachutiste' ]">Parachutiste</a>
-    </li>
-    <li>
-      <a [routerLink]="[ '/saut' ]">Saut</a>
-    </li>
-    <li>
-      <a [routerLink]="[ '/avion' ]">Avion</a>
-    </li>
-    <li>
-      <a [routerLink]="[ '/pilote' ]">Pilote</a>
-    </li>
-    <li>
-      <a [routerLink]="[ '/vol' ]">Vol</a>
-    </li>
-  </ul>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
+
+  <a class="navbar-brand"><img id="logo" src="https://www.parachutisme.nc/wp-content/uploads/2016/12/noumea-skydive-logoo.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item active">
+        <div class="btn btn-one" [routerLink]="[ '/' ]">
+        <a class="nav-link" id="navbarDropdownMenuLink"><span>Accueil</span></a>
+      </div>
+      </li>
+
+      <li class="nav-item active">
+        <div class="box-1">
+        <div class="btn btn-one" [routerLink]="[ '/connexion' ]">
+        <a class="nav-link" id="navbarDropdownMenuLink"><span>Connexion</span></a>
+      </div>
+    </div>
+      </li>
+
+      <li class="nav-item active">
+        <div class="btn btn-one" [routerLink]="[ '/enregistrement' ]">
+        <a class="nav-link" id="navbarDropdownMenuLink"><span>Enregistrement</span></a>
+      </div>
+      </li>
+
+      <li class="nav-item active">
+        <div class="btn btn-one" [routerLink]="[ '/planning' ]" >
+        <a class="nav-link" id="navbarDropdownMenuLink"><span>Planning</span></a>
+      </div>
+      </li>
+
+
+      <li class="nav-item dropdown" id="equipements" ngbDropdown>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+          Equipements
+        </a>
+        <!-- bloc menu déroulant -->
+        <ul class="dropdown-menu bg-dark" ngbDropdownMenu ria-labelledby="navbarDropdownMenuLink">
+          <li ngbDropdownItem id="deroulant"><a class="dropdown-item" [routerLink]="[ '/avion' ]" id="lien">Avion</a></li>
+          <li ngbDropdownItem id="deroulant"><a class="dropdown-item" [routerLink]="[ '/parachute' ]" id="lien">Parachute</a></li>
+      </ul>
+      </li>
+
+      <li class="nav-item dropdown" id="organisation"ngbDropdown>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+          Organisation
+        </a>
+        <!-- bloc menu déroulant -->
+        <ul class="dropdown-menu bg-dark" ngbDropdownMenu ria-labelledby="navbarDropdownMenuLink">
+          <li ngbDropdownItem id="deroulant"><a class="dropdown-item" [routerLink]="[ '/parachutiste' ]" id="lien">Parachutiste</a></li>
+          <li ngbDropdownItem id="deroulant"><a class="dropdown-item" [routerLink]="[ '/pilote' ]" id="lien">Pilote</a></li>
+          <li ngbDropdownItem id="deroulant"><a class="dropdown-item" [routerLink]="[ '/saut' ]" id="lien">Saut</a></li>
+          <li ngbDropdownItem id="deroulant"><a class="dropdown-item" [routerLink]="[ '/vol' ]" id="lien">Vol</a></li>
+      </ul>
+      </li>
+    </ul>
+  </div>
 </nav>
+
+<img id="img" src="https://www.parachutisme.nc/wp-content/uploads/2019/12/DSC04361-logo-1.jpg">
+</body>
+
 
 <router-outlet></router-outlet>

@@ -4,7 +4,7 @@ import { ParachutisteService } from '../parachutiste.service';
 import { SautService } from '../saut.service';
 
 @Component({
-  selector: 'app-enregistrement',
+  selector: 'enregistrement',
   templateUrl: './enregistrement.component.html',
   styleUrls: ['./enregistrement.component.css']
 })

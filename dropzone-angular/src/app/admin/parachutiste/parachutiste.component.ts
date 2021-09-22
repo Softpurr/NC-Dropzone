@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ParachuteService } from 'src/app/parachute.service';
 import { ParachutisteService } from 'src/app/parachutiste.service';
@@ -15,14 +15,17 @@ export class ParachutisteComponent implements OnInit {
   parachutesPossede: any = [];
   parachutes: any = [];
   parachutiste: any= {};
+  @ViewChild('modal') modal: any;
+
+
   formParachutiste = {
     nomParachutiste:"", prenomParachutiste: "", numLicence: "", dateLicence: null, isSaut:false, isPratiquant:false,
     isConfirme: false, parachutes:null, saut:null, vol:null
   };
 
-  constructor(private srvParachutiste: ParachutisteService, private srvParachute: ParachuteService, private modalService: NgbModal) { 
+  constructor(private srvParachutiste: ParachutisteService, private srvParachute: ParachuteService) { 
     this.refresh();
-    this.parachutesPossede = this.srvParachute.findAllByParachutisteId(this.parachutiste);
+    
     this.parachutes = this.srvParachute.findAll();
   }
 
@@ -31,12 +34,18 @@ export class ParachutisteComponent implements OnInit {
 
   refresh = () => this.parachutistes = this.srvParachutiste.findAll();
 
+  voirParachutePossede(parachutiste: any) {
+    this.modal.open();
+    this.parachutiste = parachutiste;
+    this.parachutesPossede = this.srvParachute.findAllByParachutisteId(parachutiste).subscribe(parachutesPossede => this.parachutesPossede = parachutesPossede);
+  }
+
   ajouterParachutiste() {
     this.srvParachutiste.add(this.formParachutiste).subscribe(this.refresh);
   }
 
-  editerParachutiste(parachute: any) {
-    this.formParachutiste = parachute;
+  editerParachutiste(parachutiste: any) {
+    this.formParachutiste = parachutiste;
   }
 
   modifierParachutiste() {
