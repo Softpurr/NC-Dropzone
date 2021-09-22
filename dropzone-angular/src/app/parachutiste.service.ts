@@ -15,6 +15,9 @@ export class ParachutisteService {
     return this.http.get(this.apiUrl);
   }
 
+  findConfirme() {
+    return this.http.get(`${this.apiUrl}/confirme`)
+  }
   
   add(parachutiste: any) {
     console.log(parachutiste);

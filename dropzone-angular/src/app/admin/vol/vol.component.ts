@@ -29,7 +29,7 @@ export class VolComponent implements OnInit {
     this.vols = this.srvVol.findAll();
     this.avions = this.srvAvion.findAll();
     this.pilotes = this.srvPilote.findAll();
-    this.responsables = this.srvParachutiste.findAll();
+    this.responsables = this.srvParachutiste.findConfirme();
   }
 
   constructor(private srvVol: VolService, private srvAvion: AvionService, private srvPilote: PiloteService, private srvParachutiste: ParachutisteService) {
