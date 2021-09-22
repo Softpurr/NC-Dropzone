@@ -21,9 +21,9 @@
                 <td><input type="date" [(ngModel)]="formParachutiste.dateLicence"></td>
                 <td><input type="text" [(ngModel)]="formParachutiste.isPratiquant"></td>
                 <td><input type="text" [(ngModel)]="formParachutiste.isConfirme"></td>
-                <td><select multiple>
+                <td><select id="parachute" multiple>
                     <option></option>
-                    <!-- <option *ngFor="let pa of parachutesPossede | async">{{ pa.nomParachutes }}</option> -->
+                    <option *ngFor="let parachute of parachutes | async">{{ parachute.nomHarnais }}</option>
                 </select></td>
                 <td><button (click)="ajouterParachutiste()">Ajouter</button>
                     <button (click)="modifierParachutiste()">Modifier</button></td>
@@ -41,6 +41,7 @@
     </table>
 </div>
 
+
 <modal #modal titre="Liste des parachutistes de {{ parachutiste.nomParachutiste }}">
 	<table class="table table-striped">
 		<thead>
@@ -51,7 +52,7 @@
 		</thead>
 
 		<tbody>
-			<tr *ngFor="let pa of parachutesPossede">
+			<tr *ngFor="let pa of parachutesPossede ">
 				<td>{{ pa.nomHarnais }}</td>
                 <td>{{ pa.nomVoilePrincipale }}</td>
 			</tr>
