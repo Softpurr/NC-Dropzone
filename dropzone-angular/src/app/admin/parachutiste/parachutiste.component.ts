@@ -12,6 +12,7 @@ import { ParachutisteService } from 'src/app/parachutiste.service';
 })
 export class ParachutisteComponent implements OnInit {
   parachutistes: any = [];
+  parachutesPossede: any = [];
   parachutes: any = [];
   parachutiste: any= {};
   formParachutiste = {
@@ -21,7 +22,8 @@ export class ParachutisteComponent implements OnInit {
 
   constructor(private srvParachutiste: ParachutisteService, private srvParachute: ParachuteService, private modalService: NgbModal) { 
     this.refresh();
-    this.parachutes = this.srvParachute.findAllByParachutisteId(this.parachutiste)
+    this.parachutesPossede = this.srvParachute.findAllByParachutisteId(this.parachutiste);
+    this.parachutes = this.srvParachute.findAll();
   }
 
   ngOnInit(): void {

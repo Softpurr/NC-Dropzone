@@ -35,11 +35,11 @@ public class Parachutiste {
     @JsonView(Views.Parachutiste.class)
 	private String prenomParachutiste;
 	
-	@Column(name = "PARACHUTISTE_NUMERO_LICENCE", length = 50, nullable = false)
+	@Column(name = "PARACHUTISTE_NUMERO_LICENCE", length = 50 )
     @JsonView(Views.Parachutiste.class)
 	private String numLicence;
 
-    @Column(name = "PARACHUTISTE_DATE_LICENCE", nullable = false)
+    @Column(name = "PARACHUTISTE_DATE_LICENCE")
     @JsonView(Views.Parachutiste.class)
 	private LocalDate dateLicence;
 	
