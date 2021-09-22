@@ -12,20 +12,22 @@ import { ParachutisteService } from 'src/app/parachutiste.service';
 })
 export class ParachutisteComponent implements OnInit {
   parachutistes: any = [];
+  parachutiste: any = {};
+
   parachutesPossede: any = [];
+  parachutesLibre: any = [];
   parachutes: any = [];
-  parachutiste: any= {};
+  
   @ViewChild('modal') modal: any;
 
-
   formParachutiste = {
-    nomParachutiste:"", prenomParachutiste: "", numLicence: "", dateLicence: null, isSaut:false, isPratiquant:false,
-    isConfirme: false, parachutes:null, saut:null, vol:null
+    nomParachutiste: "", prenomParachutiste: "", numLicence: "", dateLicence: null, isSaut: false, isPratiquant: false,
+    isConfirme: false, parachutes: null, saut: null, vol: null
   };
 
-  constructor(private srvParachutiste: ParachutisteService, private srvParachute: ParachuteService) { 
+  constructor(private srvParachutiste: ParachutisteService, private srvParachute: ParachuteService) {
     this.refresh();
-    
+
     this.parachutes = this.srvParachute.findAll();
   }
 
@@ -34,11 +36,14 @@ export class ParachutisteComponent implements OnInit {
 
   refresh = () => this.parachutistes = this.srvParachutiste.findAll();
 
+  
   voirParachutePossede(parachutiste: any) {
     this.modal.open();
     this.parachutiste = parachutiste;
     this.parachutesPossede = this.srvParachute.findAllByParachutisteId(parachutiste).subscribe(parachutesPossede => this.parachutesPossede = parachutesPossede);
   }
+
+
 
   ajouterParachutiste() {
     this.srvParachutiste.add(this.formParachutiste).subscribe(this.refresh);
@@ -50,8 +55,10 @@ export class ParachutisteComponent implements OnInit {
 
   modifierParachutiste() {
     this.srvParachutiste.update(this.formParachutiste).subscribe(this.refresh);
-    this.formParachutiste = {nomParachutiste:"", prenomParachutiste: "", numLicence: "", dateLicence: null, isSaut:false, isPratiquant:false,
-    isConfirme: false, parachutes:null, saut:null, vol:null};
+    this.formParachutiste = {
+      nomParachutiste: "", prenomParachutiste: "", numLicence: "", dateLicence: null, isSaut: false, isPratiquant: false,
+      isConfirme: false, parachutes: null, saut: null, vol: null
+    };
   }
 
   supprimerParachutiste(parachutiste: any) {
