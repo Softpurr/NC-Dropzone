@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-enregistrement',
+  selector: 'enregistrement',
   templateUrl: './enregistrement.component.html',
   styleUrls: ['./enregistrement.component.css']
 })
