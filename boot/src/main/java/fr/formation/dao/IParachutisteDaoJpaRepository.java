@@ -10,4 +10,6 @@ import fr.formation.model.Parachutiste;
 public interface IParachutisteDaoJpaRepository extends JpaRepository<Parachutiste, Integer> {
     @Query("select p from Parachutiste p where Lower(p.nomParachutiste) like Lower(?1)")
     public List<Parachutiste> findByNom(String nom);
+
+    public List<Parachutiste> findByIsConfirme(Boolean confirme);
 }
