@@ -15,6 +15,10 @@ export class VolService {
     return this.http.get(this.apiUrl);
   }
 
+  findEtats() {
+    return this.http.get(`${this.apiUrl}/etat`);
+  }
+
   add(vol: any) {
     return this.http.post(this.apiUrl, vol);
   }

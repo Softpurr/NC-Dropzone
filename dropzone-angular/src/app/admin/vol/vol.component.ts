@@ -22,6 +22,8 @@ export class VolComponent implements OnInit {
     etat: "",
     responsable: null,
   };
+  modification: boolean = false;
+  etats:any = [];
 
   refresh = () => {
     this.vols = this.srvVol.findAll();
@@ -32,6 +34,7 @@ export class VolComponent implements OnInit {
 
   constructor(private srvVol: VolService, private srvAvion: AvionService, private srvPilote: PiloteService, private srvParachutiste: ParachutisteService) {
     this.refresh();
+    this.etats = srvVol.findEtats();
   }
 
   ngOnInit(): void {
@@ -43,11 +46,13 @@ export class VolComponent implements OnInit {
 
   editerVol(vol: any) {
     this.formVol = vol;
+    this.modification = true;
   }
 
   modifierVol() {
     this.srvVol.update(this.formVol).subscribe(this.refresh);
     this.formVol = {nombreSaut: 0, avion: null, pilote: null, etat: "",responsable: null,};
+    this.modification = false;
   }
 
   supprimerVol(vol: any) {
