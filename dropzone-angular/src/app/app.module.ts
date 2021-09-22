@@ -42,7 +42,7 @@ import { ModalComponent } from './modal/modal.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
     
   ],
   providers: [],
