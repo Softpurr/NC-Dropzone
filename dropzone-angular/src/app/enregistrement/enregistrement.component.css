@@ -1,0 +1,15 @@
+div{
+    padding-top: 2%;
+    display: block;
+    align-items: center;
+}
+
+#formulaire{
+    padding-left: 45%;
+    color: #BDB76B;
+}
+
+#table{
+    background-color: gray;
+    color: #BDB76B;
+}
