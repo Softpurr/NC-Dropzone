@@ -9,7 +9,7 @@ import { ParachuteService } from 'src/app/parachute.service';
 })
 export class ParachuteComponent implements OnInit {
   parachutes: any = [];
-  formParachutes: any = { nomHarnais: "" , nomVoilePrincipale:"", nomVoileSecours: "", tailleVoilePrincipale:0,
+  formParachute: any = { nomHarnais: "" , nomVoilePrincipale:"", nomVoileSecours: "", tailleVoilePrincipale:0,
   tailleVoileSecours:0, datePliageVoileSecours: null, securite:null, isPerso: false, 
   isDispo: false, parachutiste:null, saut:null }
 
@@ -22,22 +22,22 @@ export class ParachuteComponent implements OnInit {
 
   refresh = () => this.parachutes = this.srvParachute.findAll();
 
-  ajouterCategorie() {
-    this.srvParachute.add(this.formParachutes).subscribe(this.refresh);
+  ajouterParachute() {
+    this.srvParachute.add(this.formParachute).subscribe(this.refresh);
   }
 
-  editerCategorie(parachute: any) {
-    this.formParachutes = parachute;
+  editerParachute(parachute: any) {
+    this.formParachute = parachute;
   }
 
-  modifierCategorie() {
-    this.srvParachute.update(this.formParachutes).subscribe(this.refresh);
-    this.formParachutes = {nomHarnais: "" , nomVoilePrincipale:"", nomVoileSecours: "", tailleVoilePrincipale:0,
+  modifierParachute() {
+    this.srvParachute.update(this.formParachute).subscribe(this.refresh);
+    this.formParachute = {nomHarnais: "" , nomVoilePrincipale:"", nomVoileSecours: "", tailleVoilePrincipale:0,
     tailleVoileSecours:0, datePliageVoileSecours: null, securite:null, isPerso: false, 
     isDispo: false, parachutiste:null, saut:null};
   }
 
-  supprimerCategorie(parachute: any) {
+  supprimerParachute(parachute: any) {
     this.srvParachute.delete(parachute).subscribe(this.refresh);
   }
 

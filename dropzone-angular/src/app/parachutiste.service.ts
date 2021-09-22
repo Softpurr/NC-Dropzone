@@ -20,6 +20,7 @@ export class ParachutisteService {
   }
 
   add(parachutiste: any) {
+    console.log(parachutiste);
     return this.http.post(this.apiUrl, parachutiste);
   }
 
