@@ -24,11 +24,11 @@
                 <td><input type="text" [(ngModel)]="formParachute.tailleVoileSecours"></td>
                 <td><input type="text" [(ngModel)]="formParachute.datePliageVoileSecours"></td>
                 <td><input type="text" [(ngModel)]="formParachute.securite"></td>
-                <td><label for="true">True</label><input type="radio" name="true" value="true" [(ngModel)]="formParachute.isPerso">
-                    <label for="false">False</label><input type="radio" name="false" value="false" [(ngModel)]="formParachute.isPerso"></td>
+                <td><label for="truePerso">True</label><input type="radio" name="truePerso" value="true" [(ngModel)]="formParachute.isPerso">
+                    <label for="falsePerso">False</label><input type="radio" name="falsePerso" value="false" [(ngModel)]="formParachute.isPerso"></td>
                 <td>
-                    <label for="true">True</label><input type="radio" name="true" value="true" [(ngModel)]="formParachute.isDispo">
-                    <label for="false">False</label><input type="radio" name="false" value="false" [(ngModel)]="formParachute.isDispo"></td>
+                    <label for="trueDispo">True</label><input type="radio" name="trueDispo" value="true" [(ngModel)]="formParachute.isDispo">
+                    <label for="falseDispo">False</label><input type="radio" name="falseDispo" value="false" [(ngModel)]="formParachute.isDispo"></td>
                     <td><select>
                         <option *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }}</option>
                     </select></td>
