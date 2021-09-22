@@ -15,6 +15,14 @@ export class SautService {
     return this.http.get(this.apiUrl);
   }
 
+  findHauteurs() {
+    return this.http.get(`${this.apiUrl}/hauteur`);
+  }
+
+  findTypes() {
+    return this.http.get(`${this.apiUrl}/type`);
+  }
+
   add(saut: any) {
     return this.http.post(this.apiUrl, saut);
   }

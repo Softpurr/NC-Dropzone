@@ -35,11 +35,11 @@ public class Saut {
     @JsonView(Views.Saut.class)
 	private TypeSaut typeSaut;
 	
-    @OneToMany(mappedBy = "saut")
-	private List<Parachute> parachutes;
+	@OneToMany(mappedBy = "saut")
+	private List<Parachutiste> parachutistes;
 
     @OneToMany(mappedBy = "saut")
-	private List<Groupe> groupes;
+	private List<Parachute> parachutes;
 
 	public int getId() {
 		return id;
@@ -73,12 +73,12 @@ public class Saut {
 		this.parachutes = parachutes;
 	}
 
-	public List<Groupe> getGroupes() {
-		return groupes;
+	public List<Parachutiste> getParachutistes() {
+		return parachutistes;
 	}
 
-	public void setGroupes(List<Groupe> groupes) {
-		this.groupes = groupes;
+	public void setParachutistes(List<Parachutiste> parachutistes) {
+		this.parachutistes = parachutistes;
 	}
 	
 }

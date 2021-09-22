@@ -28,7 +28,7 @@ import { PlanningComponent } from './planning/planning.component';
     AvionComponent,
     HomeComponent,
     EnregistrementComponent,
-    PlanningComponent
+    PlanningComponent,
   ],
   imports: [
     BrowserModule,

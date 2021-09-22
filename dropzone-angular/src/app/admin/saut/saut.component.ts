@@ -10,17 +10,22 @@ import { VolService } from 'src/app/vol.service';
   styleUrls: ['./saut.component.css']
 })
 export class SautComponent implements OnInit {
+  hauteurs: any = [];
+  types: any = [];
 
-  constructor(private srvSaut : SautService, private srvVol : VolService, private srvParachutiste : ParachutisteService, private srvParachute : ParachuteService) { 
+  isEdition = false;
+
+  constructor(private srvSaut: SautService, private srvVol: VolService, private srvParachutiste: ParachutisteService, private srvParachute: ParachuteService) {
+    this.hauteurs = srvSaut.findHauteurs();
+    this.types = srvSaut.findTypes();
     this.refresh();
-
   }
 
   ngOnInit(): void {
   }
 
   formSaut = {
-    hauteur: 0, typeSaut:null, parachutes: null, parachutistes: null
+    hauteur: null, typeSaut: null, parachutes: null, parachutistes: null
   }
 
   sauts: any = [];
@@ -33,16 +38,16 @@ export class SautComponent implements OnInit {
 
   supprimerSaut(saut: any) {
     this.srvSaut.delete(saut).subscribe(this.refresh);
-
-    
   }
 
   editerSaut(saut: any) {
-    this.formSaut= saut;
+    this.isEdition = true;
+    this.formSaut = saut;
   }
 
   modifierSaut() {
+    this.isEdition = false;
     this.srvSaut.update(this.formSaut).subscribe(this.refresh);
-    this.formSaut = {hauteur: 0, typeSaut:null, parachutes: null, parachutistes: null};
+    this.formSaut = { hauteur: null, typeSaut: null, parachutes: null, parachutistes: null };
   }
 }
