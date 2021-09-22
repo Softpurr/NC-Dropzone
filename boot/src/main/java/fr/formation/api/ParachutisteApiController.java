@@ -32,14 +32,28 @@ public class ParachutisteApiController {
         return this.daoParachutiste.findAll();
     }
 
+    @JsonView(Views.Parachutiste.class)
+    @GetMapping("/by-nom/{nom}")
+    public List<Parachutiste> findByNom(@PathVariable String nom){
+        return this.daoParachutiste.findByNom(nom);
+    }
+
+    @JsonView(Views.Parachutiste.class)
+    @GetMapping("/confirme")
+    public List<Parachutiste> findConfirme(){
+        return this.daoParachutiste.findByIsConfirme(true);
+    }
+
     @PostMapping
     public boolean add(@RequestBody Parachutiste parachutiste){
-
+        
         try {
+            System.out.println("Try");
             this.daoParachutiste.save(parachutiste);
             return true;
         }
         catch (Exception e){
+            System.out.println("catch");
             return false;
         }
     }

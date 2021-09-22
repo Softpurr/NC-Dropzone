@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.formation.dao.IVolDaoJpaRepository;
+import fr.formation.model.Etat;
 import fr.formation.model.Vol;
 
 
@@ -32,9 +33,15 @@ public class VolApiController {
         return this.daoVol.findAll();
     }
 
+    @GetMapping("/etat")
+    public Etat[] findEtats(){
+        return Etat.values();
+    }
+
     @PostMapping
     public boolean add(@RequestBody Vol vol){
-
+        System.out.println(vol.getNombreSaut());
+        System.out.println(vol.getEtat());
         try {
             this.daoVol.save(vol);
             return true;

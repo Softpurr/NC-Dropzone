@@ -1,1 +1,38 @@
-<p>vol works!</p>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre saut</th>
+                <th>etat</th>
+                <th>Avion</th>
+                <th>Pilote</th>
+                <th>Responsable</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="addAvion">
+                <td><input type="text" [(ngModel)]="formVol.nombreSaut"></td>
+                <td><select [(ngModel)]="formVol.etat">
+                    <option *ngFor="let e of etats | async" value="{{e}}">{{ e }}</option>
+                </select></td>
+                <td><select [(ngModel)]="formVol.nomAvion">
+                    <option *ngFor="let a of avions | async">{{ a.nomAvion }}</option>
+                </select></td>
+                <td><select [(ngModel)]="formVol.nomPilote">
+                    <option *ngFor="let p of pilotes | async">{{ p.nomPilote }}</option>
+                </select></td>
+                <td><select [(ngModel)]="formVol.nomResponsable">
+                    <option *ngFor="let r of responsables | async">{{ r.nomParachutiste }}</option>
+                </select></td>
+                <td><button (click)="ajouterVol()" class="btn btn-info">Ajouter</button>
+                    <button (click)="modifierVol()" *ngIf="modification" class="btn btn-warning">Modifier</button></td>
+            </tr>
+            <tr *ngFor="let v of vols | async">
+                <td>{{ v.nombreSaut }}</td>
+                <td>{{ v.etat }}</td>
+                <td><button (click)="supprimerVol(v)" class="btn btn-danger">Supprimer</button>
+                <button (click)="editerVol(v)" class="btn btn-warning">Editer</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

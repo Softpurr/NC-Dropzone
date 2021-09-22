@@ -39,7 +39,7 @@ public class Saut {
 	private List<Parachute> parachutes;
 
     @OneToMany(mappedBy = "saut")
-	private List<Parachutiste> parachutistes;
+	private List<Groupe> groupes;
 
 	public int getId() {
 		return id;
@@ -73,14 +73,12 @@ public class Saut {
 		this.parachutes = parachutes;
 	}
 
-	public List<Parachutiste> getParachutiste() {
-		return parachutistes;
+	public List<Groupe> getGroupes() {
+		return groupes;
 	}
 
-	public void setParachutiste(List<Parachutiste> parachutistes) {
-		this.parachutistes = parachutistes;
+	public void setGroupes(List<Groupe> groupes) {
+		this.groupes = groupes;
 	}
-
-	
 	
 }

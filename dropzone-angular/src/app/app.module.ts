@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AvionComponent,
     HomeComponent,
     EnregistrementComponent,
-    PlanningComponent
+    PlanningComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

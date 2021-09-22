@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ParachuteService } from 'src/app/parachute.service';
+import { ParachutisteService } from 'src/app/parachutiste.service';
 
 
 
@@ -11,13 +12,21 @@ import { ParachuteService } from 'src/app/parachute.service';
 })
 export class ParachutisteComponent implements OnInit {
   parachutistes: any = [];
+  parachutesPossede: any = [];
+  parachutes: any = [];
+  parachutiste: any= {};
+  @ViewChild('modal') modal: any;
+
+
   formParachutiste = {
     nomParachutiste:"", prenomParachutiste: "", numLicence: "", dateLicence: null, isSaut:false, isPratiquant:false,
     isConfirme: false, parachutes:null, saut:null, vol:null
   };
 
-  constructor(private srvParachutiste: ParachuteService, private modalService: NgbModal) { 
+  constructor(private srvParachutiste: ParachutisteService, private srvParachute: ParachuteService) { 
     this.refresh();
+    
+    this.parachutes = this.srvParachute.findAll();
   }
 
   ngOnInit(): void {
@@ -25,21 +34,27 @@ export class ParachutisteComponent implements OnInit {
 
   refresh = () => this.parachutistes = this.srvParachutiste.findAll();
 
-  ajouterCategorie() {
+  voirParachutePossede(parachutiste: any) {
+    this.modal.open();
+    this.parachutiste = parachutiste;
+    this.parachutesPossede = this.srvParachute.findAllByParachutisteId(parachutiste).subscribe(parachutesPossede => this.parachutesPossede = parachutesPossede);
+  }
+
+  ajouterParachutiste() {
     this.srvParachutiste.add(this.formParachutiste).subscribe(this.refresh);
   }
 
-  editerCategorie(parachute: any) {
-    this.formParachutiste = parachute;
+  editerParachutiste(parachutiste: any) {
+    this.formParachutiste = parachutiste;
   }
 
-  modifierCategorie() {
+  modifierParachutiste() {
     this.srvParachutiste.update(this.formParachutiste).subscribe(this.refresh);
     this.formParachutiste = {nomParachutiste:"", prenomParachutiste: "", numLicence: "", dateLicence: null, isSaut:false, isPratiquant:false,
     isConfirme: false, parachutes:null, saut:null, vol:null};
   }
 
-  supprimerCategorie(parachutiste: any) {
+  supprimerParachutiste(parachutiste: any) {
     this.srvParachutiste.delete(parachutiste).subscribe(this.refresh);
   }
 

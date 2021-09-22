@@ -1,1 +1,74 @@
-<p>enregistrement works!</p>
+<div>
+    <h1>Enregistrement</h1>
+</div>
+
+<div>
+    <div>
+        <div>
+            <label>Nom : </label>
+            <input type="text" [(ngModel)]="parachutiste.nomParachutiste" />
+        </div>
+
+        <div>
+            <label>Parachute : </label>
+            <select>
+                <option>Parachute 1</option>
+                <option>Parachute 2</option>
+                <option>Parachute 3</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Hauteur : </label>
+            <select>
+                <option>Hauteur 1</option>
+                <option>Hauteur 2</option>
+                <option>Hauteur 3</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <button class="btn btn-success"
+            (click)="rechercherParachutiste(parachutiste.nomParachutiste)">ENREGISTRER</button>
+    </div>
+</div>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Licence</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let p of parachutistesByNom">
+                <td>{{ p.prenomParachutiste }}</td>
+                <td>{{ p.nomParachutiste }}</td>
+                <td>{{ p.numLicence }}</td>
+                <td>
+                    <button class="btn btn-success" (click)="enregistrerParachutiste(p)">SELECTIONNER</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="isValide">
+    <div>
+        <p>Vous êtes bien enregistré !</p>
+    </div>
+    <div>
+        <label>Preom : {{ parachutiste.prenomParachutiste }}</label>
+    </div>
+    <div>
+        <label>Nom : {{ parachutiste.nomParachutiste }}</label>
+    </div>
+    <div>
+        <label>Licence : {{ parachutiste.numLicence }}</label>
+    </div>
+</div>
