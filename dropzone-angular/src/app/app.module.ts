@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EnregistrementComponent } from './enregistrement/enregistrement.component';
 import { PlanningComponent } from './planning/planning.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PlanningComponent } from './planning/planning.component';
     AvionComponent,
     HomeComponent,
     EnregistrementComponent,
-    PlanningComponent
+    PlanningComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
