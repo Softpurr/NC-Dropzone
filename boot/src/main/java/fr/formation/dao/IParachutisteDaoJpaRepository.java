@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import fr.formation.model.Parachutiste;
 
 public interface IParachutisteDaoJpaRepository extends JpaRepository<Parachutiste, Integer> {
-    @Query("select p from Parachutiste p where p.nomParachutiste = ?1")
+    @Query("select p from Parachutiste p where Lower(p.nomParachutiste) like Lower(?1)")
     public List<Parachutiste> findByNom(String nom);
 }

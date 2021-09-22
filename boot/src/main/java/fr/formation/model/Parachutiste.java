@@ -59,8 +59,8 @@ public class Parachutiste {
 	private List<Parachute> parachutes;
 
 	@ManyToOne
-	@JoinColumn(name = "PARACHUTISTE_SAUT_ID")
-	private Saut saut;
+	@JoinColumn(name = "GROUPE_ID")
+	private Groupe groupe;
 
 	@OneToOne(mappedBy = "responsable")
 	private Vol vol;
@@ -137,12 +137,12 @@ public class Parachutiste {
 		this.parachutes = parachutes;
 	}
 
-	public Saut getSaut() {
-		return saut;
+	public Groupe getGroupe() {
+		return groupe;
 	}
 
-	public void setSaut(Saut saut) {
-		this.saut = saut;
+	public void setGroupe(Groupe groupe) {
+		this.groupe = groupe;
 	}
 
 	public Vol getVol() {
