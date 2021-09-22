@@ -22,12 +22,12 @@
                 <td><input type="text" [(ngModel)]="formParachute.nomVoileSecours"></td>
                 <td><input type="text" [(ngModel)]="formParachute.tailleVoilePrincipale"></td>
                 <td><input type="text" [(ngModel)]="formParachute.tailleVoileSecours"></td>
-                <td><input type="text" [(ngModel)]="formParachute.datePliageVoileSecours"></td>
+                <td><input type="date" [(ngModel)]="formParachute.datePliageVoileSecours"></td>
                 <td><select [(ngModel)]="formParachute.securite">
                     <option *ngFor="let s of securites | async" value="{{s}}">{{ s }}</option>
                 </select></td>
-                <td><input type="checkbox" name="truePerso" value="true" [(ngModel)]="formParachute.isPerso"></td>
-                <td><input type="checkbox" name="trueDispo" value="true" [(ngModel)]="formParachute.isDispo"></td>
+                <td><input type="checkbox" [(ngModel)]="formParachute.isPerso"></td>
+                <td><input type="checkbox" [(ngModel)]="formParachute.isDispo"></td>
                     <td><select>
                         <option></option>
                         <option *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }}</option>

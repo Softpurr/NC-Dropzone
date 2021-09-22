@@ -12,8 +12,8 @@
                 <td><input type="text" [(ngModel)]="formPilote.nomPilote"></td>
                 <td><input type="text" [(ngModel)]="formPilote.prenomPilote"></td>
                 <td><input type="text" [(ngModel)]="formPilote.numLicence"></td>
-                <td><button (click)="ajouterPilote()">Ajouter</button>
-                    <button (click)="modifierPilote()">Modifier</button></td>
+                <td><button (click)="ajouterPilote()" class="btn btn-info">Ajouter</button>
+                    <button (click)="modifierPilote()" class="btn btn-warning">Modifier</button></td>
             </tr>
             <tr *ngFor="let p of pilotes | async">
                 <td>{{ p.nomPilote }}</td>

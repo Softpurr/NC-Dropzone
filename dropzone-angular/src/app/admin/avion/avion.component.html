@@ -16,9 +16,9 @@
                 <td><input type="text" [(ngModel)]="formAvion.nomAvion"></td>
                 <td><input type="text" [(ngModel)]="formAvion.capaciteTransport"></td>
                 <td><input type="text" [(ngModel)]="formAvion.rotationMax"></td>
-                <td><input type="text" [(ngModel)]="formAvion.isDispo"></td>
-                <td><button (click)="ajouterAvion()">Ajouter</button>
-                    <button (click)="modifierAvion()">Modifier</button></td>
+                <td><input type="checkbox" [(ngModel)]="formAvion.isDispo"></td>
+                <td><button (click)="ajouterAvion()" class="btn btn-info">Ajouter</button>
+                    <button (click)="modifierAvion()" class="btn btn-warning">Modifier</button></td>
             </tr>
             <tr *ngFor="let a of avions | async">
                 <td>{{ a.nomAvion }}</td>
