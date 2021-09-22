@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+// import { FlexLayoutModule } from '@angular/flex-layout';
 import { VolComponent } from './admin/vol/vol.component';
 import { SautComponent } from './admin/saut/saut.component';
 import { ParachuteComponent } from './admin/parachute/parachute.component';
@@ -42,7 +42,7 @@ import { ModalComponent } from './modal/modal.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    // FlexLayoutModule
     
   ],
   providers: [],
