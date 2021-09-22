@@ -9,8 +9,9 @@
                 <th>Taille voile de secours</th>
                 <th>Date pliage voile de secours</th>
                 <th>Securité</th>
-                <th>Parachute personne</th>
+                <th>Parachute personnel</th>
                 <th>Disponibilité</th>
+                <th>Proprietaire</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,10 +24,16 @@
                 <td><input type="text" [(ngModel)]="formParachute.tailleVoileSecours"></td>
                 <td><input type="text" [(ngModel)]="formParachute.datePliageVoileSecours"></td>
                 <td><input type="text" [(ngModel)]="formParachute.securite"></td>
-                <td><input type="text" [(ngModel)]="formParachute.isPerso"></td>
-                <td><input type="text" [(ngModel)]="formParachute.isDispo"></td>
-                <td><button (click)="ajouterParachute()">Ajouter</button>
-                    <button (click)="modifierParachute()">Modifier</button></td>
+                <td><label for="true">True</label><input type="radio" name="true" value="true" [(ngModel)]="formParachute.isPerso">
+                    <label for="false">False</label><input type="radio" name="false" value="false" [(ngModel)]="formParachute.isPerso"></td>
+                <td>
+                    <label for="true">True</label><input type="radio" name="true" value="true" [(ngModel)]="formParachute.isDispo">
+                    <label for="false">False</label><input type="radio" name="false" value="false" [(ngModel)]="formParachute.isDispo"></td>
+                    <td><select>
+                        <option *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }}</option>
+                    </select></td>
+                <td><button (click)="ajouterParachute()" class="btn btn-info">Ajouter</button>
+                    <button (click)="modifierParachute()" class="btn btn-warning" *ngIf="modification">Modifier</button></td>
             </tr>
             <tr *ngFor="let p of parachutes | async">
                 <td>{{ p.nomHarnais }}</td>

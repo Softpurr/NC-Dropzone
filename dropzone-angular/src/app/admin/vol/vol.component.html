@@ -13,17 +13,17 @@
             <tr id="addAvion">
                 <td><input type="text" [(ngModel)]="formVol.nombreSaut"></td>
                 <td><input type="text" [(ngModel)]="formVol.etat"></td>
-                <td><select *ngFor="let a of avions | async">
-                    <option>{{ a.nomAvion }}</option>
+                <td><select>
+                    <option *ngFor="let a of avions | async">{{ a.nomAvion }}</option>
                 </select></td>
-                <td><select *ngFor="let p of pilotes | async">
-                    <option>{{ p.nomPilote }}</option>
+                <td><select>
+                    <option *ngFor="let p of pilotes | async">{{ p.nomPilote }}</option>
                 </select></td>
-                <td><select *ngFor="let r of responsables | async">
-                    <option>{{ r.nom }}</option>
+                <td><select>
+                    <option *ngFor="let r of responsables | async">{{ r.nom }}</option>
                 </select></td>
-                <td><button (click)="ajouterVol()">Ajouter</button>
-                    <button (click)="modifierVol()">Modifier</button></td>
+                <td><button (click)="ajouterVol()" class="btn btn-info">Ajouter</button>
+                    <button (click)="modifierVol()" *ngIf="modification" class="btn btn-warning">Modifier</button></td>
             </tr>
             <tr *ngFor="let v of vols | async">
                 <td>{{ v.nombreSaut }}</td>

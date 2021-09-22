@@ -22,6 +22,7 @@ export class VolComponent implements OnInit {
     etat: "",
     responsable: null,
   };
+  modification: boolean = false;
 
   refresh = () => {
     this.vols = this.srvVol.findAll();
@@ -43,11 +44,13 @@ export class VolComponent implements OnInit {
 
   editerVol(vol: any) {
     this.formVol = vol;
+    this.modification = true;
   }
 
   modifierVol() {
     this.srvVol.update(this.formVol).subscribe(this.refresh);
     this.formVol = {nombreSaut: 0, avion: null, pilote: null, etat: "",responsable: null,};
+    this.modification = false;
   }
 
   supprimerVol(vol: any) {
