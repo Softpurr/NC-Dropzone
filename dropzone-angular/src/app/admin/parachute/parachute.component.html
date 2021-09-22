@@ -23,12 +23,11 @@
                 <td><input type="text" [(ngModel)]="formParachute.tailleVoilePrincipale"></td>
                 <td><input type="text" [(ngModel)]="formParachute.tailleVoileSecours"></td>
                 <td><input type="text" [(ngModel)]="formParachute.datePliageVoileSecours"></td>
-                <td><input type="text" [(ngModel)]="formParachute.securite"></td>
-                <td><label for="truePerso">True</label><input type="radio" name="truePerso" value="true" [(ngModel)]="formParachute.isPerso">
-                    <label for="falsePerso">False</label><input type="radio" name="falsePerso" value="false" [(ngModel)]="formParachute.isPerso"></td>
-                <td>
-                    <label for="trueDispo">True</label><input type="radio" name="trueDispo" value="true" [(ngModel)]="formParachute.isDispo">
-                    <label for="falseDispo">False</label><input type="radio" name="falseDispo" value="false" [(ngModel)]="formParachute.isDispo"></td>
+                <td><select [(ngModel)]="formParachute.securite">
+                    <option *ngFor="let s of securites | async" value="{{s}}">{{ s }}</option>
+                </select></td>
+                <td><input type="checkbox" name="truePerso" value="true" [(ngModel)]="formParachute.isPerso"></td>
+                <td><input type="checkbox" name="trueDispo" value="true" [(ngModel)]="formParachute.isDispo"></td>
                     <td><select>
                         <option></option>
                         <option *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }}</option>
@@ -44,9 +43,9 @@
                 <td>{{ p.tailleVoileSecours }}</td>
                 <td>{{ p.datePliageVoileSecours }}</td>
                 <td>{{ p.securite }}</td>
-                <td>{{ p.isPerso }}</td>
-                <td>{{ p.isDispo }}</td>
-                <td>{{ p.proprietaire }}</td>
+                <td>{{ p.isPerso | ouiNon }}</td>
+                <td>{{ p.isDispo | ouiNon }}</td>
+                <td>{{ p.proprietaire.nomParachutiste }}</td>
                 <td><button (click)="supprimerParachute(p)" class="btn btn-danger">Supprimer</button>
                 <button (click)="editerParachute(p)" class="btn btn-warning">Editer</button></td>
             </tr>

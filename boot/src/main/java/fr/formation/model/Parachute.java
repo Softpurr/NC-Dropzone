@@ -66,10 +66,12 @@ public class Parachute {
 
 	@ManyToOne
 	@JoinColumn(name = "PARACHUTE_PARACHUTISTE_ID")
+	@JsonView(Views.Parachute.class)
 	private Parachutiste parachutiste;
 
 	@ManyToOne
 	@JoinColumn(name = "PARACHUTE_SAUT_ID")
+	@JsonView(Views.Parachute.class)
 	private Saut saut;
 
 	public int getId() {

@@ -15,6 +15,10 @@ export class ParachuteService {
     return this.http.get(this.apiUrl);
   }
 
+  findSecurites() {
+    return this.http.get(`${this.apiUrl}/securite`);
+  }
+
   findAllByParachutisteId(parachutiste: any) {
     return this.http.get(`${this.apiUrl}/by-parachutiste/${ parachutiste.id }`);
   }

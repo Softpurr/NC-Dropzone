@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.formation.dao.IParachuteDaoJpaRepository;
 import fr.formation.model.Parachute;
+import fr.formation.model.Securite;
 
 
 @RestController
@@ -30,6 +31,11 @@ public class ParachuteApiController {
     @GetMapping
     public List<Parachute> findAll(){
         return this.daoParachute.findAll();
+    }
+
+    @GetMapping("/securite")
+    public Securite[] findSecurites(){
+        return Securite.values();
     }
 
     @GetMapping("/by-parachutiste/{parachutisteId}")

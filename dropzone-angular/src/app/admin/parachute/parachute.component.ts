@@ -15,9 +15,11 @@ export class ParachuteComponent implements OnInit {
   isDispo: false, parachutiste:null, saut:null }
   modification: boolean = false;
   parachutistes: any = [];
+  securites: any = [];
 
   constructor(private srvParachute: ParachuteService, private srvParachutiste: ParachutisteService, private modalService: NgbModal) { 
     this.refresh();
+    this.securites = this.srvParachute.findSecurites();
   }
 
   ngOnInit(): void {

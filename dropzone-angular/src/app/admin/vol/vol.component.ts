@@ -41,8 +41,9 @@ export class VolComponent implements OnInit {
   }
 
   ajouterVol() {
-    console.log(this.formVol);
     this.formVol.avion = {id: this.formVol.avion};
+    this.formVol.pilote = {id: this.formVol.pilote};
+    this.formVol.responsable = {id: this.formVol.responsable};
     this.srvVol.add(this.formVol).subscribe(this.refresh);
   }
 

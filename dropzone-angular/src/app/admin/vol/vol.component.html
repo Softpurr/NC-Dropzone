@@ -30,9 +30,9 @@
             <tr *ngFor="let v of vols | async">
                 <td>{{ v.nombreSaut }}</td>
                 <td>{{ v.etat }}</td>
-                <td>{{ v.avion.id }}</td>
-                <td>{{ v.pilote.id }}</td>
-                <td>{{ v.responsable.id }}</td>
+                <td>{{ v.avion.nomAvion }}</td>
+                <td>{{ v.pilote.nomPilote }}</td>
+                <td>{{ v.responsable.nomPilote }}</td>
                 <td><button (click)="supprimerVol(v)" class="btn btn-danger">Supprimer</button>
                 <button (click)="editerVol(v)" class="btn btn-warning">Editer</button></td>
             </tr>

@@ -1,10 +1,13 @@
 package fr.formation.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,7 +25,7 @@ public class Avion {
 	private int id;
 
 	@Column(name = "AVION_NOM", length = 150, nullable = false)
-    @JsonView(Views.Avion.class)
+    @JsonView(Views.Commons.class)
 	private String nomAvion;
 	
 	@Column(name = "AVION_CAPACITE_TRANSPORT", length = 5, nullable = false)
@@ -37,8 +40,8 @@ public class Avion {
     @JsonView(Views.Avion.class)
 	private boolean isDispo;
 
-    @OneToOne(mappedBy = "avion")
-	private Vol vol;
+    @OneToMany(mappedBy = "avion")
+	private List<Vol> vol;
 
     public int getId() {
         return id;
