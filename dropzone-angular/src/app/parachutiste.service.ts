@@ -7,12 +7,16 @@ import { environment } from 'src/environments/environment';
 })
 export class ParachutisteService {
 
-  private apiUrl: string = `${ environment.apiUrl }/parachutiste`;
+  private apiUrl: string = `${environment.apiUrl}/parachutiste`;
 
   constructor(private http: HttpClient) { }
 
   findAll() {
     return this.http.get(this.apiUrl);
+  }
+
+  findByNom(nom: String) {
+    return this.http.get(`${this.apiUrl}/by-nom/${nom}`);
   }
 
   add(parachutiste: any) {
@@ -21,11 +25,11 @@ export class ParachutisteService {
 
   update(parachutiste: any) {
     return this.http
-      .put(`${ this.apiUrl }/${ parachutiste.id }`, parachutiste);
+      .put(`${this.apiUrl}/${parachutiste.id}`, parachutiste);
   }
 
   delete(parachutiste: any) {
     return this.http
-      .delete(`${ this.apiUrl }/${ parachutiste.id }`);
+      .delete(`${this.apiUrl}/${parachutiste.id}`);
   }
 }

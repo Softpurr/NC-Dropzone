@@ -32,6 +32,12 @@ public class ParachutisteApiController {
         return this.daoParachutiste.findAll();
     }
 
+    @JsonView(Views.Parachutiste.class)
+    @GetMapping("/by-nom/{nom}")
+    public List<Parachutiste> findByNom(@PathVariable String nom){
+        return this.daoParachutiste.findByNom(nom);
+    }
+
     @PostMapping
     public boolean add(@RequestBody Parachutiste parachutiste){
 

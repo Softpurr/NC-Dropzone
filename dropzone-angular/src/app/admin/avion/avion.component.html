@@ -1,8 +1,9 @@
+<h1>Avion</h1>
+
 <div>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Capacite transport</th>
                 <th>Rotation max</th>
@@ -12,22 +13,22 @@
         </thead>
         <tbody>
             <tr id="addAvion">
-                <td></td>
                 <td><input type="text" [(ngModel)]="formAvion.nomAvion"></td>
                 <td><input type="text" [(ngModel)]="formAvion.capaciteTransport"></td>
                 <td><input type="text" [(ngModel)]="formAvion.rotationMax"></td>
                 <td><input type="text" [(ngModel)]="formAvion.isDispo"></td>
                 <td><button (click)="ajouterAvion()">Ajouter</button>
-                    <button (click)="modifierAvion()">Ajouter</button></td>
+                    <button (click)="modifierAvion()">Modifier</button>
+                </td>
             </tr>
             <tr *ngFor="let a of avions | async">
-                <td>{{ a.idAvion }}</td>
                 <td>{{ a.nomAvion }}</td>
                 <td>{{ a.capaciteTransport }}</td>
                 <td>{{ a.rotationMax }}</td>
                 <td>{{ a.isDispo }}</td>
                 <td><button (click)="supprimerAvion(a)" class="btn btn-danger">Supprimer</button>
-                <button (click)="editerAvion(a)" class="btn btn-warning">Editer</button></td>
+                    <button (click)="editerAvion(a)" class="btn btn-warning">Editer</button>
+                </td>
             </tr>
         </tbody>
     </table>
