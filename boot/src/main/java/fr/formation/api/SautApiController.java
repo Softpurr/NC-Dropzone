@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.formation.dao.ISautDaoJpaRepository;
+import fr.formation.model.Hauteur;
 import fr.formation.model.Saut;
+import fr.formation.model.TypeSaut;
 
 
 @RestController
@@ -30,6 +32,16 @@ public class SautApiController {
     @GetMapping
     public List<Saut> findAll(){
         return this.daoSaut.findAll();
+    }
+
+    @GetMapping("/hauteur")
+    public Hauteur[] findHauteur(){
+        return Hauteur.values();
+    }
+
+    @GetMapping("/type")
+    public TypeSaut[] findTypes(){
+        return TypeSaut.values();
     }
 
     @PostMapping

@@ -11,5 +11,7 @@ public interface IParachutisteDaoJpaRepository extends JpaRepository<Parachutist
     @Query("select p from Parachutiste p where Lower(p.nomParachutiste) like Lower(?1)")
     public List<Parachutiste> findByNom(String nom);
 
+    public List<Parachutiste> findBySaut(int id);
+
     public List<Parachutiste> findByIsConfirme(Boolean confirme);
 }

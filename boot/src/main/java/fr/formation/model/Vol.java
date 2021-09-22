@@ -25,26 +25,27 @@ public class Vol {
 	private int id;
 
 	@Column(name = "VOL_NOMBRE_SAUT", nullable = false)
-    @JsonView(Views.Saut.class)
+    @JsonView(Views.Vol.class)
 	private int nombreSaut;
 	
 	@OneToOne
 	@JoinColumn(name = "VOL_AVION_ID", nullable = false)
-    @JsonView(Views.Saut.class)
+    @JsonView(Views.Vol.class)
 	private Avion avion;
 	
-    @JsonView(Views.Saut.class)
+    @JsonView(Views.Vol.class)
 	@OneToOne
 	@JoinColumn(name = "VOL_PILOTE_ID", nullable = false)
 	private Pilote pilote;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "VOL_ETAT", nullable = false)
-    @JsonView(Views.Saut.class)
+    @JsonView(Views.Vol.class)
 	private Etat etat;
 
 	@OneToOne
 	@JoinColumn(name = "VOL_RESPONSABLE_ID")
+	@JsonView(Views.Vol.class)
 	private Parachutiste responsable;
 
 	public int getId() {
