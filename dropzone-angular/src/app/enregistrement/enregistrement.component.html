@@ -1,7 +1,7 @@
 <h1>Enregistrement</h1>
 
 <div id="formulaire">
-    <div>
+    <div id="nom">
         <label>Nom : </label>
         <input type="text" [(ngModel)]="nomParachutiste" />
     </div>
@@ -53,8 +53,26 @@
             <select [(ngModel)]="hauteur" (click)="calculCout()">
                 <option *ngFor="let h of hauteurs | async" value="{{ h }}">{{ h }}</option>
             </select>
-            <button *ngIf="isParachutiste && hauteur != 0" (click)="creerSaut()">ENREGISTRER</button>
+            <button *ngIf="isParachutiste && hauteur != 0" (click)="creerSaut()" id="bontonEnregistrer">ENREGISTRER</button>
         </div>
+            <tr>
+                <td *ngIf="p.isPratiquant">
+                    <button (click)="ajouterParachutiste(p)"  id="bontonSelectionner">AJOUTER</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h2 *ngIf="hauteur == 0">Votre saut - Sélectionnez une hauteur</h2>
+    <div id="hauteur">
+        <label>Hauteur : </label>
+        <select [(ngModel)]="hauteur" (click)="calculCout()">
+            <option *ngFor="let h of hauteurs | async" value="{{ h }}">{{ h }}</option>
+        </select>
+    </div>
+    <p *ngIf="!(hauteur == 0)">Votre saut - {{ hauteur }} m - {{ cout }} €</p>
 
         <p *ngIf="hauteur == 0">Votre saut - Sélectionnez une hauteur</p>
         <p *ngIf="!(hauteur == 0)">Votre saut - {{ hauteur }} m - {{ cout }} €</p>

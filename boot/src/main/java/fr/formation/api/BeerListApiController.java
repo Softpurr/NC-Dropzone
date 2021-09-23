@@ -15,43 +15,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.formation.dao.ISautDaoJpaRepository;
-import fr.formation.dao.IVolDaoJpaRepository;
-import fr.formation.model.Etat;
-import fr.formation.model.Saut;
-import fr.formation.model.Vol;
-
+import fr.formation.dao.IBeerListDaoJpaRepository;
+import fr.formation.model.BeerList;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/vol")
-public class VolApiController {
+@RequestMapping("/api/beerlist")
+public class BeerListApiController {
+    
     @Autowired
-    private IVolDaoJpaRepository daoVol;
-    @Autowired
-    private ISautDaoJpaRepository daoSaut;
-
-    @JsonView(Views.Vol.class)
+    private IBeerListDaoJpaRepository daoBeerList;
+    
+    @JsonView(Views.BeerList.class)
     @GetMapping
-    public List<Vol> findAll(){
-        return this.daoVol.findAll();
-    }
-
-    @GetMapping("/etat")
-    public Etat[] findEtats(){
-        return Etat.values();
+    public List<BeerList> findAll(){
+        return this.daoBeerList.findAll();
     }
 
     @PostMapping
-    public boolean add(@RequestBody Vol vol){
+    public boolean add(@RequestBody BeerList beerlist){
+
         try {
-            Vol v = this.daoVol.save(vol);
-            List<Saut> vSaut = v.getSauts();
-            for (int i=0; i< vSaut.size(); i++) {
-                Saut saut = this.daoSaut.findById(vSaut.get(i).getId()).get() ;
-                saut.setVol(v);
-                this.daoSaut.save(saut);
-            }
+            this.daoBeerList.save(beerlist);
             return true;
         }
         catch (Exception e){
@@ -60,9 +45,9 @@ public class VolApiController {
     }
 
     @PutMapping("/{id}")
-    public boolean put(@PathVariable int id, @RequestBody Vol vol){
+    public boolean put(@PathVariable int id, @RequestBody BeerList beerlist){
         try {
-            this.daoVol.save(vol);
+            this.daoBeerList.save(beerlist);
             return true;
         }
         catch (Exception e){
@@ -73,12 +58,11 @@ public class VolApiController {
     @DeleteMapping("/{id}")
     public boolean deleteById(@PathVariable int id){
         try {
-            this.daoVol.deleteById(id);
+            this.daoBeerList.deleteById(id);
             return true;
         }
         catch (Exception e){
             return false;
         }
     }
-
 }

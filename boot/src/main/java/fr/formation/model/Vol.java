@@ -56,6 +56,14 @@ public class Vol {
 	@JsonView(Views.Vol.class)
 	private List<Saut> sauts;
 
+	public List<Saut> getSauts() {
+		return sauts;
+	}
+
+	public void setSauts(List<Saut> sauts) {
+		this.sauts = sauts;
+	}
+
 	public int getId() {
 		return id;
 	}

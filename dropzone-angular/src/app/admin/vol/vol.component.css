@@ -30,9 +30,10 @@ padding-bottom: 13%;
 }
 
 h1{
-    padding-top: 8%;
+  padding-top: 8%;
+  padding-left: 43%;
 }
-  
+
   #boutonModifier {
       background: #BDB76B;
       color: black;

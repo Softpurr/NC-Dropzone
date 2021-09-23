@@ -9,11 +9,12 @@
                 <th>Avion</th>
                 <th>Pilote</th>
                 <th>Responsable</th>
+                <th>Sauts</th>
             </tr>
         </thead>
         <tbody>
             <tr id="addAvion">
-                <td><input type="text" [(ngModel)]="formVol.nombreSaut"></td>
+                <td></td>
                 <td><select [(ngModel)]="formVol.etat">
                     <option *ngFor="let e of etats | async" value="{{e}}">{{ e }}</option>
                 </select></td>
@@ -26,15 +27,20 @@
                 <td><select [(ngModel)]="formVol.responsable">
                     <option *ngFor="let r of responsables | async" value="{{r.id}}">{{ r.nomParachutiste }}</option>
                 </select></td>
+                <td><select [(ngModel)]="formVol.sauts" multiple>
+                    <option></option>
+                    <option [value]="{ id: s.id }"  *ngFor="let s of sauts | async">{{ s.id }}</option>
+                </select></td>
                 <td><button (click)="ajouterVol()" class="btn btn-info" id="boutonAjouter">Ajouter</button></td>
                 <td><button (click)="modifierVol()" *ngIf="modification" class="btn btn-warning" id="boutonModifier">Modifier</button></td>
             </tr>
             <tr *ngFor="let v of vols | async">
                 <td>{{ v.nombreSaut }}</td>
                 <td>{{ v.etat }}</td>
-                <td>{{ v.avion.id }}</td>
-                <td>{{ v.pilote.id }}</td>
-                <td>{{ v.responsable.id }}</td>
+                <td>{{ v.avion.nomAvion }}</td>
+                <td>{{ v.pilote.nomPilote }}</td>
+                <td>{{ v.responsable.nomParachutiste }}</td>
+                <td><span *ngFor="let s of v.sauts">{{ s.id }}</span></td>
                 <td><button (click)="supprimerVol(v)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button></td>
             <td><button (click)="editerVol(v)" class="btn btn-warning" id="boutonEditer">Editer</button></td>
             </tr>

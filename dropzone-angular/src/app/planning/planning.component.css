@@ -5,6 +5,7 @@
     background-color: aquamarine;
 }
 #planning table {
+<<<<<<< HEAD
     background-color: beige;
 }
 .left, .right {
@@ -13,4 +14,8 @@
 }
 .right {
     padding-left: 5%;
+=======
+    background-color: white;
+    opacity: 83%;
+>>>>>>> manon
 }

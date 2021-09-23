@@ -66,6 +66,7 @@ public class ParachutisteApiController {
         return this.daoParachutiste.findByLicence(licence);
     }
 
+    @JsonView(Views.Parachutiste.class)
     @GetMapping("/confirme")
     public List<Parachutiste> findConfirme() {
         return this.daoParachutiste.findByIsConfirme(true);
@@ -82,6 +83,7 @@ public class ParachutisteApiController {
             for (int i=0; i< parachutePossede.size(); i++) {
                 Parachute para = this.daoParachute.findById(parachutePossede.get(i).getId()).get() ;
                 para.setParachutiste(p);
+                para.setPerso(true);
                 this.daoParachute.save(para);
             }
             

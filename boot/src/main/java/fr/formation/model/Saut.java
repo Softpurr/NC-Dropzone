@@ -49,6 +49,14 @@ public class Saut {
 	@JsonView(Views.Saut.class)
 	private Vol vol;
 
+	public Vol getVol() {
+		return vol;
+	}
+
+	public void setVol(Vol vol) {
+		this.vol = vol;
+	}
+
 	public int getId() {
 		return id;
 	}
