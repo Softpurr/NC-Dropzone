@@ -24,4 +24,7 @@ public interface Views {
 
     public static interface Etat extends Commons {
     }
+
+    public static interface BeerList extends Commons {
+    }
 }

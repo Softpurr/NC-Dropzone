@@ -1,0 +1,29 @@
+<h1>Ils doivent payer leur tournée !</h1>
+
+<div>
+    <table class="table table-striped" id="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Numéro de Licence</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr id="addBeerList">
+                <td><select id="parachutistes" [(ngModel)]="formBeerList.parachutiste">
+                    <option value="{ id: parachutiste.id }" *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }} {{ p.numLicence }}</option>
+                </select></td>
+                 <td><button (click)="ajouterBeerList()" class="btn btn-info">Ajouter</button></td>
+            </tr>
+
+            <tr *ngFor="let b of beerList | async">
+                <td>{{ b.parachutiste.nomParachutiste }}</td>
+                <td>{{ b.parachutiste.prenomParachutiste }}</td>
+                <td>{{ b.parachutiste.numLicence }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>

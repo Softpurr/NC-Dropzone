@@ -20,6 +20,7 @@ import { OuiNonPipe } from './oui-non.pipe';
 
 
 import { ModalComponent } from './modal/modal.component';
+import { BeerlistComponent } from './beerlist/beerlist.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ModalComponent } from './modal/modal.component';
     EnregistrementComponent,
     PlanningComponent,
     ModalComponent,
-    OuiNonPipe
+    OuiNonPipe,
+    BeerlistComponent
   ],
   imports: [
     BrowserModule,
