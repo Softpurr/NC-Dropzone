@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.formation.dao.IParachuteDaoJpaRepository;
 import fr.formation.dao.IParachutisteDaoJpaRepository;
+import fr.formation.model.Parachute;
 import fr.formation.model.Parachutiste;
 
 @RestController
@@ -24,6 +26,9 @@ import fr.formation.model.Parachutiste;
 public class ParachutisteApiController {
     @Autowired
     private IParachutisteDaoJpaRepository daoParachutiste;
+
+    @Autowired
+    private IParachuteDaoJpaRepository daoParachute;
 
     @JsonView(Views.Parachutiste.class)
     @GetMapping
@@ -56,11 +61,19 @@ public class ParachutisteApiController {
     }
 
     @PostMapping
-    public boolean add(@RequestBody Parachutiste parachutiste) {
+    public boolean add( @RequestBody Parachutiste parachutiste) {
 
         try {
             
-            this.daoParachutiste.save(parachutiste);
+            Parachutiste p = this.daoParachutiste.save(parachutiste);
+            // System.out.println(parachutiste.getId());
+            List<Parachute> parachutePossede = p.getParachutes();
+            for (int i=0; i< parachutePossede.size(); i++) {
+                Parachute para = this.daoParachute.findById(parachutePossede.get(i).getId()).get() ;
+                para.setParachutiste(p);
+                this.daoParachute.save(para);
+            }
+            
             return true;
         } catch (Exception e) {
             

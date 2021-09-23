@@ -56,15 +56,9 @@ export class ParachutisteComponent implements OnInit {
 
   ajouterParachutiste() {
     this.srvParachutiste.add(this.formParachutiste).subscribe(this.refresh);
-    if (this.formParachutiste.parachutes !== null) {
-      this.srvParachutiste.findByNumLicence(this.formParachutiste.numLicence).subscribe(element => {
-        this.parachutisteId = element;
-        console.log(this.parachutisteId);
-      }
-      )
+   
 
     }
-  }
 
   editerParachutiste(parachutiste: any) {
     this.formParachutiste = parachutiste;
