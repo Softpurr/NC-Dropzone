@@ -21,9 +21,9 @@
                 <td><input type="date" [(ngModel)]="formParachutiste.dateLicence"></td>
                 <td><input type="text" [(ngModel)]="formParachutiste.isPratiquant"></td>
                 <td><input type="text" [(ngModel)]="formParachutiste.isConfirme"></td>
-                <td><select id="parachute" multiple>
+                <td><select id="parachute" multiple [(ngModel)]="formParachutiste.parachutes">
                     <option></option>
-                    <option *ngFor="let parachute of parachutes | async">{{ parachute.nomHarnais }}</option>
+                    <option *ngFor="let parachute of parachutesNonPossede | async">{{ parachute.nomHarnais }}</option>
                 </select></td>
                 <td><button (click)="ajouterParachutiste()">Ajouter</button>
                     <button (click)="modifierParachutiste()">Modifier</button></td>

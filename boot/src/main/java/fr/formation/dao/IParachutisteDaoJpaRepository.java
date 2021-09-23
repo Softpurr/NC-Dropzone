@@ -14,4 +14,6 @@ public interface IParachutisteDaoJpaRepository extends JpaRepository<Parachutist
     public List<Parachutiste> findBySaut(int id);
 
     public List<Parachutiste> findByIsConfirme(Boolean confirme);
+
+    public Parachutiste findByNumLicence(String num);
 }

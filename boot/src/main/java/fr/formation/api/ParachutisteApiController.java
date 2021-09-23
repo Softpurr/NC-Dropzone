@@ -32,6 +32,12 @@ public class ParachutisteApiController {
     }
 
     @JsonView(Views.Parachutiste.class)
+    @GetMapping("/by-parachutiste/{numLicence}")
+    public Parachutiste findByNumLicence(@PathVariable String numLicence) {
+        return this.daoParachutiste.findByNumLicence(numLicence);
+    }
+
+    @JsonView(Views.Parachutiste.class)
     @GetMapping("/by-nom/{nom}")
     public List<Parachutiste> findByNom(@PathVariable String nom) {
         return this.daoParachutiste.findByNom(nom);
@@ -52,11 +58,11 @@ public class ParachutisteApiController {
     public boolean add(@RequestBody Parachutiste parachutiste) {
 
         try {
-            System.out.println("Try");
+            
             this.daoParachutiste.save(parachutiste);
             return true;
         } catch (Exception e) {
-            System.out.println("catch");
+            
             return false;
         }
     }
