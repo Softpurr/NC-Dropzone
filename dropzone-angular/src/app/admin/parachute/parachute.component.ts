@@ -15,9 +15,11 @@ export class ParachuteComponent implements OnInit {
   isDispo: false, parachutiste:null, saut:null }
   modification: boolean = false;
   parachutistes: any = [];
+  securites: any = [];
 
   constructor(private srvParachute: ParachuteService, private srvParachutiste: ParachutisteService, private modalService: NgbModal) { 
     this.refresh();
+    this.securites = this.srvParachute.findSecurites();
   }
 
   ngOnInit(): void {
@@ -29,6 +31,7 @@ export class ParachuteComponent implements OnInit {
   }
 
   ajouterParachute() {
+    if (this.formParachute.parachutiste != null) this.formParachute.parachutiste = {id: this.formParachute.parachutiste};
     this.srvParachute.add(this.formParachute).subscribe(this.refresh);
   }
 
@@ -38,6 +41,7 @@ export class ParachuteComponent implements OnInit {
   }
 
   modifierParachute() {
+    if (this.formParachute.parachutiste != null) this.formParachute.parachutiste = {id: this.formParachute.parachutiste};
     this.srvParachute.update(this.formParachute).subscribe(this.refresh);
     this.formParachute = {nomHarnais: "" , nomVoilePrincipale:"", nomVoileSecours: "", tailleVoilePrincipale:0,
     tailleVoileSecours:0, datePliageVoileSecours: null, securite:null, isPerso: false, 

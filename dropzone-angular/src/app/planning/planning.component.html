@@ -1,1 +1,20 @@
-<h1>Planning</h1>
+<div id="planning">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id vol</th>
+                <th>Etat</th>
+                <th>Nom avion</th>
+                <th>Disponibilite</th>
+                <th>Parachutistes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let v of vols | async">
+                <td>{{ v.id }}</td>
+                <td>{{ v.etat }}</td>
+                <td>{{ v.avion.nomAvion }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

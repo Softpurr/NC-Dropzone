@@ -1,10 +1,26 @@
 div{
-    background-color: gray;
     padding-top: 4.6%;
     display: block;
     align-items: center;
 }
 
+#table{
+    background-color: gray;
+    opacity: 93%;
+}
+
 th{
     color: #BDB76B;
+}
+
+#boutonAjouter{
+    padding-bottom: 16%;
+    }
+    
+    #boutonModifier{
+    padding-bottom: 16%;
+        }
+
+h1{
+    padding-top: 8%;
 }

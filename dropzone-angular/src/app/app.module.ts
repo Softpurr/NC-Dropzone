@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EnregistrementComponent } from './enregistrement/enregistrement.component';
 import { PlanningComponent } from './planning/planning.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { OuiNonPipe } from './oui-non.pipe';
 
 
 import { ModalComponent } from './modal/modal.component';
@@ -34,6 +34,7 @@ import { ModalComponent } from './modal/modal.component';
     EnregistrementComponent,
     PlanningComponent,
     ModalComponent,
+    OuiNonPipe
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.formation.dao.IParachuteDaoJpaRepository;
 import fr.formation.model.Parachute;
+import fr.formation.model.Securite;
 
 
 @RestController
@@ -32,6 +33,18 @@ public class ParachuteApiController {
         return this.daoParachute.findAll();
     }
 
+    @JsonView(Views.Parachute.class)
+    @GetMapping("/securite")
+    public Securite[] findSecurites(){
+        return Securite.values();
+    }
+
+    @JsonView(Views.Parachute.class)
+    @GetMapping("/parachute-non-possede")
+    public List<Parachute> findAllByIsPersoFalse() {
+        return this.daoParachute.findAllByIsPersoFalse();
+    }
+
     @GetMapping("/by-parachutiste/{parachutisteId}")
     @JsonView(Views.Parachute.class)
     public List<Parachute> findAllByParachutisteId(@PathVariable int parachutisteId) {
@@ -40,7 +53,6 @@ public class ParachuteApiController {
 
     @PostMapping
     public boolean add(@RequestBody Parachute parachute){
-
         try {
             this.daoParachute.save(parachute);
             return true;

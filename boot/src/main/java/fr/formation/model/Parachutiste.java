@@ -28,7 +28,7 @@ public class Parachutiste {
 	private int id;
 
 	@Column(name = "PARACHUTISTE_NOM", length = 150, nullable = false)
-    @JsonView(Views.Parachutiste.class)
+    @JsonView(Views.Commons.class)
 	private String nomParachutiste;
 	
 	@Column(name = "PARACHUTISTE_PRENOM", length = 50, nullable = false)
@@ -62,8 +62,8 @@ public class Parachutiste {
 	@JoinColumn(name = "SAUT_ID")
 	private Saut saut;
 
-	@OneToOne(mappedBy = "responsable")
-	private Vol vol;
+	@OneToMany(mappedBy = "responsable")
+	private List<Vol> vol;
 
 	public int getId() {
 		return id;
@@ -145,11 +145,11 @@ public class Parachutiste {
 		this.saut = saut;
 	}
 
-	public Vol getVol() {
+	public List<Vol> getVol() {
 		return vol;
 	}
 
-	public void setVol(Vol vol) {
+	public void setVol(List<Vol> vol) {
 		this.vol = vol;
 	}
 }

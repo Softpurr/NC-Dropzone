@@ -19,6 +19,10 @@ export class ParachutisteService {
     return this.http.get(`${this.apiUrl}/confirme`)
   }
 
+  findByNumLicence(numLicence: String) {
+    return this.http.get(`${this.apiUrl}/by-parachutiste/${numLicence}`)
+  }
+
   findByNom(nom: String) {
     return this.http.get(`${this.apiUrl}/by-nom/${nom}`);
   }
@@ -28,7 +32,6 @@ export class ParachutisteService {
   }
 
   add(parachutiste: any) {
-    console.log(parachutiste);
     return this.http.post(this.apiUrl, parachutiste);
   }
 

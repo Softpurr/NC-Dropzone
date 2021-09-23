@@ -1,5 +1,7 @@
+<h1>Liste de parachutes</h1>
+
 <div>
-    <table class="table table-striped">
+    <table class="table table-striped" id="table">
         <thead>
             <tr>
                 <th>Nom harnais</th>
@@ -22,18 +24,17 @@
                 <td><input type="text" [(ngModel)]="formParachute.nomVoileSecours"></td>
                 <td><input type="text" [(ngModel)]="formParachute.tailleVoilePrincipale"></td>
                 <td><input type="text" [(ngModel)]="formParachute.tailleVoileSecours"></td>
-                <td><input type="text" [(ngModel)]="formParachute.datePliageVoileSecours"></td>
-                <td><input type="text" [(ngModel)]="formParachute.securite"></td>
-                <td><label for="truePerso">True</label><input type="radio" name="truePerso" value="true" [(ngModel)]="formParachute.isPerso">
-                    <label for="falsePerso">False</label><input type="radio" name="falsePerso" value="false" [(ngModel)]="formParachute.isPerso"></td>
-                <td>
-                    <label for="trueDispo">True</label><input type="radio" name="trueDispo" value="true" [(ngModel)]="formParachute.isDispo">
-                    <label for="falseDispo">False</label><input type="radio" name="falseDispo" value="false" [(ngModel)]="formParachute.isDispo"></td>
-                    <td><select>
+                <td><input type="date" [(ngModel)]="formParachute.datePliageVoileSecours"></td>
+                <td><select [(ngModel)]="formParachute.securite">
+                    <option *ngFor="let s of securites | async" value="{{s}}">{{ s }}</option>
+                </select></td>
+                <td><input type="checkbox" [(ngModel)]="formParachute.isPerso"></td>
+                <td><input type="checkbox" [(ngModel)]="formParachute.isDispo"></td>
+                    <td><select  [(ngModel)]="formParachute.parachutiste">
                         <option></option>
-                        <option *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }}</option>
+                        <option *ngFor="let p of parachutistes | async" value="{{p.id}}">{{ p.nomParachutiste }}</option>
                     </select></td>
-                <td><button (click)="ajouterParachute()" class="btn btn-info">Ajouter</button>
+                <td><button (click)="ajouterParachute()" id="boutonAjouter" class="btn btn-info">Ajouter</button>
                     <button (click)="modifierParachute()" class="btn btn-warning" *ngIf="modification">Modifier</button></td>
             </tr>
             <tr *ngFor="let p of parachutes | async">
@@ -44,9 +45,9 @@
                 <td>{{ p.tailleVoileSecours }}</td>
                 <td>{{ p.datePliageVoileSecours }}</td>
                 <td>{{ p.securite }}</td>
-                <td>{{ p.isPerso }}</td>
-                <td>{{ p.isDispo }}</td>
-                <td>{{ p.proprietaire }}</td>
+                <td>{{ p.isPerso | ouiNon }}</td>
+                <td>{{ p.isDispo | ouiNon }}</td>
+                <td><span *ngIf=" p.parachutiste != null ">{{ p.parachutiste.nomParachutiste }}</span></td>
                 <td><button (click)="supprimerParachute(p)" class="btn btn-danger">Supprimer</button>
                 <button (click)="editerParachute(p)" class="btn btn-warning">Editer</button></td>
             </tr>

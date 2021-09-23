@@ -1,7 +1,7 @@
-<h1>Saut</h1>
+<h1>Liste des sauts</h1>
 
 <div>
-    <table class="table table-striped">
+    <table class="table table-striped" id="table">
         <thead>
             <tr>
                 <th>Hauteur</th>
@@ -29,8 +29,10 @@
                     </select>
                 </td>
                 <td>
-                    <button *ngIf="!isEdition" (click)="ajouterSaut()">Ajouter</button>
-                    <button *ngIf="isEdition" (click)="modifierSaut()">Modifier</button>
+                    <button *ngIf="!isEdition" (click)="ajouterSaut()" class="btn btn-info"
+                        id="boutonAjouter">Ajouter</button>
+                    <button *ngIf="isEdition" (click)="modifierSaut()" class="btn btn-warning"
+                        id="boutonModifier">Modifier</button>
                 </td>
             </tr>
             <tr *ngFor="let s of sauts | async">
@@ -40,8 +42,8 @@
                     <p *ngFor="let p of s.parachutistes">{{ p.numLicence }}</p>
                 </td>
                 <td>
-                    <button (click)="supprimerSaut(s)" class="btn btn-danger">Supprimer</button>
-                    <button (click)="editerSaut(s)" class="btn btn-warning">Editer</button>
+                    <button (click)="supprimerSaut(s)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button>
+                    <button (click)="editerSaut(s)" class="btn btn-warning" id="boutonEditer">Editer</button>
                 </td>
             </tr>
         </tbody>

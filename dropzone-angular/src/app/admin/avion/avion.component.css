@@ -1,10 +1,34 @@
 div{
-    background-color: gray;
     padding-top: 4.6%;
     display: block;
     align-items: center;
 }
 
+#table{
+    background-color: gray;
+    opacity: 93%;
+}
+
 th{
     color: #BDB76B;
+}
+
+h1{
+    padding-top: 8%;
+}
+
+#boutonAjouter{
+padding-bottom: 10%;
+}
+
+#boutonModifier{
+padding-bottom: 10%;
+    }
+
+#boutonSupprimer{
+padding-bottom: 10%;
+}
+
+#boutonEditer{
+padding-bottom: 10%;
 }

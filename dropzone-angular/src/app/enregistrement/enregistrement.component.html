@@ -1,6 +1,4 @@
-<div>
-    <h1>Enregistrement</h1>
-</div>
+<h1>Enregistrement</h1>
 
 <div id="formulaire">
     <div>
@@ -9,7 +7,7 @@
     </div>
 
     <div>
-        <button (click)="rechercherParachutiste(parachutiste.nomParachutiste)">RECHERCHER</button>
+        <button (click)="rechercherParachutiste(parachutiste.nomParachutiste)" class="btn btn-info" id="bontonEnregistrer">ENREGISTRER</button>
     </div>
 </div>
 
@@ -36,7 +34,7 @@
                     </select>
                 </td> -->
                 <td *ngIf="p.isPratiquant">
-                    <button (click)="ajouterParachutiste(p)">AJOUTER</button>
+                    <button (click)="ajouterParachutiste(p)"  id="bontonSelectionner">AJOUTER</button>
                 </td>
             </tr>
         </tbody>
