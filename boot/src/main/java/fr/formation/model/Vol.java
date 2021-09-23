@@ -44,7 +44,7 @@ public class Vol {
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "VOL_ETAT", nullable = false)
-    @JsonView(Views.Vol.class)
+    @JsonView(Views.Commons.class)
 	private Etat etat;
 
 	@ManyToOne

@@ -5,7 +5,6 @@
                 <th>Id vol</th>
                 <th>Etat</th>
                 <th>Nom avion</th>
-                <th>Disponibilite</th>
                 <th>Parachutistes</th>
             </tr>
         </thead>
@@ -14,6 +13,7 @@
                 <td>{{ v.id }}</td>
                 <td>{{ v.etat }}</td>
                 <td>{{ v.avion.nomAvion }}</td>
+                <td *ngFor="let s of v.sauts"><span *ngFor="let p of parachutistes">{{ p.nomParachutiste }}</span></td>
             </tr>
         </tbody>
     </table>
