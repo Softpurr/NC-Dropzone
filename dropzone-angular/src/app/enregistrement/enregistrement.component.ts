@@ -9,6 +9,7 @@ import { SautService } from '../saut.service';
   styleUrls: ['./enregistrement.component.css']
 })
 export class EnregistrementComponent implements OnInit {
+  isRecherche = false;
   isParachutiste = false;
   isEnregistre = false;
 
@@ -46,6 +47,7 @@ export class EnregistrementComponent implements OnInit {
     this.parachutistesByNom = this.srvParachutiste.findByNom(nom).subscribe(p => {
       this.parachutistesByNom = p;
     });
+    this.isRecherche = true;
   }
 
   ajouterParachutiste(parachutiste: any) {
