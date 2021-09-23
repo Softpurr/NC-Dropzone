@@ -6,7 +6,7 @@ div{
 
 p{
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     background-color: gray;
 }
     
@@ -17,12 +17,27 @@ label{
 #formulaire{
     padding-top: 50px;
     background-color: white;
-    padding-left: 45%;
     display: block;
     align-items: center;
     color: #BDB76B;
     opacity: 80%;
     padding-bottom: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#nom{
+    padding-left: 40%;
+}
+
+th{
+    padding-left: 14.5%;
+}
+
+#hauteur{
+    padding-left: 48%;
+
+    color: #BDB76B;
 }
 
 #table{
@@ -30,12 +45,20 @@ label{
     color: #BDB76B;
 }
 
+h2{
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: white;
+    opacity: 80%;
+    padding-left: 18%;
+}
+
 #bontonEnregistrer{
-    padding-bottom: 5%;
+    padding-bottom: 8%;
 }
 
 #enregistrer{
-    padding-left: 5%;
+    padding-left: 44%;
 }
 
 #bontonSelectionner{
@@ -44,6 +67,7 @@ label{
 
 h1{
     padding-top: 8%;
+    padding-left: 43.5%;
 }
 
 #table{
