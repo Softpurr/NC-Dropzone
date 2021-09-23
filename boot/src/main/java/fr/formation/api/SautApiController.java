@@ -1,5 +1,6 @@
 package fr.formation.api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -20,7 +21,6 @@ import fr.formation.model.Hauteur;
 import fr.formation.model.Saut;
 import fr.formation.model.TypeSaut;
 
-
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/saut")
@@ -30,50 +30,52 @@ public class SautApiController {
 
     @JsonView(Views.Saut.class)
     @GetMapping
-    public List<Saut> findAll(){
+    public List<Saut> findAll() {
         return this.daoSaut.findAll();
     }
 
     @GetMapping("/hauteur")
-    public Hauteur[] findHauteur(){
-        return Hauteur.values();
+    public List<Integer> findHauteur(){
+        List<Integer> listeHauteurs = new ArrayList<Integer>();
+
+        for(Hauteur h : Hauteur.values()) {
+            listeHauteurs.add(h.getInt());
+        }
+
+        return listeHauteurs;
     }
 
     @GetMapping("/type")
-    public TypeSaut[] findTypes(){
+    public TypeSaut[] findTypes() {
         return TypeSaut.values();
     }
 
     @PostMapping
-    public boolean add(@RequestBody Saut saut){
-
+    public boolean add(@RequestBody Saut saut) {
         try {
             this.daoSaut.save(saut);
             return true;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     @PutMapping("/{id}")
-    public boolean put(@PathVariable int id, @RequestBody Saut saut){
+    public boolean put(@PathVariable int id, @RequestBody Saut saut) {
         try {
             this.daoSaut.save(saut);
             return true;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     @DeleteMapping("/{id}")
-    public boolean deleteById(@PathVariable int id){
+    public boolean deleteById(@PathVariable int id) {
         try {
             this.daoSaut.deleteById(id);
             return true;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }

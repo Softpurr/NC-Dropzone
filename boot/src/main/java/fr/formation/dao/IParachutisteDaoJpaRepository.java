@@ -13,5 +13,8 @@ public interface IParachutisteDaoJpaRepository extends JpaRepository<Parachutist
 
     public List<Parachutiste> findBySaut(int id);
 
+    @Query("select p from Parachutiste p where Lower(p.numLicence) like Lower(?1)")
+    public List<Parachutiste> findByLicence(String licence);
+
     public List<Parachutiste> findByIsConfirme(Boolean confirme);
 }

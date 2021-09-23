@@ -4,8 +4,17 @@ div{
     align-items: center;
 }
 
+p{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: gray;
+}
+
 #formulaire{
+    padding-top: 50px;
     padding-left: 45%;
+    display: block;
+    align-items: center;
     color: #BDB76B;
 }
 

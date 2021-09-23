@@ -6,8 +6,11 @@
             <tr>
                 <th>Hauteur</th>
                 <th>Type</th>
+                <th>Parachutistes</th>
+                <th></th>
             </tr>
         </thead>
+
         <tbody>
             <tr>
                 <td>
@@ -21,6 +24,11 @@
                     </select>
                 </td>
                 <td>
+                    <select multiple [(ngModel)]="formSaut.parachutistes">
+                        <option *ngFor="let p of parachutistes | async" value="{{ p }}">{{ p.numLicence }}</option>
+                    </select>
+                </td>
+                <td>
                     <button *ngIf="!isEdition" (click)="ajouterSaut()">Ajouter</button>
                     <button *ngIf="isEdition" (click)="modifierSaut()">Modifier</button>
                 </td>
@@ -28,6 +36,9 @@
             <tr *ngFor="let s of sauts | async">
                 <td>{{ s.hauteur }}</td>
                 <td>{{ s.typeSaut }}</td>
+                <td>
+                    <p *ngFor="let p of s.parachutistes">{{ p.numLicence }}</p>
+                </td>
                 <td>
                     <button (click)="supprimerSaut(s)" class="btn btn-danger">Supprimer</button>
                     <button (click)="editerSaut(s)" class="btn btn-warning">Editer</button>

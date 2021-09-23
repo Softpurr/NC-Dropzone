@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,17 +26,16 @@ public class Saut {
     @JsonView(Views.Commons.class)
 	private int id;
 
-	@Enumerated(EnumType.ORDINAL)
     @Column(name = "SAUT_HAUTEUR", nullable = false)
     @JsonView(Views.Saut.class)
-	private Hauteur hauteur;
+	private int hauteur;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "SAUT_TYPE_SAUT", nullable = false)
     @JsonView(Views.Saut.class)
 	private TypeSaut typeSaut;
 	
-	@OneToMany(mappedBy = "saut")
+	@ManyToMany(mappedBy = "saut")
 	private List<Parachutiste> parachutistes;
 
     @OneToMany(mappedBy = "saut")
@@ -49,11 +49,11 @@ public class Saut {
 		this.id = id;
 	}
 
-	public Hauteur getHauteur() {
+	public int getHauteur() {
 		return hauteur;
 	}
 
-	public void setHauteur(Hauteur hauteur) {
+	public void setHauteur(int hauteur) {
 		this.hauteur = hauteur;
 	}
 
