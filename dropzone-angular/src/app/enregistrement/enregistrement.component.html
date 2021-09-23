@@ -3,7 +3,7 @@
 </div>
 
 <div id="formulaire">
-    <div>
+    <div id="texte">
         <div>
             <label>Nom : </label>
             <input type="text" [(ngModel)]="parachutiste.nomParachutiste" />
@@ -25,7 +25,7 @@
     </div>
 
     <div>
-        <button (click)="rechercherParachutiste(parachutiste.nomParachutiste)">ENREGISTRER</button>
+        <button (click)="rechercherParachutiste(parachutiste.nomParachutiste)" class="btn btn-info" id="bontonEnregistrer">ENREGISTRER</button>
     </div>
 </div>
 
@@ -47,7 +47,7 @@
                 <td>{{ p.nomParachutiste }}</td>
                 <td>{{ p.numLicence }}</td>
                 <td>
-                    <button (click)="enregistrerParachutiste(p)">SELECTIONNER</button>
+                    <button (click)="enregistrerParachutiste(p)" id="bontonSelectionner">SELECTIONNER</button>
                 </td>
             </tr>
         </tbody>
@@ -80,7 +80,7 @@
                         </select>
                     </td>
                     <td>
-                        <button (click)="enregistrerParachutiste(p)">SELECTIONNER</button>
+                        <button (click)="enregistrerParachutiste(p)" id="bontonSelectionner">SELECTIONNER</button>
                     </td>
                 </tr>
             </tbody>

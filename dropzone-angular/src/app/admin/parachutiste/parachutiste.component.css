@@ -8,3 +8,11 @@ div{
 th{
     color: #BDB76B;
 }
+
+#boutonAjouter{
+    padding-bottom: 16%;
+    }
+    
+    #boutonModifier{
+    padding-bottom: 16%;
+        }

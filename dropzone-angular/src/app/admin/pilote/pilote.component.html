@@ -12,15 +12,20 @@
                 <td><input type="text" [(ngModel)]="formPilote.nomPilote"></td>
                 <td><input type="text" [(ngModel)]="formPilote.prenomPilote"></td>
                 <td><input type="text" [(ngModel)]="formPilote.numLicence"></td>
+<<<<<<< HEAD
                 <td><button (click)="ajouterPilote()" class="btn btn-info">Ajouter</button>
                     <button (click)="modifierPilote()" class="btn btn-warning">Modifier</button></td>
+=======
+                <td><button (click)="ajouterPilote()" class="btn btn-info" id="boutonAjouter">Ajouter</button>
+                    <button (click)="modifierPilote()" class="btn btn-warning" id="boutonModifier">Modifier</button></td>
+>>>>>>> manon
             </tr>
             <tr *ngFor="let p of pilotes | async">
                 <td>{{ p.nomPilote }}</td>
                 <td>{{ p.prenomPilote }}</td>
                 <td>{{ p.numLicence }}</td>
-                <td><button (click)="supprimerPilote(p)" class="btn btn-danger">Supprimer</button>
-                <button (click)="editerPilote(p)" class="btn btn-warning">Editer</button></td>
+                <td><button (click)="supprimerPilote(p)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button>
+                <button (click)="editerPilote(p)" class="btn btn-warning" id="boutonEditer">Editer</button></td>
             </tr>
         </tbody>
     </table>
