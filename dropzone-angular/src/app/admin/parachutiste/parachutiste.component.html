@@ -23,7 +23,7 @@
                 <td><input type="checkbox" [(ngModel)]="formParachutiste.isConfirme"></td>
                 <td><select id="parachute" multiple [(ngModel)]="formParachutiste.parachutes">
                     <option></option>
-                    <option *ngFor="let parachute of parachutesNonPossede | async">{{ parachute.nomHarnais }}</option>
+                    <option [value]="{ id: parachute.id }" *ngFor="let parachute of parachutesNonPossede | async">{{ parachute.nomHarnais }}</option>
                 </select></td>
                 <td><button (click)="ajouterParachutiste()"  class="btn btn-info" id="boutonAjouter">Ajouter</button>
                     <button (click)="modifierParachutiste()"  class="btn btn-warning" id="boutonModifier">Modifier</button></td>
