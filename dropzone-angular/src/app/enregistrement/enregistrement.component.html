@@ -1,4 +1,4 @@
-<h1>Enregistrement</h1>
+<!-- <h1>Enregistrement</h1>
 
 <div id="formulaire">
     <div id="nom">
@@ -20,7 +20,7 @@
                     <th>Prenom</th>
                     <th>Nom</th>
                     <th>Licence</th>
-                    <!-- <th>Parachute</th> -->
+                   
                     <th></th>
                 </tr>
             </thead>
@@ -30,11 +30,7 @@
                     <td *ngIf="p.isPratiquant">{{ p.prenomParachutiste }}</td>
                     <td *ngIf="p.isPratiquant">{{ p.nomParachutiste }}</td>
                     <td *ngIf="p.isPratiquant">{{ p.numLicence }}</td>
-                    <!-- <td *ngIf="p.isPratiquant">
-                    <select class="form-select" [(ngModel)]="parachute">
-                        <option *ngFor="let p of parachutes | async" value="{{ p }}">{{ p.nomHarnais }}</option>
-                    </select>
-                </td> -->
+                   
                     <td *ngIf="p.isPratiquant">
                         <button (click)="ajouterParachutiste(p)" id="bontonSelectionner">AJOUTER</button>
                     </td>
@@ -60,8 +56,7 @@
                     <button (click)="ajouterParachutiste(p)"  id="bontonSelectionner">AJOUTER</button>
                 </td>
             </tr>
-        </tbody>
-    </table>
+
 </div>
 
 <div>
@@ -99,4 +94,4 @@
             </tbody>
         </table>
     </div>
-</div>
+</div> -->
