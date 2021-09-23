@@ -21,8 +21,8 @@
                     </select>
                 </td>
                 <td>
-                    <button *ngIf="!isEdition" (click)="ajouterSaut()">Ajouter</button>
-                    <button *ngIf="isEdition" (click)="modifierSaut()">Modifier</button>
+                    <button (click)="ajouterSaut()"  class="btn btn-info">Ajouter</button>
+                    <button *ngIf="isEdition" (click)="modifierSaut()" class="btn btn-warning">Modifier</button>
                 </td>
             </tr>
             <tr *ngFor="let s of sauts | async">

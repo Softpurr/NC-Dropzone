@@ -46,7 +46,6 @@ public class ParachuteApiController {
 
     @PostMapping
     public boolean add(@RequestBody Parachute parachute){
-
         try {
             this.daoParachute.save(parachute);
             return true;
