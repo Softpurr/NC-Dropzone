@@ -13,8 +13,10 @@ import { ParachutisteService } from 'src/app/parachutiste.service';
 export class ParachutisteComponent implements OnInit {
   parachutistes: any = [];
   parachutiste: any = {};
+  parachutisteId: any = {};
 
   parachutesPossede: any = [];
+  parachutesNonPossede: any = [];
   parachutesLibre: any = [];
   parachutes: any = [];
   
@@ -25,10 +27,15 @@ export class ParachutisteComponent implements OnInit {
     isConfirme: false, parachutes: null, saut: null, vol: null
   };
 
+  formParachute = { id: 0, nomHarnais: "" , nomVoilePrincipale:"", nomVoileSecours: "", tailleVoilePrincipale:0,
+  tailleVoileSecours:0, datePliageVoileSecours: null, securite:null, isPerso: false, 
+  isDispo: false, parachutiste:null, saut:null }
+
   constructor(private srvParachutiste: ParachutisteService, private srvParachute: ParachuteService) {
     this.refresh();
 
     this.parachutes = this.srvParachute.findAll();
+    this.parachutesNonPossede = this.srvParachute.findAllIsPersoFalse();
   }
 
   ngOnInit(): void {
@@ -47,6 +54,10 @@ export class ParachutisteComponent implements OnInit {
 
   ajouterParachutiste() {
     this.srvParachutiste.add(this.formParachutiste).subscribe(this.refresh);
+    // if (this.formParachutiste.parachutes !== null){
+    //   this.srvParachutiste.findByNumLicence(this.formParachutiste.numLicence).subscribe(element => this.parachutisteId = element)
+    //   console.log(this.parachutisteId);
+    // }
   }
 
   editerParachutiste(parachutiste: any) {
