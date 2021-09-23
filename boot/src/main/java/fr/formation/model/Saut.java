@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -36,10 +38,17 @@ public class Saut {
 	private TypeSaut typeSaut;
 	
 	@OneToMany(mappedBy = "saut")
+	@JsonView(Views.Saut.class)
 	private List<Parachutiste> parachutistes;
 
     @OneToMany(mappedBy = "saut")
+	@JsonView(Views.Saut.class)
 	private List<Parachute> parachutes;
+
+	@ManyToOne
+	@JoinColumn(name = "SAUT_VOL_ID")
+	@JsonView(Views.Saut.class)
+	private Vol vol;
 
 	public int getId() {
 		return id;

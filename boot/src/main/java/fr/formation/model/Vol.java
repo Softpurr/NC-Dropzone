@@ -1,5 +1,7 @@
 package fr.formation.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -48,6 +51,10 @@ public class Vol {
 	@JoinColumn(name = "VOL_RESPONSABLE_ID")
 	@JsonView(Views.Vol.class)
 	private Parachutiste responsable;
+
+	@OneToMany(mappedBy="vols")
+	@JsonView(Views.Vol.class)
+	private List<Saut> sauts;
 
 	public int getId() {
 		return id;
