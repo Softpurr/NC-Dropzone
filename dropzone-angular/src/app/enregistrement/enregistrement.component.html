@@ -35,7 +35,6 @@
                         <option *ngFor="let p of parachutes | async" value="{{ p }}">{{ p.nomHarnais }}</option>
                     </select>
                 </td> -->
-<<<<<<< HEAD
                     <td *ngIf="p.isPratiquant">
                         <button (click)="ajouterParachutiste(p)" id="bontonSelectionner">AJOUTER</button>
                     </td>
@@ -50,9 +49,9 @@
             <select [(ngModel)]="hauteur" (click)="calculCout()">
                 <option *ngFor="let h of hauteurs | async" value="{{ h }}">{{ h }}</option>
             </select>
-            <button *ngIf="isParachutiste && hauteur != 0" (click)="creerSaut()">ENREGISTRER</button>
+            <button *ngIf="isParachutiste && hauteur != 0" (click)="creerSaut()" id="bontonEnregistrer">ENREGISTRER</button>
         </div>
-=======
+            <tr>
                 <td *ngIf="p.isPratiquant">
                     <button (click)="ajouterParachutiste(p)"  id="bontonSelectionner">AJOUTER</button>
                 </td>
@@ -70,7 +69,6 @@
         </select>
     </div>
     <p *ngIf="!(hauteur == 0)">Votre saut - {{ hauteur }} m - {{ cout }} €</p>
->>>>>>> manon
 
         <p *ngIf="hauteur == 0">Votre saut - Sélectionnez une hauteur</p>
         <p *ngIf="!(hauteur == 0)">Votre saut - {{ hauteur }} m - {{ cout }} €</p>
