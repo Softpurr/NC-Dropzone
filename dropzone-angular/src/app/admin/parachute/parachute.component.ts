@@ -41,6 +41,7 @@ export class ParachuteComponent implements OnInit {
   }
 
   modifierParachute() {
+    if (this.formParachute.parachutiste != null) this.formParachute.parachutiste = {id: this.formParachute.parachutiste};
     this.srvParachute.update(this.formParachute).subscribe(this.refresh);
     this.formParachute = {nomHarnais: "" , nomVoilePrincipale:"", nomVoileSecours: "", tailleVoilePrincipale:0,
     tailleVoileSecours:0, datePliageVoileSecours: null, securite:null, isPerso: false, 
