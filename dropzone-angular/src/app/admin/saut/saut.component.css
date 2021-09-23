@@ -13,13 +13,14 @@ h1{
   padding-top: 8%;
   padding-left: 43%;
 }
+
 #table{
     background-color: gray;
     opacity: 93%;
 }
 
 #boutonAjouter{
-  padding-bottom: 8%;
+  padding-bottom: 9%;
   }
   
   #boutonModifier{

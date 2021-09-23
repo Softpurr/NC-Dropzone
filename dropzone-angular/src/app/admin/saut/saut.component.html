@@ -28,12 +28,6 @@
                         <option *ngFor="let p of parachutistes | async" [value]="{ id: p.id }">{{ p.prenomParachutiste }} {{ p.nomParachutiste }}</option>
                     </select>
                 </td>
-                <td>
-                    <button *ngIf="!isEdition" (click)="ajouterSaut()" class="btn btn-info"
-                        id="boutonAjouter">Ajouter</button>
-                    <button *ngIf="isEdition" (click)="modifierSaut()" class="btn btn-warning"
-                        id="boutonModifier">Modifier</button>
-                </td>
                 <td><button *ngIf="!isEdition" (click)="ajouterSaut()"   class="btn btn-info"id="boutonAjouter">Ajouter</button></td>
                 <td><button *ngIf="isEdition" (click)="modifierSaut()"  class="btn btn-warning" id="boutonModifier">Modifier</button></td>
             </tr>

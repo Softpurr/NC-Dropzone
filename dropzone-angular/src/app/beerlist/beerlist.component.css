@@ -1,0 +1,32 @@
+h1{
+    padding-top: 8%;
+    padding-left: 38%;
+  }
+
+#table{
+    background-color: gray;
+    opacity: 93%;
+}
+
+#boutonAjouter{
+    padding-bottom: 5.5%;
+
+}
+
+#blocBouton{
+    padding-left: 48%;
+}
+
+#boutonAjouter{
+    background: rgba(31, 26, 26, 0.95);
+    color: #BDB76B;
+    box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.95);
+    border: 1px solid #BDB76B;
+    transition: 0.3s all ease-in-out;
+}
+      
+#boutonAjouter:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 10px 5px black;
+}
+    
