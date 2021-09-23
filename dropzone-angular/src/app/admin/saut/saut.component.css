@@ -8,21 +8,6 @@ th{
     color: #BDB76B;
 }
 
-#boutonAjouter{
-    padding-bottom: 7%;
-    }
-
-#boutonModifier{
-padding-bottom: 7%;
-}
-
-#boutonSupprimer{
-padding-bottom: 7%;
-}
-
-#boutonEditer{
-padding-bottom: 7%;
-}
 
 h1{
     padding-top: 8%;
@@ -32,3 +17,72 @@ h1{
     background-color: gray;
     opacity: 93%;
 }
+
+#boutonAjouter{
+  padding-bottom: 8%;
+  }
+  
+  #boutonModifier{
+    padding-bottom: 8%;
+      }
+  
+  #boutonSupprimer{
+    padding-bottom: 9%;
+  }
+  
+  #boutonEditer{
+    padding-bottom: 9%;
+  }
+  
+  #boutonModifier {
+      background: #BDB76B;
+      color: black;
+      box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.95);
+      border: 1px solid #BDB76B;
+      transition: 0.3s all ease-in-out;
+    }
+    
+    #boutonModifier:hover {
+      background: rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 10px 5px black;
+    }
+  
+    #boutonAjouter{
+      background: rgba(31, 26, 26, 0.95);
+      color: #BDB76B;
+      box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.95);
+      border: 1px solid #BDB76B;
+      transition: 0.3s all ease-in-out;
+    }
+    
+    #boutonAjouter:hover {
+      background: rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 10px 5px black;
+    }
+  
+    #boutonSupprimer{
+      background: rgba(236, 221, 221, 0.2);
+      color: black;
+      box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.95);
+      border: 1px solid #BDB76B;
+      transition: 0.3s all ease-in-out;
+    }
+    
+    #boutonSupprimer:hover {
+      background: rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 10px 5px black;
+    }
+  
+    #boutonEditer{
+      background: white;
+      color: black;
+      box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.95);
+      border: 1px solid #BDB76B;
+      transition: 0.3s all ease-in-out;
+    }
+    
+    #boutonEditer:hover {
+      background: rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 10px 5px black;
+    }
+  

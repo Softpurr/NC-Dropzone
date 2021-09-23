@@ -9,6 +9,10 @@ p{
     padding-bottom: 10px;
     background-color: gray;
 }
+    
+label{
+    padding-right: 1%;
+}
 
 #formulaire{
     padding-top: 50px;
@@ -30,6 +34,10 @@ p{
     padding-bottom: 5%;
 }
 
+#enregistrer{
+    padding-left: 5%;
+}
+
 #bontonSelectionner{
     padding-bottom: 5%;
 }
@@ -42,3 +50,31 @@ h1{
     background-color: gray;
     opacity: 93%;
 }
+
+#bontonEnregistrer {
+    background: #BDB76B;
+    color: black;
+    box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.95);
+    border: 1px solid #BDB76B;
+    transition: 0.3s all ease-in-out;
+  }
+  
+  #bontonEnregistrer:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 5px black;
+  }
+
+  #bontonSelectionner{
+    background: rgba(31, 26, 26, 0.95);
+    color: #BDB76B;
+    box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.95);
+    border: 1px solid #BDB76B;
+    transition: 0.3s all ease-in-out;
+  }
+  
+  #boutonSelectionner:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.85);
+  }
+
+  

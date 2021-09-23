@@ -1,5 +1,5 @@
 <ng-template #content let-modal>
-	<div class="modal-header">
+	<div class="modal-header" id="tete">
 	  	<h4 class="modal-title" id="modal-basic-title">{{ titre }}</h4>
 		
 		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -12,6 +12,6 @@
 	</div>
 
 	<div class="modal-footer">
-	  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">OK</button>
+	  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" id="boutonOk">OK</button>
 	</div>
 </ng-template>
