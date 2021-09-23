@@ -15,8 +15,8 @@ export class ParachuteService {
     return this.http.get(this.apiUrl);
   }
 
-  findSecurites() {
-    return this.http.get(`${this.apiUrl}/securite`);
+  findAllIsPersoFalse() {
+    return this.http.get(`${this.apiUrl}/parachute-non-possede`);
   }
 
   findAllByParachutisteId(parachutiste: any) {

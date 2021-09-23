@@ -33,9 +33,10 @@ public class ParachuteApiController {
         return this.daoParachute.findAll();
     }
 
-    @GetMapping("/securite")
-    public Securite[] findSecurites(){
-        return Securite.values();
+    @JsonView(Views.Parachute.class)
+    @GetMapping("/parachute-non-possede")
+    public List<Parachute> findAllByIsPersoFalse() {
+        return this.daoParachute.findAllByIsPersoFalse();
     }
 
     @GetMapping("/by-parachutiste/{parachutisteId}")

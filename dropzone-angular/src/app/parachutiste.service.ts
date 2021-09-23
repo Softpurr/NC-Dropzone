@@ -19,6 +19,10 @@ export class ParachutisteService {
     return this.http.get(`${this.apiUrl}/confirme`)
   }
 
+  findByNumLicence(numLicence: String) {
+    return this.http.get(`${this.apiUrl}/by-parachutiste/${numLicence}`)
+  }
+
   findByNom(nom: String) {
     return this.http.get(`${this.apiUrl}/by-nom/${nom}`);
   }

@@ -9,5 +9,5 @@ import fr.formation.model.Parachute;
 public interface IParachuteDaoJpaRepository extends JpaRepository<Parachute, Integer>{
     
     public List<Parachute> findAllByParachutisteId(int id);
-
+    public List<Parachute> findAllByIsPersoFalse();
 }
