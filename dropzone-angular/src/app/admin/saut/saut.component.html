@@ -12,7 +12,7 @@
         </thead>
 
         <tbody>
-            <tr>
+            <tr id="select">
                 <td>
                     <select [(ngModel)]="formSaut.hauteur">
                         <option *ngFor="let h of hauteurs | async" value="{{ h }}">{{ h }}</option>
