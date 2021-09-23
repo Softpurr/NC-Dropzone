@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -32,27 +31,27 @@ public class Parachutiste {
 	private String nomParachutiste;
 	
 	@Column(name = "PARACHUTISTE_PRENOM", length = 50, nullable = false)
-    @JsonView(Views.Parachutiste.class)
+    @JsonView(Views.Commons.class)
 	private String prenomParachutiste;
 	
 	@Column(name = "PARACHUTISTE_NUMERO_LICENCE", length = 50 )
-    @JsonView(Views.Parachutiste.class)
+    @JsonView(Views.Commons.class)
 	private String numLicence;
 
     @Column(name = "PARACHUTISTE_DATE_LICENCE")
-    @JsonView(Views.Parachutiste.class)
+    @JsonView(Views.Commons.class)
 	private LocalDate dateLicence;
 	
 	@Column(name = "PARACHUTISTE_SAUT", nullable = false)
-    @JsonView(Views.Parachutiste.class)
+    @JsonView(Views.Commons.class)
 	private boolean isSaut;
 
     @Column(name = "PARACHUTISTE_PRATIQUANT", nullable = false)
-    @JsonView(Views.Parachutiste.class)
+    @JsonView(Views.Commons.class)
 	private boolean isPratiquant;
 
     @Column(name = "PARACHUTISTE_CONFIRME", nullable = false)
-    @JsonView(Views.Parachutiste.class)
+    @JsonView(Views.Commons.class)
 	private boolean isConfirme;
 
 	@OneToMany(mappedBy = "parachutiste")

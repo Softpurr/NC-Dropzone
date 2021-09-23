@@ -25,7 +25,7 @@
                 </td>
                 <td>
                     <select multiple [(ngModel)]="formSaut.parachutistes">
-                        <option *ngFor="let p of parachutistes | async" value="{{ p }}">{{ p.numLicence }}</option>
+                        <option *ngFor="let p of parachutistes | async" value="{{ p }}">{{ p.prenomParachutiste }} {{ p.nomParachutiste }}</option>
                     </select>
                 </td>
                 <td>
@@ -39,7 +39,7 @@
                 <td>{{ s.hauteur }}</td>
                 <td>{{ s.typeSaut }}</td>
                 <td>
-                    <p *ngFor="let p of s.parachutistes">{{ p.numLicence }}</p>
+                    <p *ngFor="let p of s.parachutistes">{{ p.prenomParachutiste }} {{ p.nomParachutiste }} - {{ p.numLicence }}</p>
                 </td>
                 <td>
                     <button (click)="supprimerSaut(s)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button>

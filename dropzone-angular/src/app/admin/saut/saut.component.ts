@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ParachuteService } from 'src/app/parachute.service';
 import { ParachutisteService } from 'src/app/parachutiste.service';
 import { SautService } from 'src/app/saut.service';
-import { VolService } from 'src/app/vol.service';
 
 @Component({
   selector: 'app-saut',
@@ -18,13 +16,15 @@ export class SautComponent implements OnInit {
   parachutistes: any = [];
 
   formSaut = {
-    hauteur: null, typeSaut: null, parachutes: null, parachutistes: null
+    hauteur: null,
+    typeSaut: null,
+    parachutistes: [],
   }
   sauts: any = [];
 
   refresh = () => this.sauts = this.srvSaut.findAll();
 
-  constructor(private srvSaut: SautService, private srvVol: VolService, private srvParachutiste: ParachutisteService, private srvParachute: ParachuteService) {
+  constructor(private srvSaut: SautService, private srvParachutiste: ParachutisteService) {
     this.parachutistes = srvParachutiste.findAll();
     this.hauteurs = srvSaut.findHauteurs();
     this.types = srvSaut.findTypes();
@@ -35,6 +35,10 @@ export class SautComponent implements OnInit {
   }
 
   ajouterSaut() {
+    for (let p of this.formSaut.parachutistes) {
+      console.log(p);
+    }
+
     this.srvSaut.add(this.formSaut).subscribe(this.refresh);
   }
 
@@ -44,12 +48,16 @@ export class SautComponent implements OnInit {
 
   editerSaut(saut: any) {
     this.isEdition = true;
-    this.formSaut = saut;
+    this.formSaut = { ...saut };
   }
 
   modifierSaut() {
     this.isEdition = false;
     this.srvSaut.update(this.formSaut).subscribe(this.refresh);
-    this.formSaut = { hauteur: null, typeSaut: null, parachutes: null, parachutistes: null };
+    this.formSaut = {
+      hauteur: null,
+      typeSaut: null,
+      parachutistes: [],
+    }
   }
 }
