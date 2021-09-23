@@ -52,7 +52,7 @@ public class Vol {
 	@JsonView(Views.Vol.class)
 	private Parachutiste responsable;
 
-	@OneToMany(mappedBy="vols")
+	@OneToMany(mappedBy="vol")
 	@JsonView(Views.Vol.class)
 	private List<Saut> sauts;
 
