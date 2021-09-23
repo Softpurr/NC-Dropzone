@@ -47,15 +47,9 @@
                 <td>{{ p.securite }}</td>
                 <td>{{ p.isPerso | ouiNon }}</td>
                 <td>{{ p.isDispo | ouiNon }}</td>
-<<<<<<< HEAD
                 <td><span *ngIf=" p.parachutiste != null ">{{ p.parachutiste.nomParachutiste }}</span></td>
                 <td><button (click)="supprimerParachute(p)" class="btn btn-danger">Supprimer</button>
                 <button (click)="editerParachute(p)" class="btn btn-warning">Editer</button></td>
-=======
-                <td><span *ngIf=" p.proprietaire != null ">{{ p.proprietaire.nomParachutiste }}qq</span></td>
-                <td><button (click)="supprimerParachute(p)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button></td>
-            <td><button (click)="editerParachute(p)" class="btn btn-warning" id="boutonEditer">Editer</button></td>
->>>>>>> manon
             </tr>
         </tbody>
     </table>
