@@ -28,9 +28,9 @@
                 </select></td>
                 <td><input type="checkbox" [(ngModel)]="formParachute.isPerso"></td>
                 <td><input type="checkbox" [(ngModel)]="formParachute.isDispo"></td>
-                    <td><select>
+                    <td><select  [(ngModel)]="formParachute.parachutiste">
                         <option></option>
-                        <option *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }}</option>
+                        <option *ngFor="let p of parachutistes | async" value="{{p.id}}">{{ p.nomParachutiste }}</option>
                     </select></td>
                 <td><button (click)="ajouterParachute()" id="boutonAjouter" class="btn btn-info">Ajouter</button>
                     <button (click)="modifierParachute()" class="btn btn-warning" *ngIf="modification">Modifier</button></td>
@@ -45,7 +45,7 @@
                 <td>{{ p.securite }}</td>
                 <td>{{ p.isPerso | ouiNon }}</td>
                 <td>{{ p.isDispo | ouiNon }}</td>
-                <td>{{ p.proprietaire.nomParachutiste }}</td>
+                <td><span *ngIf=" p.proprietaire != null ">{{ p.proprietaire.nomParachutiste }}qq</span></td>
                 <td><button (click)="supprimerParachute(p)" class="btn btn-danger">Supprimer</button>
                 <button (click)="editerParachute(p)" class="btn btn-warning">Editer</button></td>
             </tr>

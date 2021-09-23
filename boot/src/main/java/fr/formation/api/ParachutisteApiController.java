@@ -53,11 +53,9 @@ public class ParachutisteApiController {
     public boolean add(@RequestBody Parachutiste parachutiste) {
 
         try {
-            System.out.println("Try");
             this.daoParachutiste.save(parachutiste);
             return true;
         } catch (Exception e) {
-            System.out.println("catch");
             return false;
         }
     }

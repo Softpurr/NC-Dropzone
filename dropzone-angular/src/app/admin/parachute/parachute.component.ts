@@ -31,6 +31,7 @@ export class ParachuteComponent implements OnInit {
   }
 
   ajouterParachute() {
+    this.formParachute.parachutiste = {id: this.formParachute.parachutiste};
     this.srvParachute.add(this.formParachute).subscribe(this.refresh);
   }
 
