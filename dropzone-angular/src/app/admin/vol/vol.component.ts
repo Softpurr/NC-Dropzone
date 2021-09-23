@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AvionService } from 'src/app/avion.service';
 import { ParachutisteService } from 'src/app/parachutiste.service';
 import { PiloteService } from 'src/app/pilote.service';
+import { SautService } from 'src/app/saut.service';
 import { VolService } from 'src/app/vol.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class VolComponent implements OnInit {
   pilotes: any = [];
   responsables: any = [];
   vols: any = [];
+  sauts: any = [];
   formVol: any = {
     nombreSaut: 0,
     avion: null,
@@ -30,9 +32,10 @@ export class VolComponent implements OnInit {
     this.avions = this.srvAvion.findAll();
     this.pilotes = this.srvPilote.findAll();
     this.responsables = this.srvParachutiste.findConfirme();
+    this.sauts = this.srvSaut.findAll();
   }
 
-  constructor(private srvVol: VolService, private srvAvion: AvionService, private srvPilote: PiloteService, private srvParachutiste: ParachutisteService) {
+  constructor(private srvVol: VolService, private srvSaut: SautService, private srvAvion: AvionService, private srvPilote: PiloteService, private srvParachutiste: ParachutisteService) {
     this.refresh();
     this.etats = srvVol.findEtats();
   }
