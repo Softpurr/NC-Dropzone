@@ -1,6 +1,5 @@
 div{
-    background-color: gray;
-    padding-top: 7.5%;
+    padding-top: 4.6%;
     display: block;
     align-items: center;
 }
@@ -23,4 +22,13 @@ padding-bottom: 8%;
 
 #boutonEditer{
 padding-bottom: 8%;
+}
+
+h1{
+    padding-top: 8%;
+}
+
+#table{
+    background-color: gray;
+    opacity: 93%;
 }

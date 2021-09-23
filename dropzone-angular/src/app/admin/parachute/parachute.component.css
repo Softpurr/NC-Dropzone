@@ -1,6 +1,5 @@
 div{
-    background-color: gray;
-    padding-top: 7.5%;
+    padding-top: 4.6%;
     display: block;
     align-items: center;
 }
@@ -10,5 +9,14 @@ th{
 }
 
 #boutonAjouter{
-    padding-bottom: 35%;
-    }
+padding-bottom: 35%;
+}
+
+#table{
+background-color: gray;
+opacity: 93%;
+}
+
+h1{
+    padding-top: 8%;
+}

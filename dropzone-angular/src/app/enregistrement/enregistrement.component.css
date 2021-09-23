@@ -1,14 +1,15 @@
 div{
-    background-color: gray;
     padding-top: 2%;
     display: block;
     align-items: center;
 }
 
 #formulaire{
+    background-color: white;
     padding-left: 45%;
     color: #BDB76B;
-    opacity: 90%;
+    opacity: 80%;
+    padding-bottom: 3%;
 }
 
 #table{
@@ -18,9 +19,17 @@ div{
 
 #bontonEnregistrer{
     padding-bottom: 5%;
-    opacity: 100%;
 }
 
 #bontonSelectionner{
     padding-bottom: 5%;
+}
+
+h1{
+    padding-top: 8%;
+}
+
+#table{
+    background-color: gray;
+    opacity: 93%;
 }

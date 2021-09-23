@@ -1,1 +1,61 @@
+h1{
+    color: #BDB76B;
+}
+
+h2{
+    background-color: yellow;
+    color: black;
+}
+
+p{
+    color: white;
+}
+
+#tandem{
+    padding-top: 12%;
+    padding-bottom: 7.5%;
+    width: 30%;
+}
+
+
+#bloctandem{
+    background-color: black;
+    opacity: 80%;
+}
+
+#blocpac{
+    background-color: black;
+    opacity: 80%;
+}
+
+#pac{
+    width: 30%;
+}
+
+#tandem1{
+    padding-left: 5%;
+    
+}
+
+#tandem2{
+    padding-left: 5%;
+}
+
+#tandem3{
+    padding-left: 5%;
+}
+
+#pac1{
+    padding-left: 5%;
+}
+
+#pac2{
+    padding-left: 5%;
+}
+
+#pac3{
+    padding-left: 5%;
+}
+
+
 
