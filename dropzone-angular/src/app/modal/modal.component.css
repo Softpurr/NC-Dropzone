@@ -1,0 +1,22 @@
+#boutonOk{
+    padding-bottom: 11%;
+      }
+
+#boutonOk{
+    background: rgba(31, 26, 26, 0.95);
+    color: #BDB76B;
+    box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.95);
+    border: 1px solid #BDB76B;
+    transition: 0.3s all ease-in-out;
+  }
+  
+  #boutonOk:hover {
+    background: gray;
+    box-shadow: 0px 0px 10px 5px black;
+  }
+
+  #tete{
+    background-color: black;
+    color: white;
+    opacity: 93%;
+  }
