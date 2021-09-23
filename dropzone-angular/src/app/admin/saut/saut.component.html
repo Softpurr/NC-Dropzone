@@ -21,16 +21,16 @@
                     </select>
                 </td>
                 <td>
-                    <button *ngIf="!isEdition" (click)="ajouterSaut()">Ajouter</button>
-                    <button *ngIf="isEdition" (click)="modifierSaut()">Modifier</button>
+                    <button *ngIf="!isEdition" (click)="ajouterSaut()"   class="btn btn-info"id="boutonAjouter">Ajouter</button>
+                    <button *ngIf="isEdition" (click)="modifierSaut()"  class="btn btn-warning" id="boutonModifier">Modifier</button>
                 </td>
             </tr>
             <tr *ngFor="let s of sauts | async">
                 <td>{{ s.hauteur }}</td>
                 <td>{{ s.typeSaut }}</td>
                 <td>
-                    <button (click)="supprimerSaut(s)" class="btn btn-danger">Supprimer</button>
-                    <button (click)="editerSaut(s)" class="btn btn-warning">Editer</button>
+                    <button (click)="supprimerSaut(s)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button>
+                    <button (click)="editerSaut(s)" class="btn btn-warning"id="boutonEditer">Editer</button>
                 </td>
             </tr>
         </tbody>

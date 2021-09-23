@@ -24,8 +24,8 @@
                 <td><select [(ngModel)]="formVol.responsable">
                     <option *ngFor="let r of responsables | async" value="{{r.id}}">{{ r.nomParachutiste }}</option>
                 </select></td>
-                <td><button (click)="ajouterVol()" class="btn btn-info">Ajouter</button>
-                    <button (click)="modifierVol()" *ngIf="modification" class="btn btn-warning">Modifier</button></td>
+                <td><button (click)="ajouterVol()" class="btn btn-info" id="boutonAjouter">Ajouter</button>
+                    <button (click)="modifierVol()" *ngIf="modification" class="btn btn-warning" id="boutonModifier">Modifier</button></td>
             </tr>
             <tr *ngFor="let v of vols | async">
                 <td>{{ v.nombreSaut }}</td>
@@ -33,8 +33,8 @@
                 <td>{{ v.avion.id }}</td>
                 <td>{{ v.pilote.id }}</td>
                 <td>{{ v.responsable.id }}</td>
-                <td><button (click)="supprimerVol(v)" class="btn btn-danger">Supprimer</button>
-                <button (click)="editerVol(v)" class="btn btn-warning">Editer</button></td>
+                <td><button (click)="supprimerVol(v)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button>
+                <button (click)="editerVol(v)" class="btn btn-warning" id="boutonEditer">Editer</button></td>
             </tr>
         </tbody>
     </table>

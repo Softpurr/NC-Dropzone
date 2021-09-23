@@ -33,7 +33,7 @@
                         <option></option>
                         <option *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }}</option>
                     </select></td>
-                <td><button (click)="ajouterParachute()" class="btn btn-info">Ajouter</button>
+                <td><button (click)="ajouterParachute()" id="boutonAjouter" class="btn btn-info">Ajouter</button>
                     <button (click)="modifierParachute()" class="btn btn-warning" *ngIf="modification">Modifier</button></td>
             </tr>
             <tr *ngFor="let p of parachutes | async">

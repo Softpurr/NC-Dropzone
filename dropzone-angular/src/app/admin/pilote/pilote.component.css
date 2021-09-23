@@ -4,3 +4,23 @@ div{
     display: block;
     align-items: center;
 }
+
+th{
+    color: #BDB76B;
+}
+
+#boutonAjouter{
+    padding-bottom: 8%;
+    }
+
+#boutonModifier{
+padding-bottom: 8%;
+}
+
+#boutonSupprimer{
+padding-bottom: 8%;
+}
+
+#boutonEditer{
+padding-bottom: 8%;
+}
