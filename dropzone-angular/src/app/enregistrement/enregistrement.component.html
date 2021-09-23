@@ -4,9 +4,9 @@
         <label>Nom : </label>
         <input type="text" [(ngModel)]="nomParachutiste" />
     </div>
-    <div>
+    <div id="recherche">
         <button (click)="rechercherParachutiste(nomParachutiste)" class="btn btn-info"
-            id="bontonEnregistrer">RECHERCHER</button>
+            id="bontonRechercher">RECHERCHER</button>
     </div>
 </div>
 <div *ngIf="isRecherche">
@@ -26,7 +26,7 @@
                     <td *ngIf="p.isPratiquant">{{ p.nomParachutiste }}</td>
                     <td *ngIf="p.isPratiquant">{{ p.numLicence }}</td>
                     <td *ngIf="p.isPratiquant">
-                        <button (click)="ajouterParachutiste(p)" id="bontonSelectionner">AJOUTER</button>
+                        <button (click)="ajouterParachutiste(p)" id="bontonAjouter">AJOUTER</button>
                     </td>
                 </tr>
             </tbody>
@@ -62,7 +62,7 @@
                     <td>{{ p.nomParachutiste }}</td>
                     <td>{{ p.numLicence }}</td>
                     <td>
-                        <button (click)="retirerParachutiste(p)">RETIRER</button>
+                        <button (click)="retirerParachutiste(p)" id="bontonSupprimer">RETIRER</button>
                     </td>
                 </tr>
             </tbody>
