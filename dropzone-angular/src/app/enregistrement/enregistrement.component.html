@@ -1,86 +1,42 @@
-<div>
-    <h1>Enregistrement</h1>
-</div>
+<h1>Enregistrement</h1>
 
 <div id="formulaire">
-    <div id="texte">
-        <div>
-            <label>Nom : </label>
-            <input type="text" [(ngModel)]="parachutiste.nomParachutiste" />
-        </div>
-
-        <div>
-            <label>Parachute : </label>
-            <select class="form-select" [(ngModel)]="parachute">
-                <option *ngFor="let p of parachutes | async" value="{{ p }}">{{ p.nomHarnais }}</option>
-            </select>
-        </div>
-
-        <div>
-            <label>Hauteur : </label>
-            <select class="form-select" [(ngModel)]="hauteur">
-                <option *ngFor="let h of hauteurs | async" value="{{ h }}">{{ h }}</option>
-            </select>
-        </div>
+    <div>
+        <label>Nom : </label>
+        <input type="text" [(ngModel)]="parachutiste.nomParachutiste" />
     </div>
 
     <div>
-        <button (click)="rechercherParachutiste(parachutiste.nomParachutiste)" class="btn btn-info" id="bontonEnregistrer">ENREGISTRER</button>
+        <button (click)="rechercherParachutiste(parachutiste.nomParachutiste)" class="btn btn-info"
+            id="bontonEnregistrer">RECHERCHER</button>
     </div>
 </div>
 
-
-<div>
-    <table class="table table-striped" id="table">
-        <thead>
-            <tr>
-                <th>Prenom</th>
-                <th>Nom</th>
-                <th>Licence</th>
-                <th></th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr *ngFor="let p of parachutistesByNom">
-                <td>{{ p.prenomParachutiste }}</td>
-                <td>{{ p.nomParachutiste }}</td>
-                <td>{{ p.numLicence }}</td>
-                <td>
-                    <button (click)="enregistrerParachutiste(p)" id="bontonSelectionner">SELECTIONNER</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div *ngIf="isValide">
+<div *ngIf="isRecherche">
     <div>
-        <p>Souhaitez-vous sauter avec des collègues ?</p>
-
-        <table class="table table-striped">
+        <table class="table table-striped" id="table">
             <thead>
                 <tr>
                     <th>Prenom</th>
                     <th>Nom</th>
                     <th>Licence</th>
-                    <th>Parachute</th>
+                    <!-- <th>Parachute</th> -->
                     <th></th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr *ngFor="let p of parachutistes | async">
-                    <td>{{ p.prenomParachutiste }}</td>
-                    <td>{{ p.nomParachutiste }}</td>
-                    <td>{{ p.numLicence }}</td>
-                    <td>
-                        <select class="form-select" [(ngModel)]="parachute">
-                            <option *ngFor="let p of parachutes | async" value="{{ p }}">{{ p.nomHarnais }}</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button (click)="enregistrerParachutiste(p)" id="bontonSelectionner">SELECTIONNER</button>
+                <tr *ngFor="let p of parachutistesByNom">
+                    <td *ngIf="p.isPratiquant">{{ p.prenomParachutiste }}</td>
+                    <td *ngIf="p.isPratiquant">{{ p.nomParachutiste }}</td>
+                    <td *ngIf="p.isPratiquant">{{ p.numLicence }}</td>
+                    <!-- <td *ngIf="p.isPratiquant">
+                    <select class="form-select" [(ngModel)]="parachute">
+                        <option *ngFor="let p of parachutes | async" value="{{ p }}">{{ p.nomHarnais }}</option>
+                    </select>
+                </td> -->
+                    <td *ngIf="p.isPratiquant">
+                        <button (click)="ajouterParachutiste(p)" id="bontonSelectionner">AJOUTER</button>
                     </td>
                 </tr>
             </tbody>
@@ -88,14 +44,24 @@
     </div>
 
     <div>
-        <p>Votre saut</p>
+        <div>
+            <label>Hauteur : </label>
+            <select [(ngModel)]="hauteur" (click)="calculCout()">
+                <option *ngFor="let h of hauteurs | async" value="{{ h }}">{{ h }}</option>
+            </select>
+            <button *ngIf="isParachutiste && hauteur != 0" (click)="creerSaut()">ENREGISTRER</button>
+        </div>
 
-        <table class="table table-striped">
+        <p *ngIf="hauteur == 0">Votre saut - Sélectionnez une hauteur</p>
+        <p *ngIf="!(hauteur == 0)">Votre saut - {{ hauteur }} m - {{ cout }} €</p>
+
+        <table class="table table-striped" id="table">
             <thead>
                 <tr>
                     <th>Prenom</th>
                     <th>Nom</th>
                     <th>Licence</th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -104,14 +70,11 @@
                     <td>{{ p.prenomParachutiste }}</td>
                     <td>{{ p.nomParachutiste }}</td>
                     <td>{{ p.numLicence }}</td>
+                    <td>
+                        <button (click)="retirerParachutiste(p)">RETIRER</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
-    </div>
-</div>
-
-<div *ngIf="isEnregistre">
-    <div>
-        <p>Votre saut est bien enregistré !</p>
     </div>
 </div>

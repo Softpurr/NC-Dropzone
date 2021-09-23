@@ -27,6 +27,10 @@ export class ParachutisteService {
     return this.http.get(`${this.apiUrl}/by-nom/${nom}`);
   }
 
+  findByLicence(licence: String) {
+    return this.http.get(`${this.apiUrl}/by-licence/${licence}`);
+  }
+
   add(parachutiste: any) {
     return this.http.post(this.apiUrl, parachutiste);
   }

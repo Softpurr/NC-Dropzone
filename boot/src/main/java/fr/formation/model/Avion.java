@@ -41,7 +41,8 @@ public class Avion {
 	private boolean isDispo;
 
     @OneToMany(mappedBy = "avion")
-	private List<Vol> vol;
+    @JsonView(Views.Avion.class)
+	private List<Vol> vols;
 
     public int getId() {
         return id;

@@ -1,0 +1,16 @@
+#planning {
+    margin-top: 200px;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: aquamarine;
+}
+#planning table {
+    background-color: beige;
+}
+.left, .right {
+    width: 45%;
+    display: inline-block;
+}
+.right {
+    padding-left: 5%;
+}

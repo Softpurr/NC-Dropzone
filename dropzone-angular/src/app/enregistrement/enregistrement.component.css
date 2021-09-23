@@ -1,14 +1,28 @@
 div{
-    background-color: gray;
     padding-top: 2%;
     display: block;
     align-items: center;
 }
 
+p{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: gray;
+}
+    
+label{
+    padding-right: 1%;
+}
+
 #formulaire{
+    padding-top: 50px;
+    background-color: white;
     padding-left: 45%;
+    display: block;
+    align-items: center;
     color: #BDB76B;
-    opacity: 90%;
+    opacity: 80%;
+    padding-bottom: 3%;
 }
 
 #table{
@@ -18,9 +32,49 @@ div{
 
 #bontonEnregistrer{
     padding-bottom: 5%;
-    opacity: 100%;
+}
+
+#enregistrer{
+    padding-left: 5%;
 }
 
 #bontonSelectionner{
     padding-bottom: 5%;
 }
+
+h1{
+    padding-top: 8%;
+}
+
+#table{
+    background-color: gray;
+    opacity: 93%;
+}
+
+#bontonEnregistrer {
+    background: #BDB76B;
+    color: black;
+    box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.95);
+    border: 1px solid #BDB76B;
+    transition: 0.3s all ease-in-out;
+  }
+  
+  #bontonEnregistrer:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 5px black;
+  }
+
+  #bontonSelectionner{
+    background: rgba(31, 26, 26, 0.95);
+    color: #BDB76B;
+    box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.95);
+    border: 1px solid #BDB76B;
+    transition: 0.3s all ease-in-out;
+  }
+  
+  #boutonSelectionner:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.85);
+  }
+
+  

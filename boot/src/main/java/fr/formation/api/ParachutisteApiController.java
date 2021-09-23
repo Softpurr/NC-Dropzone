@@ -55,6 +55,11 @@ public class ParachutisteApiController {
     }
 
     @JsonView(Views.Parachutiste.class)
+    @GetMapping("/by-licence/{licence}")
+    public List<Parachutiste> findByLicence(@PathVariable String licence) {
+        return this.daoParachutiste.findByLicence(licence);
+    }
+
     @GetMapping("/confirme")
     public List<Parachutiste> findConfirme() {
         return this.daoParachutiste.findByIsConfirme(true);

@@ -1,1 +1,42 @@
-<h1>Planning</h1>
+<div id="planning">
+    <div class="left">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id vol</th>
+                    <th>Etat</th>
+                    <th>Nom avion</th>
+                    <th>Parachutistes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let v of vols | async">
+                    <td>{{ v.id }}</td>
+                    <td>{{ v.etat }}</td>
+                    <td>{{ v.avion.nomAvion }}</td>
+                    <td *ngFor="let s of v.sauts"><span *ngFor="let p of parachutistes">{{ p.nomParachutiste }}</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="right">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id vol</th>
+                    <th>Etat</th>
+                    <th>Nom avion</th>
+                    <th>Parachutistes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let v of vols | async">
+                    <td>{{ v.id }}</td>
+                    <td>{{ v.etat }}</td>
+                    <td>{{ v.avion.nomAvion }}</td>
+                    <td *ngFor="let s of v.sauts"><span *ngFor="let p of parachutistes">{{ p.nomParachutiste }}</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
