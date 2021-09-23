@@ -3,17 +3,17 @@
 <div id="formulaire">
     <div>
         <label>Nom : </label>
-        <input type="text" [(ngModel)]="parachutiste.nomParachutiste" />
+        <input type="text" [(ngModel)]="nomParachutiste" />
     </div>
 
     <div>
-        <button (click)="rechercherParachutiste(parachutiste.nomParachutiste)" class="btn btn-info"
+        <button (click)="rechercherParachutiste(nomParachutiste)" class="btn btn-info"
             id="bontonEnregistrer">RECHERCHER</button>
     </div>
 </div>
 
 <div *ngIf="isRecherche">
-    <div>
+    <div *ngIf="parachutistesByNom.length > 0">
         <table class="table table-striped" id="table">
             <thead>
                 <tr>
@@ -41,6 +41,10 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <div *ngIf="!(parachutistesByNom.length > 0)">
+        <p>Aucun parachutiste {{ nomParachutiste.toUpperCase() }} licencié enregistré.</p>
     </div>
 
     <div>

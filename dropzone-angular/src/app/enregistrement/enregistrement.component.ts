@@ -20,6 +20,8 @@ export class EnregistrementComponent implements OnInit {
 
   typesSaut: any = [];
 
+  nomParachutiste = "";
+
   parachutiste: any = {};
   parachutistes: any = [];
   parachutistesByNom: any = [];
@@ -47,6 +49,7 @@ export class EnregistrementComponent implements OnInit {
     this.parachutistesByNom = this.srvParachutiste.findByNom(nom).subscribe(p => {
       this.parachutistesByNom = p;
     });
+
     this.isRecherche = true;
   }
 

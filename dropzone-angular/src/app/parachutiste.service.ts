@@ -14,6 +14,10 @@ export class ParachutisteService {
   findAll() {
     return this.http.get(this.apiUrl);
   }
+  
+  findById(id: any) {
+    return this.http.get(`${this.apiUrl}/by-id/${id}`);
+  }
 
   findConfirme() {
     return this.http.get(`${this.apiUrl}/confirme`)

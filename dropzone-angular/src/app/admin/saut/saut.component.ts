@@ -14,6 +14,9 @@ export class SautComponent implements OnInit {
   types: any = [];
 
   parachutistes: any = [];
+  parachutistesSaut: any = [];
+
+  parachutistesId: any = [];
 
   formSaut = {
     hauteur: null,
@@ -35,9 +38,7 @@ export class SautComponent implements OnInit {
   }
 
   ajouterSaut() {
-    for (let p of this.formSaut.parachutistes) {
-      console.log(p);
-    }
+    this.traductionIdEnParachutiste();
 
     this.srvSaut.add(this.formSaut).subscribe(this.refresh);
   }
@@ -53,11 +54,22 @@ export class SautComponent implements OnInit {
 
   modifierSaut() {
     this.isEdition = false;
+
+    this.traductionIdEnParachutiste();
+
     this.srvSaut.update(this.formSaut).subscribe(this.refresh);
     this.formSaut = {
       hauteur: null,
       typeSaut: null,
       parachutistes: [],
     }
+  }
+
+  traductionIdEnParachutiste() {
+    for (let i of this.parachutistesId) {
+      let p = this.srvParachutiste.findById(i);
+      this.parachutistesSaut.push({ ...p });
+    }
+    this.formSaut.parachutistes = { ...this.parachutistesSaut };
   }
 }

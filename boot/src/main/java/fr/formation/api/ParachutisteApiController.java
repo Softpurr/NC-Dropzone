@@ -37,6 +37,12 @@ public class ParachutisteApiController {
     }
 
     @JsonView(Views.Parachutiste.class)
+    @GetMapping("/by-id/{id}")
+    public Parachutiste findById(@PathVariable int id) {
+        return this.daoParachutiste.findById(id).get();
+    }
+
+    @JsonView(Views.Parachutiste.class)
     @GetMapping("/by-parachutiste/{numLicence}")
     public Parachutiste findByNumLicence(@PathVariable String numLicence) {
         return this.daoParachutiste.findByNumLicence(numLicence);

@@ -24,8 +24,8 @@
                     </select>
                 </td>
                 <td>
-                    <select multiple [(ngModel)]="formSaut.parachutistes">
-                        <option *ngFor="let p of parachutistes | async" value="{{ p }}">{{ p.prenomParachutiste }} {{ p.nomParachutiste }}</option>
+                    <select multiple [(ngModel)]="parachutistesId">
+                        <option *ngFor="let p of parachutistes | async" [value]="{ id: p.id }">{{ p.prenomParachutiste }} {{ p.nomParachutiste }}</option>
                     </select>
                 </td>
                 <td>
