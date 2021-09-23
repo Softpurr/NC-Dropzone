@@ -23,6 +23,7 @@
                         <option *ngFor="let t of types | async" value="{{ t }}">{{ t }}</option>
                     </select>
                 </td>
+<<<<<<< HEAD
                 <td>
                     <select multiple [(ngModel)]="formSaut.parachutistes">
                         <option *ngFor="let p of parachutistes | async" value="{{ p }}">{{ p.numLicence }}</option>
@@ -34,16 +35,25 @@
                     <button *ngIf="isEdition" (click)="modifierSaut()" class="btn btn-warning"
                         id="boutonModifier">Modifier</button>
                 </td>
+=======
+                <td><button *ngIf="!isEdition" (click)="ajouterSaut()"   class="btn btn-info"id="boutonAjouter">Ajouter</button></td>
+                <td><button *ngIf="isEdition" (click)="modifierSaut()"  class="btn btn-warning" id="boutonModifier">Modifier</button></td>
+>>>>>>> manon
             </tr>
             <tr *ngFor="let s of sauts | async">
                 <td>{{ s.hauteur }}</td>
                 <td>{{ s.typeSaut }}</td>
                 <td>
+<<<<<<< HEAD
                     <p *ngFor="let p of s.parachutistes">{{ p.numLicence }}</p>
                 </td>
                 <td>
                     <button (click)="supprimerSaut(s)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button>
                     <button (click)="editerSaut(s)" class="btn btn-warning" id="boutonEditer">Editer</button>
+=======
+                    <button (click)="supprimerSaut(s)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button></td>
+                <td><button (click)="editerSaut(s)" class="btn btn-warning"id="boutonEditer">Editer</button>
+>>>>>>> manon
                 </td>
             </tr>
         </tbody>

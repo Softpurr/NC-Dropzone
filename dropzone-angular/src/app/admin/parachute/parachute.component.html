@@ -34,8 +34,8 @@
                         <option></option>
                         <option *ngFor="let p of parachutistes | async" value="{{p.id}}">{{ p.nomParachutiste }}</option>
                     </select></td>
-                <td><button (click)="ajouterParachute()" id="boutonAjouter" class="btn btn-info">Ajouter</button>
-                    <button (click)="modifierParachute()" class="btn btn-warning" *ngIf="modification">Modifier</button></td>
+                <td><button (click)="ajouterParachute()" id="boutonAjouter" class="btn btn-info">Ajouter</button></td>
+            <td><button (click)="modifierParachute()" class="btn btn-warning" *ngIf="modification" id="boutonModifier">Modifier</button></td>
             </tr>
             <tr *ngFor="let p of parachutes | async">
                 <td>{{ p.nomHarnais }}</td>
@@ -47,9 +47,15 @@
                 <td>{{ p.securite }}</td>
                 <td>{{ p.isPerso | ouiNon }}</td>
                 <td>{{ p.isDispo | ouiNon }}</td>
+<<<<<<< HEAD
                 <td><span *ngIf=" p.parachutiste != null ">{{ p.parachutiste.nomParachutiste }}</span></td>
                 <td><button (click)="supprimerParachute(p)" class="btn btn-danger">Supprimer</button>
                 <button (click)="editerParachute(p)" class="btn btn-warning">Editer</button></td>
+=======
+                <td><span *ngIf=" p.proprietaire != null ">{{ p.proprietaire.nomParachutiste }}qq</span></td>
+                <td><button (click)="supprimerParachute(p)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button></td>
+            <td><button (click)="editerParachute(p)" class="btn btn-warning" id="boutonEditer">Editer</button></td>
+>>>>>>> manon
             </tr>
         </tbody>
     </table>
