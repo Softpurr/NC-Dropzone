@@ -16,7 +16,7 @@
                 <td><input type="text" [(ngModel)]="formAvion.nomAvion"></td>
                 <td><input type="text" [(ngModel)]="formAvion.capaciteTransport"></td>
                 <td><input type="text" [(ngModel)]="formAvion.rotationMax"></td>
-                <td><input type="text" [(ngModel)]="formAvion.isDispo"></td>
+                <td><input type="checkbox" [(ngModel)]="formAvion.isDispo"></td>
                 <td><button (click)="ajouterAvion()" class="btn btn-info" id="boutonAjouter">Ajouter</button>
                     <button (click)="modifierAvion()" class="btn btn-warning" id="boutonModifier">Modifier</button></td>
             </tr>
@@ -24,7 +24,7 @@
                 <td>{{ a.nomAvion }}</td>
                 <td>{{ a.capaciteTransport }}</td>
                 <td>{{ a.rotationMax }}</td>
-                <td>{{ a.isDispo }}</td>
+                <td>{{ a.isDispo | ouiNon }}</td>
                 <td><button (click)="supprimerAvion(a)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button>
                     <button (click)="editerAvion(a)" class="btn btn-warning" id="boutonEditer">Editer</button>
                 </td>
