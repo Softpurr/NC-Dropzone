@@ -71,6 +71,7 @@ public class ParachutisteApiController {
             for (int i=0; i< parachutePossede.size(); i++) {
                 Parachute para = this.daoParachute.findById(parachutePossede.get(i).getId()).get() ;
                 para.setParachutiste(p);
+                para.setPerso(true);
                 this.daoParachute.save(para);
             }
             
