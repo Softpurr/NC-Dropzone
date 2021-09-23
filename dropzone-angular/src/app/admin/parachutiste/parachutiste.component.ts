@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ParachuteService } from 'src/app/parachute.service';
 import { ParachutisteService } from 'src/app/parachutiste.service';
+import { SautService } from 'src/app/saut.service';
 
 
 
@@ -35,15 +36,16 @@ export class ParachutisteComponent implements OnInit {
 
   constructor(private srvParachutiste: ParachutisteService, private srvParachute: ParachuteService) {
     this.refresh();
-
-    this.parachutes = this.srvParachute.findAll();
-    this.parachutesNonPossede = this.srvParachute.findAllIsPersoFalse();
   }
 
   ngOnInit(): void {
   }
 
-  refresh = () => this.parachutistes = this.srvParachutiste.findAll();
+  refresh = () => {
+    this.parachutistes = this.srvParachutiste.findAll();
+    this.parachutes = this.srvParachute.findAll();
+    this.parachutesNonPossede = this.srvParachute.findAllIsPersoFalse();
+  }
 
 
   voirParachutePossede(parachutiste: any) {
