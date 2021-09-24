@@ -24,19 +24,30 @@
                     </select>
                 </td>
                 <td>
-                    <select multiple [(ngModel)]="parachutistesId">
-                        <option *ngFor="let p of parachutistes | async" [value]="{ id: p.id }">{{ p.prenomParachutiste }} {{ p.nomParachutiste }}</option>
+                    <select multiple [(ngModel)]="formSaut.parachutistes">
+                        <option *ngFor="let p of parachutistes | async" [value]="{ id: p.id }">{{ p.prenomParachutiste
+                            }} {{ p.nomParachutiste }}</option>
                     </select>
                 </td>
-                <td><button *ngIf="!isEdition" (click)="ajouterSaut()"   class="btn btn-info"id="boutonAjouter">Ajouter</button></td>
-                <td><button *ngIf="isEdition" (click)="modifierSaut()"  class="btn btn-warning" id="boutonModifier">Modifier</button></td>
+                <td>
+                    <button *ngIf="!isEdition" (click)="ajouterSaut()" class="btn btn-info"
+                        id="boutonAjouter">Ajouter</button>
+                    <button *ngIf="isEdition" (click)="modifierSaut()" class="btn btn-warning"
+                        id="boutonModifier">Modifier</button>
+                    <button *ngIf="isEdition" (click)="annuler()" class="btn btn-warning"
+                        id="boutonAnnuler">Annuler</button>
+                </td>
             </tr>
             <tr *ngFor="let s of sauts | async">
                 <td>{{ s.hauteur }}</td>
                 <td>{{ s.typeSaut }}</td>
                 <td>
-                    <button (click)="supprimerSaut(s)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button></td>
-                <td><button (click)="editerSaut(s)" class="btn btn-warning"id="boutonEditer">Editer</button>
+                    <p *ngFor="let p of s.parachutistes">{{ p.nomParachutiste }} {{ p.prenomParachutiste }} - {{
+                        p.numLicence }}</p>
+                </td>
+                <td>
+                    <button (click)="supprimerSaut(s)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button>
+                    <button (click)="editerSaut(s)" class="btn btn-warning" id="boutonEditer">Editer</button>
                 </td>
             </tr>
         </tbody>

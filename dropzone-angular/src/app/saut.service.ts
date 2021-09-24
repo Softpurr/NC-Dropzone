@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class SautService {
 
-  private apiUrl: string = `${ environment.apiUrl }/saut`;
+  private apiUrl: string = `${environment.apiUrl}/saut`;
 
   constructor(private http: HttpClient) { }
 
@@ -29,11 +29,11 @@ export class SautService {
 
   update(saut: any) {
     return this.http
-      .put(`${ this.apiUrl }/${ saut.id }`, saut);
+      .put(`${this.apiUrl}/${saut.id}`, saut);
   }
 
   delete(saut: any) {
     return this.http
-      .delete(`${ this.apiUrl }/${saut.id }`);
+      .delete(`${this.apiUrl}/${saut.id}`);
   }
 }

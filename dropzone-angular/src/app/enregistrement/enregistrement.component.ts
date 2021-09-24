@@ -26,20 +26,19 @@ export class EnregistrementComponent implements OnInit {
   parachutistes: any = [];
   parachutistesByNom: any = [];
   parachutistesSaut: any = [];
+  parachutistesSautId: any = [];
 
   sauts: any = [];
 
-  // parachute: any = {};
-  // parachutes: any = [];
-  // parachutesSaut: any = [];
-
-  refresh = () => this.sauts = this.srvSaut.findAll();
+  refresh = () => {
+    this.sauts = this.srvSaut.findAll();
+    this.parachutistes = this.srvParachutiste.findAll();
+  }
 
   constructor(private srvParachutiste: ParachutisteService, private srvSaut: SautService, private srvParachute: ParachuteService) {
-    this.parachutistes = srvParachutiste.findAll();
-    // this.parachutes = srvParachute.findAll();
     this.hauteurs = srvSaut.findHauteurs();
     this.typesSaut = srvSaut.findTypes();
+    this.refresh();
   }
 
   ngOnInit(): void {
@@ -67,6 +66,7 @@ export class EnregistrementComponent implements OnInit {
 
     if (!isPresent) {
       this.parachutistesSaut.push({ ...this.parachutiste });
+      this.parachutistesSautId.push(this.parachutiste.id);
     }
 
     this.isParachutiste = false;
@@ -83,6 +83,7 @@ export class EnregistrementComponent implements OnInit {
     for (let p of this.parachutistesSaut) {
       if (this.parachutiste.id == p.id) {
         this.parachutistesSaut.splice(this.parachutistesSaut.indexOf(p), 1);
+        this.parachutistesSautId.splice(this.parachutistesSautId.indexOf(p), 1);
         break;
       }
     }
@@ -160,12 +161,9 @@ export class EnregistrementComponent implements OnInit {
 
   creerSaut() {
     let saut = [
-      { hauteur: this.hauteur },
-      { parachutistes: { ... this.parachutistesSaut } },
+      this.hauteur,
+      this.parachutistesSautId,
     ]
-
-    console.log(saut);
-    console.log(this.srvSaut.add(saut));
 
     this.srvSaut.add(saut).subscribe(this.refresh);
   }

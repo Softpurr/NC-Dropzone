@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.formation.dao.IParachutisteDaoJpaRepository;
 import fr.formation.dao.ISautDaoJpaRepository;
 import fr.formation.model.Hauteur;
+import fr.formation.model.Parachutiste;
 import fr.formation.model.Saut;
 import fr.formation.model.TypeSaut;
 
@@ -28,23 +30,28 @@ public class SautApiController {
     @Autowired
     private ISautDaoJpaRepository daoSaut;
 
+    @Autowired
+    private IParachutisteDaoJpaRepository daoParachutiste;
+
     @JsonView(Views.Saut.class)
     @GetMapping
     public List<Saut> findAll() {
         return this.daoSaut.findAll();
     }
 
+    @JsonView(Views.Saut.class)
     @GetMapping("/hauteur")
-    public List<Integer> findHauteur(){
+    public List<Integer> findHauteur() {
         List<Integer> listeHauteurs = new ArrayList<Integer>();
 
-        for(Hauteur h : Hauteur.values()) {
+        for (Hauteur h : Hauteur.values()) {
             listeHauteurs.add(h.getInt());
         }
 
         return listeHauteurs;
     }
 
+    @JsonView(Views.Saut.class)
     @GetMapping("/type")
     public TypeSaut[] findTypes() {
         return TypeSaut.values();
@@ -53,7 +60,7 @@ public class SautApiController {
     @PostMapping
     public boolean add(@RequestBody Saut saut) {
         try {
-            this.daoSaut.save(saut);
+            enregistrerParachutistes(saut);
             return true;
         } catch (Exception e) {
             return false;
@@ -63,7 +70,7 @@ public class SautApiController {
     @PutMapping("/{id}")
     public boolean put(@PathVariable int id, @RequestBody Saut saut) {
         try {
-            this.daoSaut.save(saut);
+            enregistrerParachutistes(saut);
             return true;
         } catch (Exception e) {
             return false;
@@ -73,10 +80,24 @@ public class SautApiController {
     @DeleteMapping("/{id}")
     public boolean deleteById(@PathVariable int id) {
         try {
+            Saut s = daoSaut.findById(id).get();
+            for (Parachutiste p : s.getParachutistes()) {
+                p.setSaut(null);
+            }
             this.daoSaut.deleteById(id);
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    private void enregistrerParachutistes(Saut saut) {
+        Saut s = this.daoSaut.save(saut);
+        List<Parachutiste> l = s.getParachutistes();
+        for (int i = 0; i < l.size(); i++) {
+            Parachutiste p = this.daoParachutiste.findById(l.get(i).getId()).get();
+            p.setSaut(s);
+            this.daoParachutiste.save(p);
         }
     }
 

@@ -14,23 +14,22 @@ export class SautComponent implements OnInit {
   types: any = [];
 
   parachutistes: any = [];
-  parachutistesSaut: any = [];
-
-  parachutistesId: any = [];
 
   formSaut = {
     hauteur: null,
     typeSaut: null,
-    parachutistes: [],
+    parachutistes: null,
   }
   sauts: any = [];
 
-  refresh = () => this.sauts = this.srvSaut.findAll();
+  refresh = () => {
+    this.sauts = this.srvSaut.findAll();
+    this.parachutistes = this.srvParachutiste.findAll();
+  };
 
   constructor(private srvSaut: SautService, private srvParachutiste: ParachutisteService) {
-    this.parachutistes = srvParachutiste.findAll();
-    this.hauteurs = srvSaut.findHauteurs();
-    this.types = srvSaut.findTypes();
+    this.hauteurs = this.srvSaut.findHauteurs();
+    this.types = this.srvSaut.findTypes();
     this.refresh();
   }
 
@@ -38,9 +37,8 @@ export class SautComponent implements OnInit {
   }
 
   ajouterSaut() {
-    this.traductionIdEnParachutiste();
-
     this.srvSaut.add(this.formSaut).subscribe(this.refresh);
+    this.annuler();
   }
 
   supprimerSaut(saut: any) {
@@ -53,23 +51,16 @@ export class SautComponent implements OnInit {
   }
 
   modifierSaut() {
-    this.isEdition = false;
-
-    this.traductionIdEnParachutiste();
-
     this.srvSaut.update(this.formSaut).subscribe(this.refresh);
+    this.annuler();
+  }
+
+  annuler() {
+    this.isEdition = false;
     this.formSaut = {
       hauteur: null,
       typeSaut: null,
-      parachutistes: [],
+      parachutistes: null,
     }
-  }
-
-  traductionIdEnParachutiste() {
-    for (let i of this.parachutistesId) {
-      let p = this.srvParachutiste.findById(i);
-      this.parachutistesSaut.push({ ...p });
-    }
-    this.formSaut.parachutistes = { ...this.parachutistesSaut };
   }
 }

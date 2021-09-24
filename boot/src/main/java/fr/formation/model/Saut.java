@@ -28,12 +28,12 @@ public class Saut {
 	private int id;
 
     @Column(name = "SAUT_HAUTEUR", nullable = false)
-    @JsonView(Views.Saut.class)
+    @JsonView(Views.Commons.class)
 	private int hauteur;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "SAUT_TYPE_SAUT", nullable = false)
-    @JsonView(Views.Saut.class)
+    @JsonView(Views.Commons.class)
 	private TypeSaut typeSaut;
 	
 	@OneToMany(mappedBy = "saut")
