@@ -18,9 +18,13 @@ color:	#BDB76B;
 
 #logo{
     width: 100%;
-    padding-left: 0%;
-    padding-right: 50%;
+    padding-left: 30%;
+    padding-right: 20%;
     z-index: -3;
+}
+
+#navbarSupportedContent{
+margin-right: 20%;
 }
 
 #nav{
@@ -98,6 +102,3 @@ z-index: +1;
 	transform: scale(0.1, 1);
 }
 
-#beer{
-
-}

@@ -36,6 +36,8 @@
                 <td>{{p.isPratiquant | ouiNon}}</td>
                 <td>{{p.isConfirme | ouiNon}}</td>
                 <td><button (click)="voirParachutePossede(p)"  class="btn btn-success" id="boutonVoir">Ses parachutes</button></td>
+                <td><button (click)="supprimerParachutiste(p)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button>
+                    <button (click)="editerParachutiste(p)" class="btn btn-warning" id="boutonEditer">Editer</button>
             </tr>
         </tbody>
     </table>
