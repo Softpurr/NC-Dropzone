@@ -107,7 +107,14 @@ public class ParachutisteApiController {
     @DeleteMapping("/{id}")
     public boolean deleteById(@PathVariable int id) {
         try {
+            List<Parachute> p =this.daoParachute.findAllByParachutisteId(id);
+            for (int i=0; i< p.size(); i++) {
+                this.daoParachute.deleteById(p.get(i).getId());
+            }
             this.daoParachutiste.deleteById(id);
+            // System.out.println(parachutiste.getId());
+            
+            
             return true;
         } catch (Exception e) {
             return false;
