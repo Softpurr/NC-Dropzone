@@ -27,6 +27,7 @@ public class BeerList {
 
     @ManyToOne
     @JoinColumn(name="BEER_LIST_PARACHUTISTE")
+    @JsonView(Views.BeerList.class)
     private Parachutiste parachutiste;
 
     public int getId() {

@@ -8,6 +8,7 @@
                 <th>Type</th>
                 <th>Parachutistes</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
 
@@ -30,13 +31,13 @@
                     </select>
                 </td>
                 <td *ngIf="!isEdition">
-                    <button (click)="ajouterSaut()" class="btn btn-info" id="boutonAjouter">Ajouter</button>
+                    <button *ngIf="!isEdition" (click)="ajouterSaut()" class="btn btn-info" id="boutonAjouter">Ajouter</button>
                 </td>
-                <td *ngIf="isEdition">
+                <td>
                     <button *ngIf="isEdition" (click)="modifierSaut()" class="btn btn-warning"
                         id="boutonModifier">Modifier</button>
                 </td>
-                <td *ngIf="isEdition">
+                <td>
                     <button *ngIf="isEdition" (click)="annuler()" class="btn btn-warning"
                         id="boutonAnnuler">Annuler</button>
                 </td>
@@ -51,7 +52,8 @@
                 <td>
                     <button (click)="supprimerSaut(s)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button>
                 </td>
-                <td><button (click)="editerSaut(s)" class="btn btn-warning" id="boutonEditer">Editer</button>
+                <td>
+                    <button (click)="editerSaut(s)" class="btn btn-warning" id="boutonEditer">Editer</button>
                 </td>
             </tr>
         </tbody>

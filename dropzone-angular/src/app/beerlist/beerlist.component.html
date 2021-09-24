@@ -12,9 +12,12 @@
 
         <tbody>
             <tr id="addBeerList">
-                <td><select id="parachutistes" [(ngModel)]="formBeerList.parachutiste">
-                    <option value="{ id: parachutiste.id }" *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }} {{ p.numLicence }}</option>
-                </select></td>
+                <td>
+                    <select id="parachutistes" [(ngModel)]="beerListForm">
+                        <option value="{{ p }}" *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }} {{
+                            p.numLicence }}</option>
+                    </select>
+                </td>
             </tr>
 
             <tr *ngFor="let b of beerList | async">
@@ -22,10 +25,10 @@
                 <td>{{ b.parachutiste.prenomParachutiste }}</td>
                 <td>{{ b.parachutiste.numLicence }}</td>
             </tr>
-            
+
         </tbody>
     </table>
     <div id="blocBouton">
-    <button (click)="ajouterBeerList()" class="btn btn-info" id="boutonAjouter">Ajouter</button>
+        <button (click)="ajouterBeerList()" class="btn btn-info" id="boutonAjouter">Ajouter</button>
     </div>
 </div>

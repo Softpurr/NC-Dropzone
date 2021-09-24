@@ -10,45 +10,39 @@ import { ParachutisteService } from '../parachutiste.service';
 export class BeerlistComponent implements OnInit {
 
   beerList: any = [];
-  parachutistes : any = [];
-  parachutiste : any = {};
 
-  formBeerList = {
-    parachutiste: {
-      id:0, nomParachutiste:"", prenomParachutiste:"", numLicence:""
-    },
-  }
+  parachutistes: any = [];
+
+  beerListForm = {};
 
   constructor(private srvBeerList: BeerlistService, private srvParachutiste: ParachutisteService) {
     this.refresh();
-
-    this.parachutistes = this.srvParachutiste.findAll();
-   }
+  }
 
   ngOnInit(): void {
   }
 
-  refresh = () => this.beerList = this.srvBeerList.findAll();
+  refresh = () => {
+    this.beerList = this.srvBeerList.findAll();
+    this.parachutistes = this.srvParachutiste.findAll();
+  };
+
 
   ajouterBeerList() {
-    this.srvBeerList.add(this.formBeerList).subscribe(this.refresh);
+    console.log(this.beerListForm);
+    this.srvBeerList.add(this.beerListForm).subscribe(this.refresh);
   }
 
-  editerBeerList(beerList: any) {
-    this.formBeerList = beerList;
+  editerBeerList(b: any) {
+    this.beerListForm = b;
   }
 
   modifierBeerList() {
-    this.srvBeerList.update(this.formBeerList).subscribe(this.refresh);
-    this.formBeerList = {
-      parachutiste: {
-        id: 0,nomParachutiste:"", prenomParachutiste:"", numLicence:""
-      }
-    };
+    this.srvBeerList.update(this.beerListForm).subscribe(this.refresh);
   }
 
-  supprimerParachutiste(beerList: any) {
-    this.srvBeerList.delete(beerList).subscribe(this.refresh);
+  supprimerParachutiste(b: any) {
+    this.srvBeerList.delete(b).subscribe(this.refresh);
   }
 
 }
