@@ -13,8 +13,8 @@
         <tbody>
             <tr id="addBeerList">
                 <td>
-                    <select id="parachutistes" [(ngModel)]="beerListForm">
-                        <option value="{{ p }}" *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }} {{
+                    <select id="parachutistes" [(ngModel)]="beerListForm.parachutiste">
+                        <option value="{{ p.id }}" *ngFor="let p of parachutistes | async">{{ p.nomParachutiste }} {{
                             p.numLicence }}</option>
                     </select>
                 </td>

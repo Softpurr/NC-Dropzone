@@ -13,7 +13,9 @@ export class BeerlistComponent implements OnInit {
 
   parachutistes: any = [];
 
-  beerListForm = {};
+  beerListForm: any = {
+    parachutiste: null,
+  };
 
   constructor(private srvBeerList: BeerlistService, private srvParachutiste: ParachutisteService) {
     this.refresh();
@@ -29,7 +31,7 @@ export class BeerlistComponent implements OnInit {
 
 
   ajouterBeerList() {
-    console.log(this.beerListForm);
+    this.beerListForm.parachutiste = { id: this.beerListForm.parachutiste };;
     this.srvBeerList.add(this.beerListForm).subscribe(this.refresh);
   }
 

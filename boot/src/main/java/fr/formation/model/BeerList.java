@@ -46,9 +46,5 @@ public class BeerList {
         this.parachutiste = parachutiste;
     }
 
-    public BeerList(Parachutiste parachutiste) {
-        this.parachutiste = parachutiste;
-    }
-
 
 }
