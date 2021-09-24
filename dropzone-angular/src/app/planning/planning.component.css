@@ -9,6 +9,10 @@
 #planning table {
     background-color: gray;
 }
+#planning h2 {
+    margin-left: 30px;
+    color: gold;
+}
 
 th{
     padding-left: 19%;

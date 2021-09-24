@@ -1,5 +1,6 @@
 <div id="planning">
-    <div class="left">
+    <div>
+        <h2>Vols en cours</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -19,7 +20,29 @@
             </tbody>
         </table>
     </div>
-    <div class="right">
+    <div>
+        <h2>Vols en attente</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Etat</th>
+                    <th>Nom avion</th>
+                    <th>Parachutistes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let v of volsAttente | async">
+                    <td>{{ v.id }}</td>
+                    <td>{{ v.etat }}</td>
+                    <td>{{ v.avion.nomAvion }}</td>
+                    <td *ngFor="let s of v.sauts"><span *ngFor="let p of parachutistes | async"><span *ngIf="p.saut != null">{{ p.nomParachutiste }}, </span></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2>Vols en preparation</h2>
         <table class="table table-striped">
             <thead>
                 <tr>

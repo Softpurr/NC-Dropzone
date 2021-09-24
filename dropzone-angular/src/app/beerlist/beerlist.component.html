@@ -20,15 +20,16 @@
                 </td>
             </tr>
 
-            <tr *ngFor="let b of beerList | async">
+            <tr *ngFor="let b of beerList | async" id="nomBeer">
                 <td>{{ b.parachutiste.nomParachutiste }}</td>
                 <td>{{ b.parachutiste.prenomParachutiste }}</td>
                 <td>{{ b.parachutiste.numLicence }}</td>
+                <td><button (click)="supprimerParachutiste(b)" class="btn btn-danger" id="boutonSupprimer">Supprimer</button></td>
             </tr>
 
         </tbody>
     </table>
     <div id="blocBouton">
-        <button (click)="ajouterBeerList()" class="btn btn-info" id="boutonAjouter">Ajouter</button>
+        <button (click)="ajouterBeerList()" class="btn btn-info" id="boutonAjouter">Ajouter</button> 
     </div>
 </div>
