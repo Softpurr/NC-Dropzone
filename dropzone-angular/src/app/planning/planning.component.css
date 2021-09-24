@@ -2,9 +2,13 @@
     margin-top: 200px;
     margin-left: 5%;
     margin-right: 5%;
-    background-color: aquamarine;
+    background-color: black;
+    opacity: 95%;
 }
 #planning table {
-    background-color: white;
-    opacity: 83%;
+    background-color: gray;
+}
+
+th{
+    padding-left: 19%;
 }
