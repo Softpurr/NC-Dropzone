@@ -14,7 +14,7 @@
                     <td>{{ v.id }}</td>
                     <td>{{ v.etat }}</td>
                     <td>{{ v.avion.nomAvion }}</td>
-                    <td *ngFor="let s of v.sauts"><span *ngFor="let p of parachutistes">{{ p.nomParachutiste }}</span></td>
+                    <td *ngFor="let s of v.sauts"><span *ngFor="let p of parachutistes | async"><span *ngIf="p.saut != null">{{ p.nomParachutiste }}, </span></span></td>
                 </tr>
             </tbody>
         </table>
@@ -34,7 +34,7 @@
                     <td>{{ v.id }}</td>
                     <td>{{ v.etat }}</td>
                     <td>{{ v.avion.nomAvion }}</td>
-                    <td *ngFor="let s of v.sauts"><span *ngFor="let p of parachutistes">{{ p.nomParachutiste }}</span></td>
+                    <td *ngFor="let s of v.sauts"><span *ngFor="let p of parachutistes | async"><span *ngIf="p.saut != null">{{ p.nomParachutiste }}, </span></span></td>
                 </tr>
             </tbody>
         </table>

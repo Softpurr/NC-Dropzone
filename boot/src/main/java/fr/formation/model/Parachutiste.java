@@ -59,6 +59,7 @@ public class Parachutiste {
 
 	@ManyToOne
 	@JoinColumn(name = "SAUT_ID")
+	@JsonView(Views.Commons.class)
 	private Saut saut;
 
 	@OneToMany(mappedBy = "responsable")

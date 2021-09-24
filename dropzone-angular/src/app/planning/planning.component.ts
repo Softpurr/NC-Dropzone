@@ -13,6 +13,7 @@ export class PlanningComponent implements OnInit {
   avions: any = [];
   parachutistes: any = [];
   vols: any = [];
+  enVol = "VOL"
 
   constructor(private srvVol: VolService, private srvAvion: AvionService, private srvParachutiste: ParachutisteService) {
     this.refresh();
