@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let v of vols | async">
+                <tr *ngFor="let v of volsVol | async">
                     <td>{{ v.id }}</td>
                     <td>{{ v.etat }}</td>
                     <td>{{ v.avion.nomAvion }}</td>
@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let v of vols | async">
+                <tr *ngFor="let v of volsPreparation | async">
                     <td>{{ v.id }}</td>
                     <td>{{ v.etat }}</td>
                     <td>{{ v.avion.nomAvion }}</td>
