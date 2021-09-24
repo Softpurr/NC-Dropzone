@@ -2,6 +2,9 @@ div{
     padding-top: 4.6%;
     display: block;
     align-items: center;
+    margin-left: 0%;
+    margin-right: 5%;
+    padding-left: 5%;
 }
 
 th{
@@ -20,23 +23,23 @@ h1{
 }
 
 #boutonAjouter{
-  padding-bottom: 10.5%;
+  padding-bottom: 11.5%;
   }
   
   #boutonModifier{
-    padding-bottom: 10.5%;
+    padding-bottom: 11.5%;
       }
   
   #boutonSupprimer{
-    padding-bottom: 10.5%;
+    padding-bottom: 11.5%;
   }
   
   #boutonEditer{
-    padding-bottom: 10.5%;
+    padding-bottom: 11.5%;
   }
 
   #boutonAnnuler{
-    padding-bottom: 10.5%;
+    padding-bottom: 11.5%;
   }
   
   #boutonModifier {
