@@ -3,6 +3,7 @@
     margin-left: 5%;
     margin-right: 5%;
     background-color: black;
+    min-height: 80%;
     opacity: 95%;
 }
 #planning table {
@@ -10,5 +11,9 @@
 }
 
 th{
+    padding-left: 19%;
+}
+
+td{
     padding-left: 19%;
 }

@@ -37,9 +37,15 @@ public class VolApiController {
         return this.daoVol.findAll();
     }
 
-    @GetMapping("/etat")
+    @GetMapping("/etats")
     public Etat[] findEtats(){
         return Etat.values();
+    }
+
+    @JsonView(Views.Vol.class)
+    @GetMapping("/{etat}")
+    public List<Vol> findEtat(@PathVariable Etat etat){
+        return this.daoVol.findAllByEtat(etat);
     }
 
     @PostMapping

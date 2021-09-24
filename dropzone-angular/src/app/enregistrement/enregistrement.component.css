@@ -4,10 +4,15 @@ div{
     align-items: center;
 }
 
+
 p{
     padding-top: 10px;
     padding-bottom: 5px;
     background-color: gray;
+}
+
+input{
+    margin-left: 5.5%;
 }
     
 label{
@@ -43,6 +48,10 @@ th{
 #table{
     background-color: gray;
     color: #BDB76B;
+}
+
+#phrase{
+    padding-left: 3.5% ;
 }
 
 h2{

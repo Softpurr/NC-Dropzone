@@ -15,8 +15,12 @@ export class VolService {
     return this.http.get(this.apiUrl);
   }
 
+  findByEtat(etat: string){
+    return this.http.get(`${this.apiUrl}/${etat}`);
+  }
+
   findEtats() {
-    return this.http.get(`${this.apiUrl}/etat`);
+    return this.http.get(`${this.apiUrl}/etats`);
   }
 
   add(vol: any) {

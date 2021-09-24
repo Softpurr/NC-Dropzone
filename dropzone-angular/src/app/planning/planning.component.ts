@@ -12,7 +12,9 @@ export class PlanningComponent implements OnInit {
 
   avions: any = [];
   parachutistes: any = [];
-  vols: any = [];
+  enVol = "VOL"
+  volsVol: any = [];
+  volsPreparation: any = [];
 
   constructor(private srvVol: VolService, private srvAvion: AvionService, private srvParachutiste: ParachutisteService) {
     this.refresh();
@@ -20,7 +22,8 @@ export class PlanningComponent implements OnInit {
 
    refresh = () => {
     this.avions = this.srvAvion.findAll();
-    this.vols = this.srvVol.findAll();
+    this.volsPreparation = this.srvVol.findByEtat("PREPARATION");
+    this.volsVol = this.srvVol.findByEtat("VOL");
     this.parachutistes = this.srvParachutiste.findAll();
   }
 
