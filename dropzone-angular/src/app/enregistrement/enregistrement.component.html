@@ -1,19 +1,35 @@
 <h1>Enregistrement</h1>
 <div id="formulaire">
-    <div id="nom">
-        <div id="phrase">
-            <label>Entrez le nom du parachutiste</label>
+    <div *ngIf="!isEnregistre">
+        <div id="nom">
+            <div id="phrase">
+                <label>Entrez le nom du parachutiste</label>
+            </div>
+            <div>
+                <input type="text" [(ngModel)]="nomParachutiste" />
+            </div>
         </div>
-        <div>
-            <input type="text" [(ngModel)]="nomParachutiste" />
+        <div id="recherche">
+            <button (click)="rechercherParachutiste(nomParachutiste)" class="btn btn-info"
+                id="bontonRechercher">RECHERCHER</button>
         </div>
     </div>
-    <div id="recherche">
-        <button (click)="rechercherParachutiste(nomParachutiste)" class="btn btn-info"
-            id="bontonRechercher">RECHERCHER</button>
+    <div *ngIf="isEnregistre">
+        <div id="nom">
+            <div id="phrase">
+                <label>Votre saut est bien enregistré !</label>
+            </div>
+            <div id="phrase">
+                <label>Enregistrer un nouveau saut</label>
+            </div>
+        </div>
+        <div id="recherche">
+            <button (click)="nouveauSaut()" class="btn btn-info"
+                id="bontonRechercher">NOUVEAU</button>
+        </div>
     </div>
 </div>
-<div *ngIf="isRecherche">
+<div *ngIf="isRecherche && !isEnregistre">
     <div *ngIf="parachutistesByNom.length > 0">
         <h2>Sélectionnez le profil du parachutiste recherché</h2>
 
@@ -43,15 +59,16 @@
     </div>
 </div>
 <div>
-    <h2 *ngIf="hauteur == 0">Votre saut - Sélectionnez une hauteur</h2>
-    <h2 *ngIf="!(hauteur == 0)">Votre saut - {{ hauteur }} m - {{ cout }} €</h2>
-    <div id="hauteur">
+    <h2 *ngIf="saut.hauteur == 0">Votre saut - Sélectionnez une hauteur</h2>
+    <h2 *ngIf="!(saut.hauteur == 0)">Votre saut - {{ saut.hauteur }} m - {{ cout }} €</h2>
+    <div *ngIf="!isEnregistre" id="hauteur">
         <label>Hauteur : </label>
 
-        <select [(ngModel)]="hauteur" (click)="calculCout()">
+        <select [(ngModel)]="saut.hauteur" (click)="calculCout()">
             <option *ngFor="let h of hauteurs | async" value="{{ h }}">{{ h }}</option>
         </select>
-        <button *ngIf="isParachutiste && hauteur != 0" (click)="creerSaut()" id="bontonEnregistrer">ENREGISTRER</button>
+        <button *ngIf="isParachutiste && saut.hauteur != 0" (click)="creerSaut()"
+            id="bontonEnregistrer">ENREGISTRER</button>
     </div>
     <div>
         <table class="table table-striped" id="table">
@@ -60,7 +77,7 @@
                     <th>Prenom</th>
                     <th>Nom</th>
                     <th>Licence</th>
-                    <th></th>
+                    <th *ngIf="!isEnregistre"></th>
                 </tr>
             </thead>
             <tbody>
@@ -68,7 +85,7 @@
                     <td>{{ p.prenomParachutiste }}</td>
                     <td>{{ p.nomParachutiste }}</td>
                     <td>{{ p.numLicence }}</td>
-                    <td>
+                    <td *ngIf="!isEnregistre">
                         <button (click)="retirerParachutiste(p)" id="bontonSupprimer">RETIRER</button>
                     </td>
                 </tr>

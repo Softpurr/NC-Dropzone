@@ -13,12 +13,9 @@ export class EnregistrementComponent implements OnInit {
   isParachutiste = false;
   isEnregistre = false;
 
-  hauteur = 0;
   hauteurs: any = [];
 
   cout = 0;
-
-  typesSaut: any = [];
 
   nomParachutiste = "";
 
@@ -26,8 +23,11 @@ export class EnregistrementComponent implements OnInit {
   parachutistes: any = [];
   parachutistesByNom: any = [];
   parachutistesSaut: any = [];
-  parachutistesSautId: any = [];
 
+  saut: any = {
+    hauteur: 0,
+    parachutistes: [],
+  };
   sauts: any = [];
 
   refresh = () => {
@@ -37,7 +37,6 @@ export class EnregistrementComponent implements OnInit {
 
   constructor(private srvParachutiste: ParachutisteService, private srvSaut: SautService, private srvParachute: ParachuteService) {
     this.hauteurs = srvSaut.findHauteurs();
-    this.typesSaut = srvSaut.findTypes();
     this.refresh();
   }
 
@@ -53,11 +52,11 @@ export class EnregistrementComponent implements OnInit {
   }
 
   ajouterParachutiste(parachutiste: any) {
-    this.parachutiste = { ...parachutiste };
+    this.parachutiste = { id: parachutiste.id };
 
     let isPresent = false;
 
-    for (let p of this.parachutistesSaut) {
+    for (let p of this.saut.parachutistes) {
       if (this.parachutiste.id == p.id) {
         isPresent = true;
         break;
@@ -65,12 +64,12 @@ export class EnregistrementComponent implements OnInit {
     }
 
     if (!isPresent) {
-      this.parachutistesSaut.push({ ...this.parachutiste });
-      this.parachutistesSautId.push(this.parachutiste.id);
+      this.saut.parachutistes.push(this.parachutiste);
+      this.parachutistesSaut.push(parachutiste);
     }
 
     this.isParachutiste = false;
-    if (this.parachutistesSaut.length > 0) {
+    if (this.saut.parachutistes.length > 0) {
       this.isParachutiste = true;
     }
 
@@ -78,18 +77,11 @@ export class EnregistrementComponent implements OnInit {
   }
 
   retirerParachutiste(parachutiste: any) {
-    this.parachutiste = { ...parachutiste };
-
-    for (let p of this.parachutistesSaut) {
-      if (this.parachutiste.id == p.id) {
-        this.parachutistesSaut.splice(this.parachutistesSaut.indexOf(p), 1);
-        this.parachutistesSautId.splice(this.parachutistesSautId.indexOf(p), 1);
-        break;
-      }
-    }
+    this.saut.parachutistes.splice(this.saut.parachutistes.indexOf(parachutiste), 1);
+    this.parachutistesSaut.splice(this.parachutistesSaut.indexOf(parachutiste), 1);
 
     this.isParachutiste = true;
-    if (this.parachutistesSaut.length == 0) {
+    if (this.saut.parachutistes.length == 0) {
       this.isParachutiste = false;
     }
 
@@ -100,7 +92,8 @@ export class EnregistrementComponent implements OnInit {
     let coutBuffer = 0;
 
     for (let p of this.parachutistesSaut) {
-      if (this.hauteur == 6000) {
+      let hauteur = this.saut.hauteur;
+      if (hauteur == 6000) {
         let c = 30;
         if (p.isConfirme) {
           coutBuffer += c * 0.9;
@@ -109,7 +102,7 @@ export class EnregistrementComponent implements OnInit {
           coutBuffer += c;
         }
       }
-      else if (this.hauteur == 4000) {
+      else if (hauteur == 4000) {
         let c = 26;
         if (p.isConfirme) {
           coutBuffer += c * 0.9;
@@ -118,7 +111,7 @@ export class EnregistrementComponent implements OnInit {
           coutBuffer += c;
         }
       }
-      else if (this.hauteur == 2500) {
+      else if (hauteur == 2500) {
         let c = 22;
         if (p.isConfirme) {
           coutBuffer += c * 0.9;
@@ -127,7 +120,7 @@ export class EnregistrementComponent implements OnInit {
           coutBuffer += c;
         }
       }
-      else if (this.hauteur == 2000) {
+      else if (hauteur == 2000) {
         let c = 18;
         if (p.isConfirme) {
           coutBuffer += c * 0.9;
@@ -136,7 +129,7 @@ export class EnregistrementComponent implements OnInit {
           coutBuffer += c;
         }
       }
-      else if (this.hauteur == 1600) {
+      else if (hauteur == 1600) {
         let c = 14;
         if (p.isConfirme) {
           coutBuffer += c * 0.9;
@@ -160,12 +153,32 @@ export class EnregistrementComponent implements OnInit {
   }
 
   creerSaut() {
-    let saut = [
-      this.hauteur,
-      this.parachutistesSautId,
-    ]
+    console.log(this.saut);
 
-    this.srvSaut.add(saut).subscribe(this.refresh);
+    this.srvSaut.add(this.saut).subscribe(this.refresh);
+
+    this.isEnregistre = true;
+  }
+
+  nouveauSaut() {
+    this.isRecherche = false;
+    this.isParachutiste = false;
+    this.isEnregistre = false;
+
+    this.cout = 0;
+
+    this.nomParachutiste = "";
+
+    this.parachutiste = {};
+    this.parachutistes = [];
+    this.parachutistesByNom = [];
+    this.parachutistesSaut = [];
+
+    this.saut = {
+      hauteur: 0,
+      parachutistes: [],
+    };
+    this.sauts = [];
   }
 
 }

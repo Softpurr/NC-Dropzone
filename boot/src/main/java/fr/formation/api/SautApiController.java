@@ -92,6 +92,13 @@ public class SautApiController {
     }
 
     private void enregistrerParachutistes(Saut saut) {
+        if (saut.getTypeSaut() == null) {
+            if (saut.getParachutistes().size() > 1) {
+                saut.setTypeSaut(TypeSaut.GROUPE);
+            } else {
+                saut.setTypeSaut(TypeSaut.SOLO);
+            }
+        }
         Saut s = this.daoSaut.save(saut);
         List<Parachutiste> l = s.getParachutistes();
         for (int i = 0; i < l.size(); i++) {

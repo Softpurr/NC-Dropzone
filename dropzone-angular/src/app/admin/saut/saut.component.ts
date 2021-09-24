@@ -15,11 +15,7 @@ export class SautComponent implements OnInit {
 
   parachutistes: any = [];
 
-  formSaut = {
-    hauteur: null,
-    typeSaut: null,
-    parachutistes: null,
-  }
+  formSaut: any = {};
   sauts: any = [];
 
   refresh = () => {
@@ -37,6 +33,7 @@ export class SautComponent implements OnInit {
   }
 
   ajouterSaut() {
+    console.log(this.formSaut);
     this.srvSaut.add(this.formSaut).subscribe(this.refresh);
     this.annuler();
   }
@@ -51,6 +48,7 @@ export class SautComponent implements OnInit {
   }
 
   modifierSaut() {
+    console.log(this.formSaut);
     this.srvSaut.update(this.formSaut).subscribe(this.refresh);
     this.annuler();
   }
